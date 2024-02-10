@@ -1,0 +1,2 @@
+# pythonproject
+Smart Attendance system
