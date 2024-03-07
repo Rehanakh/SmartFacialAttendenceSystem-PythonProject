@@ -1,0 +1,261 @@
+{% extends "base_student.html" %}
+
+{% block title %}Mark attendance - Smart Attendance System{% endblock %}
+
+{% block head %}
+<!-- Extra links or scripts for the registration page -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>Mark Attendance</title>
+{% endblock %}
+
+{% block extra_css %}
+    <style type='text/css'>
+    * {
+        padding: 0;
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        background: url("{{ url_for('static', filename='image/background1.jpg') }}") no-repeat center center;
+        background-size: cover;
+        font-family: sans-serif;
+        margin-top: 40px;
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+    }
+
+    table {
+        border: 1px;
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 86%;
+        margin: auto;
+    }
+
+    td,
+    th {
+        border: 1px solid black !important;
+        padding: 5px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+
+
+    .form-group {
+        margin: 20px 0;
+    }
+
+    #courseSelect {
+        width: auto; /* Adjust width as necessary */
+        margin: 0 auto; /* Center the dropdown */
+        display: block;
+    }
+
+    .btn-primary {
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 10px;
+        padding: 10px;
+        margin-top: 10px;
+        display: inline-block; /* Align button next to dropdown */
+    }
+
+    .attendance-form {
+        text-align: center; /* Center form contents */
+    }
+
+</style>
+{% endblock %}
+{% block content %}
+
+<!-- Flash messages section -->
+<!--{% with messages = get_flashed_messages() %}-->
+<!--  {% if messages %}-->
+<!--    {% for message in messages %}-->
+<!--      <div>{{ message }}</div>-->
+<!--    {% endfor %}-->
+<!--  {% endif %}-->
+<!--{% endwith %}-->
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="flash-messages">
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}" role="alert">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+
+    <div class="mt-3 text-center">
+      <h3 style="font-size: 22px; color: beige">{{ today }} | <span id="clock"></span></h3>
+    </div>
+
+    <div class="row text-center" style="padding: 20px;margin: 20px; display: flex; justify-content: center;">
+        <div class="col-8 "
+            style="border-radius: 20px;padding: 0px;background-color:rgb(211,211,211,0.5);margin:0px 10px 10px 10px;min-height: 400px;">
+            <h2 style="border-radius: 20px 20px 0px 0px;background-color:#0b4c61;color: white;padding: 10px;">Today's Attendance <i class="material-icons">assignment</i></h2>
+
+          <form method="POST" action="{{ url_for('video_feed') }}" class="attendance-form">
+              <div class="row align-items-center justify-content-center">
+                  <!-- Course Dropdown -->
+                  <div class="col-md-4">
+                      <label for="courseSelect">Select Course:</label>
+                      <select class="form-control" id="courseSelect" name="course_id">
+                          <option value="">Select...</option>
+                          {% for course in courses %}
+                          <option value="{{ course.course_id }}">{{ course.course_name }}</option>
+                          {% endfor %}
+                      </select>
+                  </div>
+                  <div class="col-md-4">
+                      <label for="sessionSelect">Select Session:</label>
+                      <select class="form-control" id="sessionSelect" name="session_id">
+                          <!-- Options will be added dynamically -->
+                      </select>
+                  </div>
+              </div>
+              <button
+        style="font-size: 24px;font-weight: bold;border-radius: 10px;width:490px;padding: 10px;margin-top: 30px;margin-bottom: 30px;"
+        type='submit' class='btn btn-primary'>Take Attendance <i class="material-icons">beenhere</i></button>
+</form>
+            <br>
+
+            <table style="background-color: white;color:black;">
+                <thead>
+                <tr>
+                    <td><b>S No</b></td>
+                    <td><b>Course</b></td>
+                    <td><b>Session Time</b></td>
+                    <td><b>Status</b></td>
+                    <td><b>Attendance Time</b></td>
+
+                </tr>
+                </thead>
+
+                <tbody>
+                {% if l %}
+
+                {% for user in userDetails %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ user[0] }}</td>
+                    <td>{{ user[1] }}</td>
+                    <td>{{ user[2] }}</td>
+                    <td>{{ user[3] }}</td>
+
+                </tr>
+                {% endfor %}
+                {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script type="text/javascript">
+        var clockElement = document.getElementById('clock');
+
+        function clock() {
+            clockElement.textContent = new Date().toString().slice(15, 24);
+        }
+
+        setInterval(clock, 1000);
+    </script>
+<script>
+$(document).ready(function() {
+    function fetchAttendance() {
+        var selectedCourseId = $('#courseSelect').val();
+        var selectedSessionId = $('#sessionSelect').val(); // Get the selected session ID
+
+        $.ajax({
+            url: "{{ url_for('fetch_attendance') }}",
+            type: "POST",
+            data: {
+                course_id: selectedCourseId,
+                session_id: selectedSessionId // Send session ID along with course ID
+            },
+            success: function(response) {
+                if(response.success) {
+                    var attendanceHtml = '';
+                    $.each(response.attendance_records, function(i, record) {
+                        attendanceHtml += '<tr>' +
+                                            '<td>' + (i+1) + '</td>' +
+
+                                            '<td>' + record.course_name + '</td>' + // Adjusted for course_name
+                                            '<td>' + record.session_time + '</td>' + // Adjusted for session_time
+                                            '<td>' + record.status + '</td>' +
+                                            '<td>' + record.attendance_time + '</td>' +
+                                          '</tr>';
+                    });
+                    $('table tbody').html(attendanceHtml);
+                } else {
+                    alert(response.message);
+                }
+            }
+        });
+    }
+
+    // Call fetchAttendance when either the course or session selection changes
+    $('#courseSelect, #sessionSelect').change(fetchAttendance);
+
+    // Populate sessions dynamically
+    $('#courseSelect').change(function() {
+        var courseId = $(this).val();
+        $.ajax({
+            url: '/get_sessions', // Adjust URL as needed
+            data: {'course_id': courseId},
+            success: function(response) {
+                var sessionSelect = $('#sessionSelect');
+                sessionSelect.empty();
+                sessionSelect.append('<option value="">Select a session...</option>');
+                $.each(response.sessions, function(i, session) {
+                    sessionSelect.append(new Option(session.time_range, session.session_id));
+                });
+            }
+        });
+    });
+});
+</script>
+
+<!--<script>-->
+<!--$(document).ready(function() {-->
+<!--    $('#courseSelect').change(function() {-->
+<!--        var courseId = $(this).val();-->
+<!--        fetchSessions(courseId);-->
+<!--    });-->
+
+<!--    function fetchSessions(courseId) {-->
+<!--        $.ajax({-->
+<!--            url: '/get_sessions',  // Make sure this URL matches your Flask route-->
+<!--            data: {'course_id': courseId},-->
+<!--            success: function(response) {-->
+<!--                var sessionSelect = $('#sessionSelect');-->
+<!--                sessionSelect.empty(); // Clear current options-->
+<!--                sessionSelect.append('<option value="">Select a session...</option>');-->
+
+<!--                response.sessions.forEach(function(session) {-->
+<!--                    sessionSelect.append(new Option(session.time_range, session.session_id));-->
+<!--                });-->
+<!--            }-->
+<!--        });-->
+<!--    }-->
+<!--});-->
+<!--</script>-->
+
+
+
+{% endblock %}
+

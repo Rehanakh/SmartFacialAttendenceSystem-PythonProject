@@ -1,0 +1,1072 @@
+2024-03-05 16:40:53,330:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-05 16:40:53,330:INFO:[33mPress CTRL+C to quit[0m
+2024-03-05 16:40:53,340:INFO: * Restarting with stat
+2024-03-05 16:40:55,948:WARNING: * Debugger is active!
+2024-03-05 16:40:55,957:INFO: * Debugger PIN: 102-679-597
+2024-03-05 16:40:58,088:INFO:127.0.0.1 - - [05/Mar/2024 16:40:58] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2024-03-05 16:40:58,912:INFO:127.0.0.1 - - [05/Mar/2024 16:40:58] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2024-03-05 16:40:59,317:INFO:127.0.0.1 - - [05/Mar/2024 16:40:59] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-05 16:40:59,318:INFO:127.0.0.1 - - [05/Mar/2024 16:40:59] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-05 16:40:59,364:INFO:127.0.0.1 - - [05/Mar/2024 16:40:59] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-05 16:40:59,383:INFO:127.0.0.1 - - [05/Mar/2024 16:40:59] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-05 16:42:32,957:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\routes.py', reloading
+2024-03-05 16:42:33,113:INFO: * Restarting with stat
+2024-03-05 16:42:35,361:WARNING: * Debugger is active!
+2024-03-05 16:42:35,369:INFO: * Debugger PIN: 102-679-597
+2024-03-05 16:44:11,424:INFO:127.0.0.1 - - [05/Mar/2024 16:44:11] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2024-03-05 16:44:11,786:INFO:127.0.0.1 - - [05/Mar/2024 16:44:11] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-05 16:44:11,787:INFO:127.0.0.1 - - [05/Mar/2024 16:44:11] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-05 16:44:11,805:INFO:127.0.0.1 - - [05/Mar/2024 16:44:11] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-05 16:44:11,830:INFO:127.0.0.1 - - [05/Mar/2024 16:44:11] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-05 16:44:27,782:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-05 16:44:27,782:INFO:[33mPress CTRL+C to quit[0m
+2024-03-05 16:44:27,784:INFO: * Restarting with stat
+2024-03-05 16:44:30,100:WARNING: * Debugger is active!
+2024-03-05 16:44:30,109:INFO: * Debugger PIN: 102-679-597
+2024-03-05 16:44:30,616:INFO:127.0.0.1 - - [05/Mar/2024 16:44:30] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2024-03-05 16:44:31,034:INFO:127.0.0.1 - - [05/Mar/2024 16:44:31] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-05 16:44:31,035:INFO:127.0.0.1 - - [05/Mar/2024 16:44:31] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-05 16:44:31,050:INFO:127.0.0.1 - - [05/Mar/2024 16:44:31] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-05 16:44:31,065:INFO:127.0.0.1 - - [05/Mar/2024 16:44:31] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-05 16:45:33,630:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\main.py', reloading
+2024-03-05 16:45:33,776:INFO: * Restarting with stat
+2024-03-05 16:45:36,095:WARNING: * Debugger is active!
+2024-03-05 16:45:36,105:INFO: * Debugger PIN: 102-679-597
+2024-03-05 16:45:45,778:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-05 16:45:45,778:INFO:[33mPress CTRL+C to quit[0m
+2024-03-05 16:45:45,781:INFO: * Restarting with stat
+2024-03-05 16:45:48,408:WARNING: * Debugger is active!
+2024-03-05 16:45:48,419:INFO: * Debugger PIN: 102-679-597
+2024-03-05 16:45:51,986:INFO:127.0.0.1 - - [05/Mar/2024 16:45:51] "GET / HTTP/1.1" 200 -
+2024-03-05 16:45:52,029:INFO:127.0.0.1 - - [05/Mar/2024 16:45:52] "[33mGET /static/image/about-system.jpg HTTP/1.1[0m" 404 -
+2024-03-05 16:45:52,052:INFO:127.0.0.1 - - [05/Mar/2024 16:45:52] "[33mGET /static/image/background1.jpg HTTP/1.1[0m" 404 -
+2024-03-05 16:45:52,100:INFO:127.0.0.1 - - [05/Mar/2024 16:45:52] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-03-05 16:45:55,287:INFO:127.0.0.1 - - [05/Mar/2024 16:45:55] "GET /studentlogin HTTP/1.1" 200 -
+2024-03-05 16:45:55,330:INFO:127.0.0.1 - - [05/Mar/2024 16:45:55] "[33mGET /static/image/background1.jpg HTTP/1.1[0m" 404 -
+2024-03-05 16:45:56,533:INFO:127.0.0.1 - - [05/Mar/2024 16:45:56] "[33mGET /admin_login HTTP/1.1[0m" 404 -
+2024-03-05 16:46:01,726:INFO:127.0.0.1 - - [05/Mar/2024 16:46:01] "[35m[1mGET /markattendance HTTP/1.1[0m" 500 -
+2024-03-05 16:46:02,317:INFO:127.0.0.1 - - [05/Mar/2024 16:46:02] "[36mGET /markattendance?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-05 16:46:02,318:INFO:127.0.0.1 - - [05/Mar/2024 16:46:02] "[36mGET /markattendance?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-05 16:46:02,370:INFO:127.0.0.1 - - [05/Mar/2024 16:46:02] "[36mGET /markattendance?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-05 16:46:02,453:INFO:127.0.0.1 - - [05/Mar/2024 16:46:02] "[36mGET /markattendance?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-05 16:46:10,345:INFO:127.0.0.1 - - [05/Mar/2024 16:46:10] "GET /home HTTP/1.1" 200 -
+2024-03-05 16:46:10,396:INFO:127.0.0.1 - - [05/Mar/2024 16:46:10] "[33mGET /static/image/about-system.jpg HTTP/1.1[0m" 404 -
+2024-03-05 16:46:10,413:INFO:127.0.0.1 - - [05/Mar/2024 16:46:10] "[33mGET /static/image/background1.jpg HTTP/1.1[0m" 404 -
+2024-03-05 16:46:12,264:INFO:127.0.0.1 - - [05/Mar/2024 16:46:12] "GET /registration HTTP/1.1" 200 -
+2024-03-05 16:46:12,315:INFO:127.0.0.1 - - [05/Mar/2024 16:46:12] "[33mGET /static/image/background1.jpg HTTP/1.1[0m" 404 -
+2024-03-05 16:46:15,155:INFO:127.0.0.1 - - [05/Mar/2024 16:46:15] "GET /studentlogin HTTP/1.1" 200 -
+2024-03-05 16:46:15,197:INFO:127.0.0.1 - - [05/Mar/2024 16:46:15] "[33mGET /static/image/background1.jpg HTTP/1.1[0m" 404 -
+2024-03-05 16:46:20,547:INFO:127.0.0.1 - - [05/Mar/2024 16:46:20] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-03-05 16:46:20,577:INFO:127.0.0.1 - - [05/Mar/2024 16:46:20] "GET /Studentdashboard?login_success=1 HTTP/1.1" 200 -
+2024-03-05 16:46:24,027:INFO:127.0.0.1 - - [05/Mar/2024 16:46:24] "[35m[1mGET /markattendance HTTP/1.1[0m" 500 -
+2024-03-05 16:46:24,063:INFO:127.0.0.1 - - [05/Mar/2024 16:46:24] "[36mGET /markattendance?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-05 16:46:24,067:INFO:127.0.0.1 - - [05/Mar/2024 16:46:24] "[36mGET /markattendance?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-05 16:46:24,088:INFO:127.0.0.1 - - [05/Mar/2024 16:46:24] "[36mGET /markattendance?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-05 16:48:35,578:INFO:127.0.0.1 - - [05/Mar/2024 16:48:35] "[35m[1mGET /markattendance HTTP/1.1[0m" 500 -
+2024-03-05 16:48:35,615:INFO:127.0.0.1 - - [05/Mar/2024 16:48:35] "[36mGET /markattendance?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-05 16:48:35,616:INFO:127.0.0.1 - - [05/Mar/2024 16:48:35] "[36mGET /markattendance?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-05 16:48:35,629:INFO:127.0.0.1 - - [05/Mar/2024 16:48:35] "[36mGET /markattendance?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-05 16:50:14,609:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\attendance.py', reloading
+2024-03-05 16:50:14,696:INFO: * Restarting with stat
+2024-03-05 16:50:17,283:WARNING: * Debugger is active!
+2024-03-05 16:50:17,291:INFO: * Debugger PIN: 102-679-597
+2024-03-05 16:50:47,589:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\routes.py', reloading
+2024-03-05 16:50:47,705:INFO: * Restarting with stat
+2024-03-05 16:50:50,089:WARNING: * Debugger is active!
+2024-03-05 16:50:50,099:INFO: * Debugger PIN: 102-679-597
+2024-03-05 16:50:51,691:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\attendance.py', reloading
+2024-03-05 16:50:51,825:INFO: * Restarting with stat
+2024-03-05 16:50:55,894:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-05 16:50:55,894:INFO:[33mPress CTRL+C to quit[0m
+2024-03-05 16:50:55,895:INFO: * Restarting with stat
+2024-03-05 16:50:58,761:WARNING: * Debugger is active!
+2024-03-05 16:50:58,773:INFO: * Debugger PIN: 102-679-597
+2024-03-05 16:50:59,655:INFO:127.0.0.1 - - [05/Mar/2024 16:50:59] "GET /Studentdashboard?login_success=1 HTTP/1.1" 200 -
+2024-03-05 16:51:02,737:INFO:127.0.0.1 - - [05/Mar/2024 16:51:02] "GET /markattendance HTTP/1.1" 200 -
+2024-03-05 16:51:02,806:INFO:127.0.0.1 - - [05/Mar/2024 16:51:02] "[33mGET /static/image/background1.jpg HTTP/1.1[0m" 404 -
+2024-03-05 16:51:05,935:INFO:127.0.0.1 - - [05/Mar/2024 16:51:05] "GET /markattendance HTTP/1.1" 200 -
+2024-03-05 16:51:05,988:INFO:127.0.0.1 - - [05/Mar/2024 16:51:05] "[33mGET /static/image/background1.jpg HTTP/1.1[0m" 404 -
+2024-03-05 16:51:07,512:INFO:127.0.0.1 - - [05/Mar/2024 16:51:07] "GET / HTTP/1.1" 200 -
+2024-03-05 16:51:07,539:INFO:127.0.0.1 - - [05/Mar/2024 16:51:07] "[33mGET /static/image/about-system.jpg HTTP/1.1[0m" 404 -
+2024-03-05 16:51:07,606:INFO:127.0.0.1 - - [05/Mar/2024 16:51:07] "[33mGET /static/image/background1.jpg HTTP/1.1[0m" 404 -
+2024-03-05 16:51:10,707:INFO:127.0.0.1 - - [05/Mar/2024 16:51:10] "GET /studentlogin HTTP/1.1" 200 -
+2024-03-05 16:51:10,755:INFO:127.0.0.1 - - [05/Mar/2024 16:51:10] "[33mGET /static/image/background1.jpg HTTP/1.1[0m" 404 -
+2024-03-05 16:51:16,054:INFO:127.0.0.1 - - [05/Mar/2024 16:51:16] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-03-05 16:51:16,062:INFO:127.0.0.1 - - [05/Mar/2024 16:51:16] "GET /Studentdashboard?login_success=1 HTTP/1.1" 200 -
+2024-03-05 16:51:18,876:INFO:127.0.0.1 - - [05/Mar/2024 16:51:18] "GET /markattendance HTTP/1.1" 200 -
+2024-03-05 16:51:18,964:INFO:127.0.0.1 - - [05/Mar/2024 16:51:18] "[33mGET /static/image/background1.jpg HTTP/1.1[0m" 404 -
+2024-03-05 16:51:54,782:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\attendance.py', reloading
+2024-03-05 16:51:54,919:INFO: * Restarting with stat
+2024-03-05 16:51:57,413:WARNING: * Debugger is active!
+2024-03-05 16:51:57,427:INFO: * Debugger PIN: 102-679-597
+2024-03-05 16:51:57,767:INFO:127.0.0.1 - - [05/Mar/2024 16:51:57] "GET /markattendance HTTP/1.1" 200 -
+2024-03-05 16:51:57,811:INFO:127.0.0.1 - - [05/Mar/2024 16:51:57] "[33mGET /app/static/image/background1.jpg HTTP/1.1[0m" 404 -
+2024-03-05 16:52:13,117:INFO:127.0.0.1 - - [05/Mar/2024 16:52:13] "GET /StudentUpdateProfile HTTP/1.1" 200 -
+2024-03-05 16:52:16,488:DEBUG:Logging out user.
+2024-03-05 16:52:16,489:INFO:127.0.0.1 - - [05/Mar/2024 16:52:16] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-03-05 16:52:16,512:INFO:127.0.0.1 - - [05/Mar/2024 16:52:16] "GET / HTTP/1.1" 200 -
+2024-03-05 16:52:16,573:INFO:127.0.0.1 - - [05/Mar/2024 16:52:16] "[33mGET /static/image/about-system.jpg HTTP/1.1[0m" 404 -
+2024-03-05 16:52:16,575:INFO:127.0.0.1 - - [05/Mar/2024 16:52:16] "[33mGET /static/image/background1.jpg HTTP/1.1[0m" 404 -
+2024-03-05 16:52:17,768:INFO:127.0.0.1 - - [05/Mar/2024 16:52:17] "GET /studentlogin HTTP/1.1" 200 -
+2024-03-05 16:52:17,810:INFO:127.0.0.1 - - [05/Mar/2024 16:52:17] "[33mGET /static/image/background1.jpg HTTP/1.1[0m" 404 -
+2024-03-05 23:09:42,900:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-05 23:09:42,900:INFO:[33mPress CTRL+C to quit[0m
+2024-03-05 23:09:42,902:INFO: * Restarting with stat
+2024-03-05 23:09:45,786:WARNING: * Debugger is active!
+2024-03-05 23:09:45,816:INFO: * Debugger PIN: 102-679-597
+2024-03-05 23:09:49,658:INFO:127.0.0.1 - - [05/Mar/2024 23:09:49] "GET / HTTP/1.1" 200 -
+2024-03-05 23:09:49,686:INFO:127.0.0.1 - - [05/Mar/2024 23:09:49] "[33mGET /static/image/about-system.jpg HTTP/1.1[0m" 404 -
+2024-03-05 23:09:49,749:INFO:127.0.0.1 - - [05/Mar/2024 23:09:49] "[33mGET /static/image/background1.jpg HTTP/1.1[0m" 404 -
+2024-03-05 23:10:57,493:INFO:127.0.0.1 - - [05/Mar/2024 23:10:57] "GET / HTTP/1.1" 200 -
+2024-03-05 23:10:57,527:INFO:127.0.0.1 - - [05/Mar/2024 23:10:57] "[33mGET /static/image/about-system.jpg HTTP/1.1[0m" 404 -
+2024-03-05 23:10:57,572:INFO:127.0.0.1 - - [05/Mar/2024 23:10:57] "[33mGET /app/static/image/background1.jpg HTTP/1.1[0m" 404 -
+2024-03-05 23:13:26,006:INFO:127.0.0.1 - - [05/Mar/2024 23:13:26] "GET / HTTP/1.1" 200 -
+2024-03-05 23:13:26,072:INFO:127.0.0.1 - - [05/Mar/2024 23:13:26] "[33mGET /static/image/about-system.jpg HTTP/1.1[0m" 404 -
+2024-03-05 23:14:51,550:INFO:127.0.0.1 - - [05/Mar/2024 23:14:51] "GET / HTTP/1.1" 200 -
+2024-03-05 23:14:51,590:INFO:127.0.0.1 - - [05/Mar/2024 23:14:51] "[33mGET /static/image/about-system.jpg HTTP/1.1[0m" 404 -
+2024-03-05 23:14:54,581:INFO:127.0.0.1 - - [05/Mar/2024 23:14:54] "GET /studentlogin HTTP/1.1" 200 -
+2024-03-05 23:14:54,625:INFO:127.0.0.1 - - [05/Mar/2024 23:14:54] "[33mGET /static/image/background1.jpg HTTP/1.1[0m" 404 -
+2024-03-05 23:14:58,521:INFO:127.0.0.1 - - [05/Mar/2024 23:14:58] "GET /home HTTP/1.1" 200 -
+2024-03-05 23:14:58,580:INFO:127.0.0.1 - - [05/Mar/2024 23:14:58] "[33mGET /static/image/about-system.jpg HTTP/1.1[0m" 404 -
+2024-03-05 23:15:56,337:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\main.py', reloading
+2024-03-05 23:15:56,519:INFO: * Restarting with stat
+2024-03-05 23:16:02,075:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-05 23:16:02,076:INFO:[33mPress CTRL+C to quit[0m
+2024-03-05 23:16:02,078:INFO: * Restarting with stat
+2024-03-05 23:16:04,423:WARNING: * Debugger is active!
+2024-03-05 23:16:04,435:INFO: * Debugger PIN: 102-679-597
+2024-03-05 23:16:05,746:INFO:127.0.0.1 - - [05/Mar/2024 23:16:05] "GET /home HTTP/1.1" 200 -
+2024-03-05 23:16:06,095:INFO:127.0.0.1 - - [05/Mar/2024 23:16:06] "GET /static/image/about-system.jpg HTTP/1.1" 200 -
+2024-03-05 23:16:06,907:INFO:127.0.0.1 - - [05/Mar/2024 23:16:06] "GET /home HTTP/1.1" 200 -
+2024-03-05 23:16:06,949:INFO:127.0.0.1 - - [05/Mar/2024 23:16:06] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:16:07,098:INFO:127.0.0.1 - - [05/Mar/2024 23:16:07] "GET /home HTTP/1.1" 200 -
+2024-03-05 23:16:07,128:INFO:127.0.0.1 - - [05/Mar/2024 23:16:07] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:16:07,318:INFO:127.0.0.1 - - [05/Mar/2024 23:16:07] "GET /home HTTP/1.1" 200 -
+2024-03-05 23:16:07,348:INFO:127.0.0.1 - - [05/Mar/2024 23:16:07] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:16:07,841:INFO:127.0.0.1 - - [05/Mar/2024 23:16:07] "GET /home HTTP/1.1" 200 -
+2024-03-05 23:16:07,875:INFO:127.0.0.1 - - [05/Mar/2024 23:16:07] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:17:39,651:INFO:127.0.0.1 - - [05/Mar/2024 23:17:39] "GET /home HTTP/1.1" 200 -
+2024-03-05 23:17:39,713:INFO:127.0.0.1 - - [05/Mar/2024 23:17:39] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:17:44,037:INFO:127.0.0.1 - - [05/Mar/2024 23:17:44] "GET /home HTTP/1.1" 200 -
+2024-03-05 23:17:44,101:INFO:127.0.0.1 - - [05/Mar/2024 23:17:44] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:17:46,733:INFO:127.0.0.1 - - [05/Mar/2024 23:17:46] "GET / HTTP/1.1" 200 -
+2024-03-05 23:17:46,812:INFO:127.0.0.1 - - [05/Mar/2024 23:17:46] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:21:36,748:INFO:127.0.0.1 - - [05/Mar/2024 23:21:36] "GET / HTTP/1.1" 200 -
+2024-03-05 23:21:36,797:INFO:127.0.0.1 - - [05/Mar/2024 23:21:36] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:21:36,835:INFO:127.0.0.1 - - [05/Mar/2024 23:21:36] "GET /static/image/background1.jpg HTTP/1.1" 200 -
+2024-03-05 23:22:46,461:INFO:127.0.0.1 - - [05/Mar/2024 23:22:46] "GET / HTTP/1.1" 200 -
+2024-03-05 23:22:46,505:INFO:127.0.0.1 - - [05/Mar/2024 23:22:46] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:23:21,390:INFO:127.0.0.1 - - [05/Mar/2024 23:23:21] "GET / HTTP/1.1" 200 -
+2024-03-05 23:23:21,433:INFO:127.0.0.1 - - [05/Mar/2024 23:23:21] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:23:21,462:INFO:127.0.0.1 - - [05/Mar/2024 23:23:21] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:23:25,420:INFO:127.0.0.1 - - [05/Mar/2024 23:23:25] "GET /studentlogin HTTP/1.1" 200 -
+2024-03-05 23:23:25,462:INFO:127.0.0.1 - - [05/Mar/2024 23:23:25] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:24:41,224:INFO:127.0.0.1 - - [05/Mar/2024 23:24:41] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-03-05 23:24:41,258:INFO:127.0.0.1 - - [05/Mar/2024 23:24:41] "GET /Studentdashboard?login_success=1 HTTP/1.1" 200 -
+2024-03-05 23:24:45,075:INFO:127.0.0.1 - - [05/Mar/2024 23:24:45] "GET /markattendance HTTP/1.1" 200 -
+2024-03-05 23:24:45,128:INFO:127.0.0.1 - - [05/Mar/2024 23:24:45] "[33mGET /app/static/image/background1.jpg HTTP/1.1[0m" 404 -
+2024-03-05 23:25:20,096:INFO:127.0.0.1 - - [05/Mar/2024 23:25:20] "GET /markattendance HTTP/1.1" 200 -
+2024-03-05 23:25:20,148:INFO:127.0.0.1 - - [05/Mar/2024 23:25:20] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:25:24,444:INFO:127.0.0.1 - - [05/Mar/2024 23:25:24] "GET /StudentUpdateProfile HTTP/1.1" 200 -
+2024-03-05 23:26:16,367:INFO:127.0.0.1 - - [05/Mar/2024 23:26:16] "GET /StudentUpdateProfile HTTP/1.1" 200 -
+2024-03-05 23:26:16,426:INFO:127.0.0.1 - - [05/Mar/2024 23:26:16] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:27:08,554:INFO:127.0.0.1 - - [05/Mar/2024 23:27:08] "GET /StudentUpdateProfile HTTP/1.1" 200 -
+2024-03-05 23:27:08,596:INFO:127.0.0.1 - - [05/Mar/2024 23:27:08] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:27:55,799:INFO:127.0.0.1 - - [05/Mar/2024 23:27:55] "GET /StudentUpdateProfile HTTP/1.1" 200 -
+2024-03-05 23:27:55,832:INFO:127.0.0.1 - - [05/Mar/2024 23:27:55] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:30:24,855:INFO:127.0.0.1 - - [05/Mar/2024 23:30:24] "GET /StudentUpdateProfile HTTP/1.1" 200 -
+2024-03-05 23:30:24,929:INFO:127.0.0.1 - - [05/Mar/2024 23:30:24] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:30:26,849:INFO:127.0.0.1 - - [05/Mar/2024 23:30:26] "GET /StudentUpdateProfile HTTP/1.1" 200 -
+2024-03-05 23:30:26,907:INFO:127.0.0.1 - - [05/Mar/2024 23:30:26] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:30:59,898:INFO:127.0.0.1 - - [05/Mar/2024 23:30:59] "GET /StudentUpdateProfile HTTP/1.1" 200 -
+2024-03-05 23:30:59,946:INFO:127.0.0.1 - - [05/Mar/2024 23:30:59] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:31:01,151:INFO:127.0.0.1 - - [05/Mar/2024 23:31:01] "GET /StudentUpdateProfile HTTP/1.1" 200 -
+2024-03-05 23:31:01,193:INFO:127.0.0.1 - - [05/Mar/2024 23:31:01] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:31:44,541:INFO:127.0.0.1 - - [05/Mar/2024 23:31:44] "GET /StudentUpdateProfile HTTP/1.1" 200 -
+2024-03-05 23:31:44,590:INFO:127.0.0.1 - - [05/Mar/2024 23:31:44] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:32:19,978:INFO:127.0.0.1 - - [05/Mar/2024 23:32:19] "GET /StudentUpdateProfile HTTP/1.1" 200 -
+2024-03-05 23:32:20,024:INFO:127.0.0.1 - - [05/Mar/2024 23:32:20] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:32:47,609:INFO:127.0.0.1 - - [05/Mar/2024 23:32:47] "GET /StudentUpdateProfile HTTP/1.1" 200 -
+2024-03-05 23:32:47,657:INFO:127.0.0.1 - - [05/Mar/2024 23:32:47] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:32:59,611:INFO:127.0.0.1 - - [05/Mar/2024 23:32:59] "GET /StudentUpdateProfile HTTP/1.1" 200 -
+2024-03-05 23:32:59,655:INFO:127.0.0.1 - - [05/Mar/2024 23:32:59] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:33:25,125:INFO:127.0.0.1 - - [05/Mar/2024 23:33:25] "GET /home HTTP/1.1" 200 -
+2024-03-05 23:33:25,190:INFO:127.0.0.1 - - [05/Mar/2024 23:33:25] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:33:25,204:INFO:127.0.0.1 - - [05/Mar/2024 23:33:25] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:37:36,729:INFO:127.0.0.1 - - [05/Mar/2024 23:37:36] "GET /home HTTP/1.1" 200 -
+2024-03-05 23:37:36,784:INFO:127.0.0.1 - - [05/Mar/2024 23:37:36] "GET /static/image/logo.jpg HTTP/1.1" 200 -
+2024-03-05 23:37:36,825:INFO:127.0.0.1 - - [05/Mar/2024 23:37:36] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:37:36,843:INFO:127.0.0.1 - - [05/Mar/2024 23:37:36] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:37:38,740:INFO:127.0.0.1 - - [05/Mar/2024 23:37:38] "GET / HTTP/1.1" 200 -
+2024-03-05 23:37:38,784:INFO:127.0.0.1 - - [05/Mar/2024 23:37:38] "[36mGET /static/image/logo.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:37:38,790:INFO:127.0.0.1 - - [05/Mar/2024 23:37:38] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:37:38,815:INFO:127.0.0.1 - - [05/Mar/2024 23:37:38] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:38:04,227:INFO:127.0.0.1 - - [05/Mar/2024 23:38:04] "GET / HTTP/1.1" 200 -
+2024-03-05 23:38:04,267:INFO:127.0.0.1 - - [05/Mar/2024 23:38:04] "[36mGET /static/image/logo.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:38:04,274:INFO:127.0.0.1 - - [05/Mar/2024 23:38:04] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:38:04,275:INFO:127.0.0.1 - - [05/Mar/2024 23:38:04] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:39:06,831:INFO:127.0.0.1 - - [05/Mar/2024 23:39:06] "GET / HTTP/1.1" 200 -
+2024-03-05 23:39:06,902:INFO:127.0.0.1 - - [05/Mar/2024 23:39:06] "GET /static/image/logo.jpg HTTP/1.1" 200 -
+2024-03-05 23:39:06,909:INFO:127.0.0.1 - - [05/Mar/2024 23:39:06] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:39:06,920:INFO:127.0.0.1 - - [05/Mar/2024 23:39:06] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:39:46,551:INFO:127.0.0.1 - - [05/Mar/2024 23:39:46] "GET / HTTP/1.1" 200 -
+2024-03-05 23:39:46,580:INFO:127.0.0.1 - - [05/Mar/2024 23:39:46] "GET /static/image/logo.jpg HTTP/1.1" 200 -
+2024-03-05 23:39:46,580:INFO:127.0.0.1 - - [05/Mar/2024 23:39:46] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:39:46,598:INFO:127.0.0.1 - - [05/Mar/2024 23:39:46] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:41:09,738:INFO:127.0.0.1 - - [05/Mar/2024 23:41:09] "GET / HTTP/1.1" 200 -
+2024-03-05 23:41:09,845:INFO:127.0.0.1 - - [05/Mar/2024 23:41:09] "[33mGET /static/image/logo1.jpg HTTP/1.1[0m" 404 -
+2024-03-05 23:41:09,851:INFO:127.0.0.1 - - [05/Mar/2024 23:41:09] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:41:09,885:INFO:127.0.0.1 - - [05/Mar/2024 23:41:09] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:41:11,694:INFO:127.0.0.1 - - [05/Mar/2024 23:41:11] "GET / HTTP/1.1" 200 -
+2024-03-05 23:41:11,743:INFO:127.0.0.1 - - [05/Mar/2024 23:41:11] "[33mGET /static/image/logo1.jpg HTTP/1.1[0m" 404 -
+2024-03-05 23:41:11,751:INFO:127.0.0.1 - - [05/Mar/2024 23:41:11] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:41:11,767:INFO:127.0.0.1 - - [05/Mar/2024 23:41:11] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:41:12,742:INFO:127.0.0.1 - - [05/Mar/2024 23:41:12] "GET / HTTP/1.1" 200 -
+2024-03-05 23:41:12,804:INFO:127.0.0.1 - - [05/Mar/2024 23:41:12] "[33mGET /static/image/logo1.jpg HTTP/1.1[0m" 404 -
+2024-03-05 23:41:12,823:INFO:127.0.0.1 - - [05/Mar/2024 23:41:12] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:41:12,833:INFO:127.0.0.1 - - [05/Mar/2024 23:41:12] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:41:25,701:INFO:127.0.0.1 - - [05/Mar/2024 23:41:25] "GET / HTTP/1.1" 200 -
+2024-03-05 23:41:25,856:INFO:127.0.0.1 - - [05/Mar/2024 23:41:25] "GET /static/image/logo1.png HTTP/1.1" 200 -
+2024-03-05 23:41:25,864:INFO:127.0.0.1 - - [05/Mar/2024 23:41:25] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:41:25,867:INFO:127.0.0.1 - - [05/Mar/2024 23:41:25] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:43:49,463:INFO:127.0.0.1 - - [05/Mar/2024 23:43:49] "GET / HTTP/1.1" 200 -
+2024-03-05 23:43:49,532:INFO:127.0.0.1 - - [05/Mar/2024 23:43:49] "GET /static/image/logo2.png HTTP/1.1" 200 -
+2024-03-05 23:43:49,617:INFO:127.0.0.1 - - [05/Mar/2024 23:43:49] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:43:49,631:INFO:127.0.0.1 - - [05/Mar/2024 23:43:49] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:44:44,731:INFO:127.0.0.1 - - [05/Mar/2024 23:44:44] "GET / HTTP/1.1" 200 -
+2024-03-05 23:44:44,864:INFO:127.0.0.1 - - [05/Mar/2024 23:44:44] "GET /static/image/logo1.png HTTP/1.1" 200 -
+2024-03-05 23:44:44,874:INFO:127.0.0.1 - - [05/Mar/2024 23:44:44] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:44:44,881:INFO:127.0.0.1 - - [05/Mar/2024 23:44:44] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:44:46,635:INFO:127.0.0.1 - - [05/Mar/2024 23:44:46] "GET / HTTP/1.1" 200 -
+2024-03-05 23:44:46,705:INFO:127.0.0.1 - - [05/Mar/2024 23:44:46] "[36mGET /static/image/logo1.png HTTP/1.1[0m" 304 -
+2024-03-05 23:44:46,709:INFO:127.0.0.1 - - [05/Mar/2024 23:44:46] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:44:46,736:INFO:127.0.0.1 - - [05/Mar/2024 23:44:46] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:45:04,858:INFO:127.0.0.1 - - [05/Mar/2024 23:45:04] "GET / HTTP/1.1" 200 -
+2024-03-05 23:45:04,915:INFO:127.0.0.1 - - [05/Mar/2024 23:45:04] "[36mGET /static/image/logo1.png HTTP/1.1[0m" 304 -
+2024-03-05 23:45:04,925:INFO:127.0.0.1 - - [05/Mar/2024 23:45:04] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:45:04,932:INFO:127.0.0.1 - - [05/Mar/2024 23:45:04] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:46:42,647:INFO:127.0.0.1 - - [05/Mar/2024 23:46:42] "GET / HTTP/1.1" 200 -
+2024-03-05 23:46:42,719:INFO:127.0.0.1 - - [05/Mar/2024 23:46:42] "[36mGET /static/image/logo1.png HTTP/1.1[0m" 304 -
+2024-03-05 23:46:42,730:INFO:127.0.0.1 - - [05/Mar/2024 23:46:42] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:46:42,731:INFO:127.0.0.1 - - [05/Mar/2024 23:46:42] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:47:10,518:INFO:127.0.0.1 - - [05/Mar/2024 23:47:10] "GET / HTTP/1.1" 200 -
+2024-03-05 23:47:10,584:INFO:127.0.0.1 - - [05/Mar/2024 23:47:10] "[36mGET /static/image/logo1.png HTTP/1.1[0m" 304 -
+2024-03-05 23:47:10,587:INFO:127.0.0.1 - - [05/Mar/2024 23:47:10] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:47:10,595:INFO:127.0.0.1 - - [05/Mar/2024 23:47:10] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:47:31,563:INFO:127.0.0.1 - - [05/Mar/2024 23:47:31] "GET / HTTP/1.1" 200 -
+2024-03-05 23:47:31,631:INFO:127.0.0.1 - - [05/Mar/2024 23:47:31] "[36mGET /static/image/logo1.png HTTP/1.1[0m" 304 -
+2024-03-05 23:47:31,650:INFO:127.0.0.1 - - [05/Mar/2024 23:47:31] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:47:31,704:INFO:127.0.0.1 - - [05/Mar/2024 23:47:31] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:48:00,467:INFO:127.0.0.1 - - [05/Mar/2024 23:48:00] "GET / HTTP/1.1" 200 -
+2024-03-05 23:48:00,522:INFO:127.0.0.1 - - [05/Mar/2024 23:48:00] "[36mGET /static/image/logo1.png HTTP/1.1[0m" 304 -
+2024-03-05 23:48:00,527:INFO:127.0.0.1 - - [05/Mar/2024 23:48:00] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:48:00,548:INFO:127.0.0.1 - - [05/Mar/2024 23:48:00] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:48:47,291:INFO:127.0.0.1 - - [05/Mar/2024 23:48:47] "GET / HTTP/1.1" 200 -
+2024-03-05 23:48:47,352:INFO:127.0.0.1 - - [05/Mar/2024 23:48:47] "[36mGET /static/image/logo1.png HTTP/1.1[0m" 304 -
+2024-03-05 23:48:47,363:INFO:127.0.0.1 - - [05/Mar/2024 23:48:47] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:48:47,379:INFO:127.0.0.1 - - [05/Mar/2024 23:48:47] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:48:56,404:INFO:127.0.0.1 - - [05/Mar/2024 23:48:56] "GET / HTTP/1.1" 200 -
+2024-03-05 23:48:56,467:INFO:127.0.0.1 - - [05/Mar/2024 23:48:56] "[36mGET /static/image/logo1.png HTTP/1.1[0m" 304 -
+2024-03-05 23:48:56,498:INFO:127.0.0.1 - - [05/Mar/2024 23:48:56] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:48:56,510:INFO:127.0.0.1 - - [05/Mar/2024 23:48:56] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:48:58,786:INFO:127.0.0.1 - - [05/Mar/2024 23:48:58] "GET / HTTP/1.1" 200 -
+2024-03-05 23:48:58,854:INFO:127.0.0.1 - - [05/Mar/2024 23:48:58] "[36mGET /static/image/logo1.png HTTP/1.1[0m" 304 -
+2024-03-05 23:48:58,908:INFO:127.0.0.1 - - [05/Mar/2024 23:48:58] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:48:58,945:INFO:127.0.0.1 - - [05/Mar/2024 23:48:58] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:49:00,220:INFO:127.0.0.1 - - [05/Mar/2024 23:49:00] "GET / HTTP/1.1" 200 -
+2024-03-05 23:49:00,301:INFO:127.0.0.1 - - [05/Mar/2024 23:49:00] "[36mGET /static/image/logo1.png HTTP/1.1[0m" 304 -
+2024-03-05 23:49:00,322:INFO:127.0.0.1 - - [05/Mar/2024 23:49:00] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:49:00,421:INFO:127.0.0.1 - - [05/Mar/2024 23:49:00] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:49:01,666:INFO:127.0.0.1 - - [05/Mar/2024 23:49:01] "GET /studentlogin HTTP/1.1" 200 -
+2024-03-05 23:49:01,725:INFO:127.0.0.1 - - [05/Mar/2024 23:49:01] "[36mGET /static/image/logo1.png HTTP/1.1[0m" 304 -
+2024-03-05 23:49:01,757:INFO:127.0.0.1 - - [05/Mar/2024 23:49:01] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:49:03,026:INFO:127.0.0.1 - - [05/Mar/2024 23:49:03] "GET / HTTP/1.1" 200 -
+2024-03-05 23:49:03,108:INFO:127.0.0.1 - - [05/Mar/2024 23:49:03] "[36mGET /static/image/logo1.png HTTP/1.1[0m" 304 -
+2024-03-05 23:49:03,144:INFO:127.0.0.1 - - [05/Mar/2024 23:49:03] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:49:03,154:INFO:127.0.0.1 - - [05/Mar/2024 23:49:03] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:49:05,331:INFO:127.0.0.1 - - [05/Mar/2024 23:49:05] "GET /studentlogin HTTP/1.1" 200 -
+2024-03-05 23:49:05,386:INFO:127.0.0.1 - - [05/Mar/2024 23:49:05] "[36mGET /static/image/logo1.png HTTP/1.1[0m" 304 -
+2024-03-05 23:49:05,411:INFO:127.0.0.1 - - [05/Mar/2024 23:49:05] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:49:06,493:INFO:127.0.0.1 - - [05/Mar/2024 23:49:06] "GET / HTTP/1.1" 200 -
+2024-03-05 23:49:06,556:INFO:127.0.0.1 - - [05/Mar/2024 23:49:06] "[36mGET /static/image/logo1.png HTTP/1.1[0m" 304 -
+2024-03-05 23:49:06,613:INFO:127.0.0.1 - - [05/Mar/2024 23:49:06] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:49:06,620:INFO:127.0.0.1 - - [05/Mar/2024 23:49:06] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:49:10,370:INFO:127.0.0.1 - - [05/Mar/2024 23:49:10] "GET /studentlogin HTTP/1.1" 200 -
+2024-03-05 23:49:10,441:INFO:127.0.0.1 - - [05/Mar/2024 23:49:10] "[36mGET /static/image/logo1.png HTTP/1.1[0m" 304 -
+2024-03-05 23:49:10,465:INFO:127.0.0.1 - - [05/Mar/2024 23:49:10] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:49:15,680:INFO:127.0.0.1 - - [05/Mar/2024 23:49:15] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-03-05 23:49:15,694:INFO:127.0.0.1 - - [05/Mar/2024 23:49:15] "GET /Studentdashboard?login_success=1 HTTP/1.1" 200 -
+2024-03-05 23:49:15,769:INFO:127.0.0.1 - - [05/Mar/2024 23:49:15] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:55:04,504:INFO:127.0.0.1 - - [05/Mar/2024 23:55:04] "GET /Studentdashboard?login_success=1 HTTP/1.1" 200 -
+2024-03-05 23:55:04,544:INFO:127.0.0.1 - - [05/Mar/2024 23:55:04] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:55:08,295:INFO:127.0.0.1 - - [05/Mar/2024 23:55:08] "GET /markattendance HTTP/1.1" 200 -
+2024-03-05 23:55:08,338:INFO:127.0.0.1 - - [05/Mar/2024 23:55:08] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-05 23:55:11,982:INFO:127.0.0.1 - - [05/Mar/2024 23:55:11] "GET /StudentUpdateProfile HTTP/1.1" 200 -
+2024-03-05 23:55:12,010:INFO:127.0.0.1 - - [05/Mar/2024 23:55:12] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 00:52:02,459:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\routes.py', reloading
+2024-03-06 00:52:02,732:INFO: * Restarting with stat
+2024-03-06 00:52:05,915:WARNING: * Debugger is active!
+2024-03-06 00:52:05,928:INFO: * Debugger PIN: 102-679-597
+2024-03-06 00:52:28,151:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\service.py', reloading
+2024-03-06 00:52:28,226:INFO: * Restarting with stat
+2024-03-06 00:52:31,372:WARNING: * Debugger is active!
+2024-03-06 00:52:31,380:INFO: * Debugger PIN: 102-679-597
+2024-03-06 00:52:45,253:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\service.py', reloading
+2024-03-06 00:52:45,332:INFO: * Restarting with stat
+2024-03-06 00:52:47,636:WARNING: * Debugger is active!
+2024-03-06 00:52:47,647:INFO: * Debugger PIN: 102-679-597
+2024-03-06 00:53:16,455:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\service.py', reloading
+2024-03-06 00:53:16,529:INFO: * Restarting with stat
+2024-03-06 00:53:18,920:WARNING: * Debugger is active!
+2024-03-06 00:53:18,929:INFO: * Debugger PIN: 102-679-597
+2024-03-06 00:53:59,409:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\routes.py', reloading
+2024-03-06 00:53:59,494:INFO: * Restarting with stat
+2024-03-06 00:54:02,134:WARNING: * Debugger is active!
+2024-03-06 00:54:02,142:INFO: * Debugger PIN: 102-679-597
+2024-03-06 00:54:05,825:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\routes.py', reloading
+2024-03-06 00:54:05,927:INFO: * Restarting with stat
+2024-03-06 00:54:09,248:WARNING: * Debugger is active!
+2024-03-06 00:54:09,257:INFO: * Debugger PIN: 102-679-597
+2024-03-06 00:54:17,688:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\service.py', reloading
+2024-03-06 00:54:17,756:INFO: * Restarting with stat
+2024-03-06 00:54:20,219:WARNING: * Debugger is active!
+2024-03-06 00:54:20,232:INFO: * Debugger PIN: 102-679-597
+2024-03-06 00:54:34,382:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\routes.py', reloading
+2024-03-06 00:54:34,458:INFO: * Restarting with stat
+2024-03-06 00:54:36,972:WARNING: * Debugger is active!
+2024-03-06 00:54:36,980:INFO: * Debugger PIN: 102-679-597
+2024-03-06 00:54:56,378:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\routes.py', reloading
+2024-03-06 00:54:56,440:INFO: * Restarting with stat
+2024-03-06 01:04:44,122:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 01:04:44,122:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 01:04:44,124:INFO: * Restarting with stat
+2024-03-06 01:04:46,396:WARNING: * Debugger is active!
+2024-03-06 01:04:46,406:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:04:52,761:INFO:127.0.0.1 - - [06/Mar/2024 01:04:52] "GET / HTTP/1.1" 200 -
+2024-03-06 01:04:53,592:INFO:127.0.0.1 - - [06/Mar/2024 01:04:53] "GET /static/image/logo.png HTTP/1.1" 200 -
+2024-03-06 01:04:53,623:INFO:127.0.0.1 - - [06/Mar/2024 01:04:53] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:04:53,632:INFO:127.0.0.1 - - [06/Mar/2024 01:04:53] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:04:58,840:INFO:127.0.0.1 - - [06/Mar/2024 01:04:58] "GET /studentlogin HTTP/1.1" 200 -
+2024-03-06 01:04:58,880:INFO:127.0.0.1 - - [06/Mar/2024 01:04:58] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 01:04:58,896:INFO:127.0.0.1 - - [06/Mar/2024 01:04:58] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:05:03,944:INFO:127.0.0.1 - - [06/Mar/2024 01:05:03] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2024-03-06 01:05:03,975:INFO:127.0.0.1 - - [06/Mar/2024 01:05:03] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-06 01:05:03,977:INFO:127.0.0.1 - - [06/Mar/2024 01:05:03] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-06 01:05:03,989:INFO:127.0.0.1 - - [06/Mar/2024 01:05:03] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-06 01:06:02,006:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\model.py', reloading
+2024-03-06 01:06:02,069:INFO: * Restarting with stat
+2024-03-06 01:06:03,569:WARNING: * Debugger is active!
+2024-03-06 01:06:03,575:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:06:12,824:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\services.py', reloading
+2024-03-06 01:06:12,912:INFO: * Restarting with stat
+2024-03-06 01:07:21,400:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 01:07:21,400:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 01:07:21,401:INFO: * Restarting with stat
+2024-03-06 01:07:22,876:WARNING: * Debugger is active!
+2024-03-06 01:07:22,881:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:07:29,861:INFO:127.0.0.1 - - [06/Mar/2024 01:07:29] "GET / HTTP/1.1" 200 -
+2024-03-06 01:07:30,757:INFO:127.0.0.1 - - [06/Mar/2024 01:07:30] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 01:07:30,758:INFO:127.0.0.1 - - [06/Mar/2024 01:07:30] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:07:30,758:INFO:127.0.0.1 - - [06/Mar/2024 01:07:30] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:07:31,417:INFO:127.0.0.1 - - [06/Mar/2024 01:07:31] "GET /studentlogin HTTP/1.1" 200 -
+2024-03-06 01:07:31,463:INFO:127.0.0.1 - - [06/Mar/2024 01:07:31] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 01:07:31,469:INFO:127.0.0.1 - - [06/Mar/2024 01:07:31] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:07:35,786:INFO:127.0.0.1 - - [06/Mar/2024 01:07:35] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-03-06 01:07:35,809:INFO:127.0.0.1 - - [06/Mar/2024 01:07:35] "GET /Studentdashboard?login_success=1 HTTP/1.1" 200 -
+2024-03-06 01:07:35,841:INFO:127.0.0.1 - - [06/Mar/2024 01:07:35] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:07:38,989:INFO:127.0.0.1 - - [06/Mar/2024 01:07:38] "GET /markattendance HTTP/1.1" 200 -
+2024-03-06 01:07:39,027:INFO:127.0.0.1 - - [06/Mar/2024 01:07:39] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:07:41,888:INFO:127.0.0.1 - - [06/Mar/2024 01:07:41] "GET /get_sessions?course_id=1 HTTP/1.1" 200 -
+2024-03-06 01:07:41,889:INFO:127.0.0.1 - - [06/Mar/2024 01:07:41] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:07:54,777:INFO:127.0.0.1 - - [06/Mar/2024 01:07:54] "GET /get_sessions?course_id=2 HTTP/1.1" 200 -
+2024-03-06 01:07:54,778:INFO:127.0.0.1 - - [06/Mar/2024 01:07:54] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:07:58,229:INFO:127.0.0.1 - - [06/Mar/2024 01:07:58] "GET /get_sessions?course_id=3 HTTP/1.1" 200 -
+2024-03-06 01:07:58,232:INFO:127.0.0.1 - - [06/Mar/2024 01:07:58] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:12:38,656:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\attendance.py', reloading
+2024-03-06 01:12:38,719:INFO: * Restarting with stat
+2024-03-06 01:19:25,575:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 01:19:25,581:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 01:19:25,582:INFO: * Restarting with stat
+2024-03-06 01:19:27,062:WARNING: * Debugger is active!
+2024-03-06 01:19:27,067:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:19:37,256:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\attendance.py', reloading
+2024-03-06 01:19:37,317:INFO: * Restarting with stat
+2024-03-06 01:19:53,166:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 01:19:53,175:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 01:19:53,176:INFO: * Restarting with stat
+2024-03-06 01:19:54,665:WARNING: * Debugger is active!
+2024-03-06 01:19:54,670:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:19:57,561:INFO:127.0.0.1 - - [06/Mar/2024 01:19:57] "GET / HTTP/1.1" 200 -
+2024-03-06 01:19:58,035:INFO:127.0.0.1 - - [06/Mar/2024 01:19:58] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 01:19:58,036:INFO:127.0.0.1 - - [06/Mar/2024 01:19:58] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:19:58,061:INFO:127.0.0.1 - - [06/Mar/2024 01:19:58] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:20:00,384:INFO:127.0.0.1 - - [06/Mar/2024 01:20:00] "GET /studentlogin HTTP/1.1" 200 -
+2024-03-06 01:20:00,415:INFO:127.0.0.1 - - [06/Mar/2024 01:20:00] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:20:00,416:INFO:127.0.0.1 - - [06/Mar/2024 01:20:00] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 01:20:05,581:INFO:127.0.0.1 - - [06/Mar/2024 01:20:05] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-03-06 01:20:05,601:INFO:127.0.0.1 - - [06/Mar/2024 01:20:05] "GET /Studentdashboard?login_success=1 HTTP/1.1" 200 -
+2024-03-06 01:20:05,633:INFO:127.0.0.1 - - [06/Mar/2024 01:20:05] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:20:08,734:INFO:127.0.0.1 - - [06/Mar/2024 01:20:08] "GET /markattendance HTTP/1.1" 200 -
+2024-03-06 01:20:08,770:INFO:127.0.0.1 - - [06/Mar/2024 01:20:08] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:20:12,799:INFO:127.0.0.1 - - [06/Mar/2024 01:20:12] "GET /get_sessions?course_id=3 HTTP/1.1" 200 -
+2024-03-06 01:20:12,804:INFO:127.0.0.1 - - [06/Mar/2024 01:20:12] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:20:17,201:INFO:127.0.0.1 - - [06/Mar/2024 01:20:17] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:20:19,481:INFO:127.0.0.1 - - [06/Mar/2024 01:20:19] "[35m[1mPOST /video_feed HTTP/1.1[0m" 500 -
+2024-03-06 01:20:19,512:INFO:127.0.0.1 - - [06/Mar/2024 01:20:19] "[36mGET /video_feed?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-06 01:20:19,513:INFO:127.0.0.1 - - [06/Mar/2024 01:20:19] "[36mGET /video_feed?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-06 01:20:19,589:INFO:127.0.0.1 - - [06/Mar/2024 01:20:19] "[36mGET /video_feed?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-06 01:20:19,620:INFO:127.0.0.1 - - [06/Mar/2024 01:20:19] "[36mGET /video_feed?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-06 01:21:47,025:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\services.py', reloading
+2024-03-06 01:21:47,076:INFO: * Restarting with stat
+2024-03-06 01:21:48,482:WARNING: * Debugger is active!
+2024-03-06 01:21:48,487:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:21:49,789:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\services.py', reloading
+2024-03-06 01:21:49,868:INFO: * Restarting with stat
+2024-03-06 01:21:51,694:WARNING: * Debugger is active!
+2024-03-06 01:21:51,700:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:22:09,892:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\services.py', reloading
+2024-03-06 01:22:10,012:INFO: * Restarting with stat
+2024-03-06 01:22:11,481:WARNING: * Debugger is active!
+2024-03-06 01:22:11,486:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:23:58,555:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\services.py', reloading
+2024-03-06 01:23:58,612:INFO: * Restarting with stat
+2024-03-06 01:24:00,163:WARNING: * Debugger is active!
+2024-03-06 01:24:00,168:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:24:05,886:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\services.py', reloading
+2024-03-06 01:24:05,946:INFO: * Restarting with stat
+2024-03-06 01:26:06,115:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 01:26:06,115:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 01:26:06,117:INFO: * Restarting with stat
+2024-03-06 01:26:07,615:WARNING: * Debugger is active!
+2024-03-06 01:26:07,620:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:26:49,281:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\services.py', reloading
+2024-03-06 01:26:49,343:INFO: * Restarting with stat
+2024-03-06 01:28:18,566:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 01:28:18,574:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 01:28:18,574:INFO: * Restarting with stat
+2024-03-06 01:28:20,030:WARNING: * Debugger is active!
+2024-03-06 01:28:20,035:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:28:22,961:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 01:28:22,968:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 01:28:22,969:INFO: * Restarting with stat
+2024-03-06 01:28:24,429:WARNING: * Debugger is active!
+2024-03-06 01:28:24,434:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:28:54,821:INFO:127.0.0.1 - - [06/Mar/2024 01:28:54] "GET /markattendance HTTP/1.1" 200 -
+2024-03-06 01:28:55,263:INFO:127.0.0.1 - - [06/Mar/2024 01:28:55] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:28:57,343:INFO:127.0.0.1 - - [06/Mar/2024 01:28:57] "GET /get_sessions?course_id=3 HTTP/1.1" 200 -
+2024-03-06 01:28:57,361:INFO:127.0.0.1 - - [06/Mar/2024 01:28:57] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:28:59,540:INFO:127.0.0.1 - - [06/Mar/2024 01:28:59] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:29:00,389:INFO:127.0.0.1 - - [06/Mar/2024 01:29:00] "[32mPOST /video_feed HTTP/1.1[0m" 302 -
+2024-03-06 01:29:00,403:INFO:127.0.0.1 - - [06/Mar/2024 01:29:00] "GET /Studentdashboard HTTP/1.1" 200 -
+2024-03-06 01:29:00,431:INFO:127.0.0.1 - - [06/Mar/2024 01:29:00] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:30:07,437:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\services.py', reloading
+2024-03-06 01:30:07,580:INFO: * Restarting with stat
+2024-03-06 01:30:09,122:WARNING: * Debugger is active!
+2024-03-06 01:30:09,128:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:30:11,895:INFO:127.0.0.1 - - [06/Mar/2024 01:30:11] "GET /markattendance HTTP/1.1" 200 -
+2024-03-06 01:30:12,155:INFO:127.0.0.1 - - [06/Mar/2024 01:30:12] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:30:14,315:INFO:127.0.0.1 - - [06/Mar/2024 01:30:14] "GET /get_sessions?course_id=3 HTTP/1.1" 200 -
+2024-03-06 01:30:14,336:INFO:127.0.0.1 - - [06/Mar/2024 01:30:14] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:30:16,269:INFO:127.0.0.1 - - [06/Mar/2024 01:30:16] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:30:17,095:INFO:127.0.0.1 - - [06/Mar/2024 01:30:17] "[32mPOST /video_feed HTTP/1.1[0m" 302 -
+2024-03-06 01:30:17,110:INFO:127.0.0.1 - - [06/Mar/2024 01:30:17] "GET /Studentdashboard HTTP/1.1" 200 -
+2024-03-06 01:30:17,136:INFO:127.0.0.1 - - [06/Mar/2024 01:30:17] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:31:36,899:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\services.py', reloading
+2024-03-06 01:31:36,978:INFO: * Restarting with stat
+2024-03-06 01:31:38,578:WARNING: * Debugger is active!
+2024-03-06 01:31:38,583:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:31:40,774:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 01:31:40,782:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 01:31:40,783:INFO: * Restarting with stat
+2024-03-06 01:31:42,239:WARNING: * Debugger is active!
+2024-03-06 01:31:42,245:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:31:50,368:INFO:127.0.0.1 - - [06/Mar/2024 01:31:50] "GET /markattendance HTTP/1.1" 200 -
+2024-03-06 01:31:50,834:INFO:127.0.0.1 - - [06/Mar/2024 01:31:50] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:31:54,772:INFO:127.0.0.1 - - [06/Mar/2024 01:31:54] "GET /get_sessions?course_id=3 HTTP/1.1" 200 -
+2024-03-06 01:31:54,787:INFO:127.0.0.1 - - [06/Mar/2024 01:31:54] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:31:58,810:INFO:127.0.0.1 - - [06/Mar/2024 01:31:58] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:32:02,385:INFO:127.0.0.1 - - [06/Mar/2024 01:32:02] "[32mPOST /video_feed HTTP/1.1[0m" 302 -
+2024-03-06 01:32:02,396:INFO:127.0.0.1 - - [06/Mar/2024 01:32:02] "GET /Studentdashboard HTTP/1.1" 200 -
+2024-03-06 01:32:02,419:INFO:127.0.0.1 - - [06/Mar/2024 01:32:02] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:33:51,013:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\services.py', reloading
+2024-03-06 01:33:51,170:INFO: * Restarting with stat
+2024-03-06 01:33:53,570:WARNING: * Debugger is active!
+2024-03-06 01:33:53,576:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:33:59,897:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 01:33:59,906:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 01:33:59,907:INFO: * Restarting with stat
+2024-03-06 01:34:01,451:WARNING: * Debugger is active!
+2024-03-06 01:34:01,456:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:34:04,367:INFO:127.0.0.1 - - [06/Mar/2024 01:34:04] "GET /markattendance HTTP/1.1" 200 -
+2024-03-06 01:34:04,533:INFO:127.0.0.1 - - [06/Mar/2024 01:34:04] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:34:06,535:INFO:127.0.0.1 - - [06/Mar/2024 01:34:06] "GET /get_sessions?course_id=3 HTTP/1.1" 200 -
+2024-03-06 01:34:06,547:INFO:127.0.0.1 - - [06/Mar/2024 01:34:06] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:34:08,621:INFO:127.0.0.1 - - [06/Mar/2024 01:34:08] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:34:18,926:INFO:127.0.0.1 - - [06/Mar/2024 01:34:18] "[35m[1mPOST /video_feed HTTP/1.1[0m" 500 -
+2024-03-06 01:34:18,957:INFO:127.0.0.1 - - [06/Mar/2024 01:34:18] "[36mGET /video_feed?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-06 01:34:18,958:INFO:127.0.0.1 - - [06/Mar/2024 01:34:18] "[36mGET /video_feed?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-06 01:34:18,969:INFO:127.0.0.1 - - [06/Mar/2024 01:34:18] "[36mGET /video_feed?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-06 01:35:09,808:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 01:35:09,815:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 01:35:09,816:INFO: * Restarting with stat
+2024-03-06 01:35:11,359:WARNING: * Debugger is active!
+2024-03-06 01:35:11,363:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:35:15,561:INFO:127.0.0.1 - - [06/Mar/2024 01:35:15] "GET /markattendance HTTP/1.1" 200 -
+2024-03-06 01:35:15,731:INFO:127.0.0.1 - - [06/Mar/2024 01:35:15] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:35:17,932:INFO:127.0.0.1 - - [06/Mar/2024 01:35:17] "GET /get_sessions?course_id=3 HTTP/1.1" 200 -
+2024-03-06 01:35:17,955:INFO:127.0.0.1 - - [06/Mar/2024 01:35:17] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:35:19,779:INFO:127.0.0.1 - - [06/Mar/2024 01:35:19] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:35:30,339:INFO:127.0.0.1 - - [06/Mar/2024 01:35:30] "[35m[1mPOST /video_feed HTTP/1.1[0m" 500 -
+2024-03-06 01:35:30,357:INFO:127.0.0.1 - - [06/Mar/2024 01:35:30] "[36mGET /video_feed?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-06 01:35:30,360:INFO:127.0.0.1 - - [06/Mar/2024 01:35:30] "[36mGET /video_feed?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-06 01:35:30,371:INFO:127.0.0.1 - - [06/Mar/2024 01:35:30] "[36mGET /video_feed?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-06 01:35:49,969:INFO:127.0.0.1 - - [06/Mar/2024 01:35:49] "[35m[1mPOST /video_feed HTTP/1.1[0m" 500 -
+2024-03-06 01:35:49,990:INFO:127.0.0.1 - - [06/Mar/2024 01:35:49] "[36mGET /video_feed?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-06 01:35:49,993:INFO:127.0.0.1 - - [06/Mar/2024 01:35:49] "[36mGET /video_feed?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-06 01:35:50,003:INFO:127.0.0.1 - - [06/Mar/2024 01:35:50] "[36mGET /video_feed?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-06 01:41:10,774:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 01:41:10,774:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 01:41:10,775:INFO: * Restarting with stat
+2024-03-06 01:41:12,183:WARNING: * Debugger is active!
+2024-03-06 01:41:12,188:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:41:17,340:INFO:127.0.0.1 - - [06/Mar/2024 01:41:17] "GET /markattendance HTTP/1.1" 200 -
+2024-03-06 01:41:17,849:INFO:127.0.0.1 - - [06/Mar/2024 01:41:17] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:41:19,591:INFO:127.0.0.1 - - [06/Mar/2024 01:41:19] "GET /get_sessions?course_id=3 HTTP/1.1" 200 -
+2024-03-06 01:41:19,604:INFO:127.0.0.1 - - [06/Mar/2024 01:41:19] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:41:21,576:INFO:127.0.0.1 - - [06/Mar/2024 01:41:21] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:41:31,904:INFO:127.0.0.1 - - [06/Mar/2024 01:41:31] "[35m[1mPOST /video_feed HTTP/1.1[0m" 500 -
+2024-03-06 01:41:31,936:INFO:127.0.0.1 - - [06/Mar/2024 01:41:31] "[36mGET /video_feed?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-03-06 01:41:31,937:INFO:127.0.0.1 - - [06/Mar/2024 01:41:31] "[36mGET /video_feed?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-03-06 01:41:31,949:INFO:127.0.0.1 - - [06/Mar/2024 01:41:31] "[36mGET /video_feed?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-06 01:41:47,352:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\routes.py', reloading
+2024-03-06 01:41:47,436:INFO: * Restarting with stat
+2024-03-06 01:41:48,992:WARNING: * Debugger is active!
+2024-03-06 01:41:48,998:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:44:03,881:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\routes.py', reloading
+2024-03-06 01:44:03,942:INFO: * Restarting with stat
+2024-03-06 01:44:05,414:WARNING: * Debugger is active!
+2024-03-06 01:44:05,419:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:44:19,430:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 01:44:19,437:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 01:44:19,438:INFO: * Restarting with stat
+2024-03-06 01:44:20,814:WARNING: * Debugger is active!
+2024-03-06 01:44:20,820:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:44:43,802:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 01:44:43,813:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 01:44:43,814:INFO: * Restarting with stat
+2024-03-06 01:44:45,991:WARNING: * Debugger is active!
+2024-03-06 01:44:45,999:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:44:47,878:INFO:127.0.0.1 - - [06/Mar/2024 01:44:47] "GET /markattendance HTTP/1.1" 200 -
+2024-03-06 01:44:48,095:INFO:127.0.0.1 - - [06/Mar/2024 01:44:48] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:44:52,101:INFO:127.0.0.1 - - [06/Mar/2024 01:44:52] "GET /get_sessions?course_id=3 HTTP/1.1" 200 -
+2024-03-06 01:44:52,111:INFO:127.0.0.1 - - [06/Mar/2024 01:44:52] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:44:56,795:INFO:127.0.0.1 - - [06/Mar/2024 01:44:56] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:45:11,663:INFO:127.0.0.1 - - [06/Mar/2024 01:45:11] "[32mPOST /video_feed HTTP/1.1[0m" 302 -
+2024-03-06 01:45:11,675:INFO:127.0.0.1 - - [06/Mar/2024 01:45:11] "GET /markattendance HTTP/1.1" 200 -
+2024-03-06 01:45:11,715:INFO:127.0.0.1 - - [06/Mar/2024 01:45:11] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:48:47,001:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\attendance.py', reloading
+2024-03-06 01:48:47,076:INFO: * Restarting with stat
+2024-03-06 01:48:48,552:WARNING: * Debugger is active!
+2024-03-06 01:48:48,557:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:49:08,395:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 01:49:08,402:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 01:49:08,403:INFO: * Restarting with stat
+2024-03-06 01:49:09,855:WARNING: * Debugger is active!
+2024-03-06 01:49:09,860:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:49:14,137:INFO:127.0.0.1 - - [06/Mar/2024 01:49:14] "GET /markattendance HTTP/1.1" 200 -
+2024-03-06 01:49:14,303:INFO:127.0.0.1 - - [06/Mar/2024 01:49:14] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:49:16,684:INFO:127.0.0.1 - - [06/Mar/2024 01:49:16] "GET /get_sessions?course_id=3 HTTP/1.1" 200 -
+2024-03-06 01:49:16,701:INFO:127.0.0.1 - - [06/Mar/2024 01:49:16] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:49:18,646:INFO:127.0.0.1 - - [06/Mar/2024 01:49:18] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:49:35,854:INFO:127.0.0.1 - - [06/Mar/2024 01:49:35] "[32mPOST /video_feed HTTP/1.1[0m" 302 -
+2024-03-06 01:49:35,866:INFO:127.0.0.1 - - [06/Mar/2024 01:49:35] "GET /markattendance HTTP/1.1" 200 -
+2024-03-06 01:49:35,900:INFO:127.0.0.1 - - [06/Mar/2024 01:49:35] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:51:38,070:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\attendance.py', reloading
+2024-03-06 01:51:38,261:INFO: * Restarting with stat
+2024-03-06 01:51:39,817:WARNING: * Debugger is active!
+2024-03-06 01:51:39,824:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:51:43,992:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 01:51:44,000:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 01:51:44,002:INFO: * Restarting with stat
+2024-03-06 01:51:45,458:WARNING: * Debugger is active!
+2024-03-06 01:51:45,463:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:51:48,648:INFO:127.0.0.1 - - [06/Mar/2024 01:51:48] "GET /markattendance HTTP/1.1" 200 -
+2024-03-06 01:51:48,915:INFO:127.0.0.1 - - [06/Mar/2024 01:51:48] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:51:52,473:INFO:127.0.0.1 - - [06/Mar/2024 01:51:52] "GET /get_sessions?course_id=3 HTTP/1.1" 200 -
+2024-03-06 01:51:52,490:INFO:127.0.0.1 - - [06/Mar/2024 01:51:52] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:51:54,453:INFO:127.0.0.1 - - [06/Mar/2024 01:51:54] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:52:05,382:INFO:127.0.0.1 - - [06/Mar/2024 01:52:05] "[32mPOST /video_feed HTTP/1.1[0m" 302 -
+2024-03-06 01:52:05,392:INFO:127.0.0.1 - - [06/Mar/2024 01:52:05] "GET /markattendance HTTP/1.1" 200 -
+2024-03-06 01:52:05,421:INFO:127.0.0.1 - - [06/Mar/2024 01:52:05] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:52:33,875:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\attendance.py', reloading
+2024-03-06 01:52:33,947:INFO: * Restarting with stat
+2024-03-06 01:52:35,513:WARNING: * Debugger is active!
+2024-03-06 01:52:35,518:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:53:34,281:INFO:127.0.0.1 - - [06/Mar/2024 01:53:34] "GET /markattendance HTTP/1.1" 200 -
+2024-03-06 01:53:34,672:INFO:127.0.0.1 - - [06/Mar/2024 01:53:34] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:53:36,975:INFO:127.0.0.1 - - [06/Mar/2024 01:53:36] "GET /get_sessions?course_id=3 HTTP/1.1" 200 -
+2024-03-06 01:53:36,986:INFO:127.0.0.1 - - [06/Mar/2024 01:53:36] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:53:39,316:INFO:127.0.0.1 - - [06/Mar/2024 01:53:39] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:53:50,438:INFO:127.0.0.1 - - [06/Mar/2024 01:53:50] "[32mPOST /video_feed HTTP/1.1[0m" 302 -
+2024-03-06 01:53:50,454:INFO:127.0.0.1 - - [06/Mar/2024 01:53:50] "GET /markattendance HTTP/1.1" 200 -
+2024-03-06 01:53:50,493:INFO:127.0.0.1 - - [06/Mar/2024 01:53:50] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:53:56,408:INFO:127.0.0.1 - - [06/Mar/2024 01:53:56] "GET /get_sessions?course_id=3 HTTP/1.1" 200 -
+2024-03-06 01:53:56,427:INFO:127.0.0.1 - - [06/Mar/2024 01:53:56] "POST /fetch_attendance HTTP/1.1" 200 -
+2024-03-06 01:54:08,636:INFO:127.0.0.1 - - [06/Mar/2024 01:54:08] "GET /StudentUpdateProfile HTTP/1.1" 200 -
+2024-03-06 01:54:08,659:INFO:127.0.0.1 - - [06/Mar/2024 01:54:08] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 01:54:11,445:INFO:127.0.0.1 - - [06/Mar/2024 01:54:11] "[33mGET /attendance_insights HTTP/1.1[0m" 404 -
+2024-03-06 01:55:22,856:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\attendance.py', reloading
+2024-03-06 01:55:22,953:INFO: * Restarting with stat
+2024-03-06 01:55:24,546:WARNING: * Debugger is active!
+2024-03-06 01:55:24,552:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:55:31,422:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\attendance.py', reloading
+2024-03-06 01:55:31,485:INFO: * Restarting with stat
+2024-03-06 01:55:33,164:WARNING: * Debugger is active!
+2024-03-06 01:55:33,169:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:55:40,063:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\attendance.py', reloading
+2024-03-06 01:55:40,121:INFO: * Restarting with stat
+2024-03-06 01:55:41,609:WARNING: * Debugger is active!
+2024-03-06 01:55:41,614:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:55:57,393:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\attendance.py', reloading
+2024-03-06 01:55:57,454:INFO: * Restarting with stat
+2024-03-06 01:55:59,137:WARNING: * Debugger is active!
+2024-03-06 01:55:59,148:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:56:17,203:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\services.py', reloading
+2024-03-06 01:56:17,262:INFO: * Restarting with stat
+2024-03-06 01:56:18,832:WARNING: * Debugger is active!
+2024-03-06 01:56:18,838:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:57:05,316:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\routes.py', reloading
+2024-03-06 01:57:05,383:INFO: * Restarting with stat
+2024-03-06 01:57:07,614:WARNING: * Debugger is active!
+2024-03-06 01:57:07,636:INFO: * Debugger PIN: 102-679-597
+2024-03-06 01:57:42,738:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\routes.py', reloading
+2024-03-06 01:57:42,801:INFO: * Restarting with stat
+2024-03-06 01:57:44,358:WARNING: * Debugger is active!
+2024-03-06 01:57:44,363:INFO: * Debugger PIN: 102-679-597
+2024-03-06 11:10:39,980:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 11:10:39,980:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 11:10:39,984:INFO: * Restarting with stat
+2024-03-06 11:10:42,599:WARNING: * Debugger is active!
+2024-03-06 11:10:42,608:INFO: * Debugger PIN: 102-679-597
+2024-03-06 11:10:51,551:INFO:127.0.0.1 - - [06/Mar/2024 11:10:51] "GET / HTTP/1.1" 200 -
+2024-03-06 11:10:52,163:INFO:127.0.0.1 - - [06/Mar/2024 11:10:52] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 11:10:52,163:INFO:127.0.0.1 - - [06/Mar/2024 11:10:52] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-06 11:10:52,186:INFO:127.0.0.1 - - [06/Mar/2024 11:10:52] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 11:10:54,106:INFO:127.0.0.1 - - [06/Mar/2024 11:10:54] "GET /studentlogin HTTP/1.1" 200 -
+2024-03-06 11:10:54,150:INFO:127.0.0.1 - - [06/Mar/2024 11:10:54] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 11:10:54,159:INFO:127.0.0.1 - - [06/Mar/2024 11:10:54] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 11:10:59,044:INFO:127.0.0.1 - - [06/Mar/2024 11:10:59] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-03-06 11:10:59,090:INFO:127.0.0.1 - - [06/Mar/2024 11:10:59] "GET /Studentdashboard?login_success=1 HTTP/1.1" 200 -
+2024-03-06 11:10:59,130:INFO:127.0.0.1 - - [06/Mar/2024 11:10:59] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 11:11:02,319:INFO:127.0.0.1 - - [06/Mar/2024 11:11:02] "GET /course_enrollment HTTP/1.1" 200 -
+2024-03-06 11:11:02,355:INFO:127.0.0.1 - - [06/Mar/2024 11:11:02] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 11:12:14,593:INFO:127.0.0.1 - - [06/Mar/2024 11:12:14] "GET /course_enrollment HTTP/1.1" 200 -
+2024-03-06 11:12:14,630:INFO:127.0.0.1 - - [06/Mar/2024 11:12:14] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 11:16:45,876:INFO:127.0.0.1 - - [06/Mar/2024 11:16:45] "GET /course_enrollment HTTP/1.1" 200 -
+2024-03-06 11:16:45,991:INFO:127.0.0.1 - - [06/Mar/2024 11:16:45] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 11:17:15,799:INFO:127.0.0.1 - - [06/Mar/2024 11:17:15] "GET /course_enrollment HTTP/1.1" 200 -
+2024-03-06 11:17:15,869:INFO:127.0.0.1 - - [06/Mar/2024 11:17:15] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 11:17:22,787:INFO:127.0.0.1 - - [06/Mar/2024 11:17:22] "[32mPOST /enroll_in_course HTTP/1.1[0m" 302 -
+2024-03-06 11:17:22,835:INFO:127.0.0.1 - - [06/Mar/2024 11:17:22] "GET /course_enrollment HTTP/1.1" 200 -
+2024-03-06 11:17:23,078:INFO:127.0.0.1 - - [06/Mar/2024 11:17:23] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 15:35:10,187:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 15:35:10,187:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 15:35:10,190:INFO: * Restarting with stat
+2024-03-06 15:35:15,468:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 15:35:15,468:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 15:35:15,470:INFO: * Restarting with stat
+2024-03-06 15:35:17,864:WARNING: * Debugger is active!
+2024-03-06 15:35:17,878:INFO: * Debugger PIN: 102-679-597
+2024-03-06 15:37:39,434:DEBUG:Logging out user.
+2024-03-06 15:37:39,435:INFO:127.0.0.1 - - [06/Mar/2024 15:37:39] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-03-06 15:37:39,470:INFO:127.0.0.1 - - [06/Mar/2024 15:37:39] "GET / HTTP/1.1" 200 -
+2024-03-06 15:37:40,787:INFO:127.0.0.1 - - [06/Mar/2024 15:37:40] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-06 15:37:40,789:INFO:127.0.0.1 - - [06/Mar/2024 15:37:40] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 15:37:40,806:INFO:127.0.0.1 - - [06/Mar/2024 15:37:40] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 15:37:41,732:INFO:127.0.0.1 - - [06/Mar/2024 15:37:41] "GET /registration HTTP/1.1" 200 -
+2024-03-06 15:37:41,813:INFO:127.0.0.1 - - [06/Mar/2024 15:37:41] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 15:37:41,879:INFO:127.0.0.1 - - [06/Mar/2024 15:37:41] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 15:39:01,138:INFO:127.0.0.1 - - [06/Mar/2024 15:39:01] "[32mPOST /registration HTTP/1.1[0m" 302 -
+2024-03-06 15:39:01,148:INFO:127.0.0.1 - - [06/Mar/2024 15:39:01] "GET /registration HTTP/1.1" 200 -
+2024-03-06 15:39:01,186:INFO:127.0.0.1 - - [06/Mar/2024 15:39:01] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 15:39:01,197:INFO:127.0.0.1 - - [06/Mar/2024 15:39:01] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 15:39:03,757:INFO:127.0.0.1 - - [06/Mar/2024 15:39:03] "GET / HTTP/1.1" 200 -
+2024-03-06 15:39:03,797:INFO:127.0.0.1 - - [06/Mar/2024 15:39:03] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 15:39:03,798:INFO:127.0.0.1 - - [06/Mar/2024 15:39:03] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-06 15:39:03,866:INFO:127.0.0.1 - - [06/Mar/2024 15:39:03] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 15:58:14,820:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 15:58:14,821:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 15:58:14,823:INFO: * Restarting with stat
+2024-03-06 15:58:18,136:WARNING: * Debugger is active!
+2024-03-06 15:58:18,147:INFO: * Debugger PIN: 102-679-597
+2024-03-06 15:59:04,442:INFO:127.0.0.1 - - [06/Mar/2024 15:59:04] "GET / HTTP/1.1" 200 -
+2024-03-06 15:59:05,553:INFO:127.0.0.1 - - [06/Mar/2024 15:59:05] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 15:59:05,699:INFO:127.0.0.1 - - [06/Mar/2024 15:59:05] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-06 15:59:05,738:INFO:127.0.0.1 - - [06/Mar/2024 15:59:05] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 15:59:08,946:INFO:127.0.0.1 - - [06/Mar/2024 15:59:08] "GET /registration HTTP/1.1" 200 -
+2024-03-06 15:59:08,992:INFO:127.0.0.1 - - [06/Mar/2024 15:59:08] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 15:59:09,043:INFO:127.0.0.1 - - [06/Mar/2024 15:59:09] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 15:59:45,237:INFO:127.0.0.1 - - [06/Mar/2024 15:59:45] "GET /studentlogin HTTP/1.1" 200 -
+2024-03-06 15:59:45,366:INFO:127.0.0.1 - - [06/Mar/2024 15:59:45] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 15:59:45,476:INFO:127.0.0.1 - - [06/Mar/2024 15:59:45] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 16:31:05,273:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 16:31:05,275:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 16:31:05,277:INFO: * Restarting with stat
+2024-03-06 16:31:07,756:WARNING: * Debugger is active!
+2024-03-06 16:31:07,763:INFO: * Debugger PIN: 102-679-597
+2024-03-06 16:33:34,648:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 16:33:34,649:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 16:33:34,650:INFO: * Restarting with stat
+2024-03-06 16:33:37,235:WARNING: * Debugger is active!
+2024-03-06 16:33:37,246:INFO: * Debugger PIN: 102-679-597
+2024-03-06 16:33:46,233:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\services.py', reloading
+2024-03-06 16:33:46,345:INFO: * Restarting with stat
+2024-03-06 16:33:48,869:WARNING: * Debugger is active!
+2024-03-06 16:33:48,878:INFO: * Debugger PIN: 102-679-597
+2024-03-06 16:35:22,398:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\services.py', reloading
+2024-03-06 16:35:22,499:INFO: * Restarting with stat
+2024-03-06 16:35:24,877:WARNING: * Debugger is active!
+2024-03-06 16:35:24,888:INFO: * Debugger PIN: 102-679-597
+2024-03-06 16:36:02,970:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\services.py', reloading
+2024-03-06 16:36:03,103:INFO: * Restarting with stat
+2024-03-06 16:36:06,012:WARNING: * Debugger is active!
+2024-03-06 16:36:06,019:INFO: * Debugger PIN: 102-679-597
+2024-03-06 16:36:37,855:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 16:36:37,855:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 16:36:37,857:INFO: * Restarting with stat
+2024-03-06 16:36:40,383:WARNING: * Debugger is active!
+2024-03-06 16:36:40,391:INFO: * Debugger PIN: 102-679-597
+2024-03-06 16:36:40,571:INFO:127.0.0.1 - - [06/Mar/2024 16:36:40] "GET / HTTP/1.1" 200 -
+2024-03-06 16:36:41,409:INFO:127.0.0.1 - - [06/Mar/2024 16:36:41] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-06 16:36:41,410:INFO:127.0.0.1 - - [06/Mar/2024 16:36:41] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 16:36:41,411:INFO:127.0.0.1 - - [06/Mar/2024 16:36:41] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 16:36:43,692:INFO:127.0.0.1 - - [06/Mar/2024 16:36:43] "GET /studentlogin HTTP/1.1" 200 -
+2024-03-06 16:36:43,745:INFO:127.0.0.1 - - [06/Mar/2024 16:36:43] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 16:36:43,838:INFO:127.0.0.1 - - [06/Mar/2024 16:36:43] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 16:36:46,435:INFO:127.0.0.1 - - [06/Mar/2024 16:36:46] "GET / HTTP/1.1" 200 -
+2024-03-06 16:36:46,501:INFO:127.0.0.1 - - [06/Mar/2024 16:36:46] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 16:36:46,524:INFO:127.0.0.1 - - [06/Mar/2024 16:36:46] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-06 16:36:46,616:INFO:127.0.0.1 - - [06/Mar/2024 16:36:46] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 16:36:47,990:INFO:127.0.0.1 - - [06/Mar/2024 16:36:47] "GET /registration HTTP/1.1" 200 -
+2024-03-06 16:36:48,025:INFO:127.0.0.1 - - [06/Mar/2024 16:36:48] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 16:36:48,147:INFO:127.0.0.1 - - [06/Mar/2024 16:36:48] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 16:37:14,014:INFO:127.0.0.1 - - [06/Mar/2024 16:37:14] "[35m[1mPOST /registration HTTP/1.1[0m" 500 -
+2024-03-06 16:37:14,086:INFO:127.0.0.1 - - [06/Mar/2024 16:37:14] "GET /registration?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2024-03-06 16:37:14,098:INFO:127.0.0.1 - - [06/Mar/2024 16:37:14] "GET /registration?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2024-03-06 16:37:14,296:INFO:127.0.0.1 - - [06/Mar/2024 16:37:14] "GET /registration?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2024-03-06 16:37:14,443:INFO:127.0.0.1 - - [06/Mar/2024 16:37:14] "[36mGET /registration?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-03-06 16:37:41,531:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\services.py', reloading
+2024-03-06 16:37:41,660:INFO: * Restarting with stat
+2024-03-06 16:37:44,055:WARNING: * Debugger is active!
+2024-03-06 16:37:44,061:INFO: * Debugger PIN: 102-679-597
+2024-03-06 16:37:57,033:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\services.py', reloading
+2024-03-06 16:37:57,287:INFO: * Restarting with stat
+2024-03-06 16:40:11,280:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 16:40:11,280:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 16:40:11,282:INFO: * Restarting with stat
+2024-03-06 16:40:13,913:WARNING: * Debugger is active!
+2024-03-06 16:40:13,923:INFO: * Debugger PIN: 102-679-597
+2024-03-06 16:40:19,286:INFO:127.0.0.1 - - [06/Mar/2024 16:40:19] "GET /registration HTTP/1.1" 200 -
+2024-03-06 16:40:20,180:INFO:127.0.0.1 - - [06/Mar/2024 16:40:20] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 16:40:20,300:INFO:127.0.0.1 - - [06/Mar/2024 16:40:20] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 16:40:30,152:INFO:127.0.0.1 - - [06/Mar/2024 16:40:30] "GET / HTTP/1.1" 200 -
+2024-03-06 16:40:30,209:INFO:127.0.0.1 - - [06/Mar/2024 16:40:30] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 16:40:30,215:INFO:127.0.0.1 - - [06/Mar/2024 16:40:30] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-06 16:40:30,242:INFO:127.0.0.1 - - [06/Mar/2024 16:40:30] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 16:40:35,343:INFO:127.0.0.1 - - [06/Mar/2024 16:40:35] "GET /registration HTTP/1.1" 200 -
+2024-03-06 16:40:35,406:INFO:127.0.0.1 - - [06/Mar/2024 16:40:35] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 16:40:35,457:INFO:127.0.0.1 - - [06/Mar/2024 16:40:35] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 16:41:00,434:INFO:127.0.0.1 - - [06/Mar/2024 16:41:00] "[32mPOST /registration HTTP/1.1[0m" 302 -
+2024-03-06 16:41:00,449:INFO:127.0.0.1 - - [06/Mar/2024 16:41:00] "GET /registration HTTP/1.1" 200 -
+2024-03-06 16:41:00,510:INFO:127.0.0.1 - - [06/Mar/2024 16:41:00] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 16:41:00,549:INFO:127.0.0.1 - - [06/Mar/2024 16:41:00] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 16:41:02,658:INFO:127.0.0.1 - - [06/Mar/2024 16:41:02] "GET / HTTP/1.1" 200 -
+2024-03-06 16:41:02,725:INFO:127.0.0.1 - - [06/Mar/2024 16:41:02] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 16:41:02,740:INFO:127.0.0.1 - - [06/Mar/2024 16:41:02] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-06 16:41:02,749:INFO:127.0.0.1 - - [06/Mar/2024 16:41:02] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 16:43:24,523:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\attendance.py', reloading
+2024-03-06 16:43:24,698:INFO: * Restarting with stat
+2024-03-06 16:43:27,037:WARNING: * Debugger is active!
+2024-03-06 16:43:27,044:INFO: * Debugger PIN: 102-679-597
+2024-03-06 16:44:45,593:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\services.py', reloading
+2024-03-06 16:44:45,720:INFO: * Restarting with stat
+2024-03-06 16:46:11,420:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 16:46:11,420:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 16:46:11,428:INFO: * Restarting with stat
+2024-03-06 16:46:13,882:WARNING: * Debugger is active!
+2024-03-06 16:46:13,890:INFO: * Debugger PIN: 102-679-597
+2024-03-06 16:46:15,503:INFO:127.0.0.1 - - [06/Mar/2024 16:46:15] "GET / HTTP/1.1" 200 -
+2024-03-06 16:46:16,204:INFO:127.0.0.1 - - [06/Mar/2024 16:46:16] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 16:46:16,205:INFO:127.0.0.1 - - [06/Mar/2024 16:46:16] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-06 16:46:16,215:INFO:127.0.0.1 - - [06/Mar/2024 16:46:16] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 16:46:17,471:INFO:127.0.0.1 - - [06/Mar/2024 16:46:17] "GET /studentlogin HTTP/1.1" 200 -
+2024-03-06 16:46:17,530:INFO:127.0.0.1 - - [06/Mar/2024 16:46:17] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 16:46:17,572:INFO:127.0.0.1 - - [06/Mar/2024 16:46:17] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 16:46:24,936:INFO:127.0.0.1 - - [06/Mar/2024 16:46:24] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-03-06 16:46:24,992:INFO:127.0.0.1 - - [06/Mar/2024 16:46:24] "GET /Studentdashboard?login_success=1 HTTP/1.1" 200 -
+2024-03-06 16:46:25,247:INFO:127.0.0.1 - - [06/Mar/2024 16:46:25] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 16:46:27,915:INFO:127.0.0.1 - - [06/Mar/2024 16:46:27] "[33mGET /markattendance HTTP/1.1[0m" 404 -
+2024-03-06 16:46:31,874:INFO:127.0.0.1 - - [06/Mar/2024 16:46:31] "[33mGET /StudentUpdateProfile HTTP/1.1[0m" 404 -
+2024-03-06 16:46:38,185:INFO:127.0.0.1 - - [06/Mar/2024 16:46:38] "GET / HTTP/1.1" 200 -
+2024-03-06 16:46:38,269:INFO:127.0.0.1 - - [06/Mar/2024 16:46:38] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 16:46:38,314:INFO:127.0.0.1 - - [06/Mar/2024 16:46:38] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-06 16:46:38,371:INFO:127.0.0.1 - - [06/Mar/2024 16:46:38] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 16:46:39,600:INFO:127.0.0.1 - - [06/Mar/2024 16:46:39] "GET /registration HTTP/1.1" 200 -
+2024-03-06 16:46:39,659:INFO:127.0.0.1 - - [06/Mar/2024 16:46:39] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 16:46:39,719:INFO:127.0.0.1 - - [06/Mar/2024 16:46:39] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 16:50:31,997:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\services.py', reloading
+2024-03-06 16:50:32,087:INFO: * Restarting with stat
+2024-03-06 16:50:34,693:WARNING: * Debugger is active!
+2024-03-06 16:50:34,701:INFO: * Debugger PIN: 102-679-597
+2024-03-06 16:53:09,315:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 16:53:09,316:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 16:53:09,317:INFO: * Restarting with stat
+2024-03-06 16:53:11,566:WARNING: * Debugger is active!
+2024-03-06 16:53:11,576:INFO: * Debugger PIN: 102-679-597
+2024-03-06 16:53:25,548:INFO:127.0.0.1 - - [06/Mar/2024 16:53:25] "GET /registration HTTP/1.1" 200 -
+2024-03-06 16:53:26,014:INFO:127.0.0.1 - - [06/Mar/2024 16:53:26] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 16:53:26,258:INFO:127.0.0.1 - - [06/Mar/2024 16:53:26] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 16:53:47,639:INFO:127.0.0.1 - - [06/Mar/2024 16:53:47] "[32mPOST /registration HTTP/1.1[0m" 302 -
+2024-03-06 16:53:47,648:INFO:127.0.0.1 - - [06/Mar/2024 16:53:47] "GET /registration HTTP/1.1" 200 -
+2024-03-06 16:53:47,696:INFO:127.0.0.1 - - [06/Mar/2024 16:53:47] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 16:53:47,706:INFO:127.0.0.1 - - [06/Mar/2024 16:53:47] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 16:53:49,944:INFO:127.0.0.1 - - [06/Mar/2024 16:53:49] "GET / HTTP/1.1" 200 -
+2024-03-06 16:53:49,992:INFO:127.0.0.1 - - [06/Mar/2024 16:53:49] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 16:53:49,995:INFO:127.0.0.1 - - [06/Mar/2024 16:53:49] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-06 16:53:50,008:INFO:127.0.0.1 - - [06/Mar/2024 16:53:50] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 16:54:11,030:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\services.py', reloading
+2024-03-06 16:54:11,133:INFO: * Restarting with stat
+2024-03-06 16:54:13,417:WARNING: * Debugger is active!
+2024-03-06 16:54:13,425:INFO: * Debugger PIN: 102-679-597
+2024-03-06 16:54:39,525:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 16:54:39,525:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 16:54:39,526:INFO: * Restarting with stat
+2024-03-06 16:54:42,141:WARNING: * Debugger is active!
+2024-03-06 16:54:42,151:INFO: * Debugger PIN: 102-679-597
+2024-03-06 17:00:15,781:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\services.py', reloading
+2024-03-06 17:00:15,860:INFO: * Restarting with stat
+2024-03-06 17:00:18,317:WARNING: * Debugger is active!
+2024-03-06 17:00:18,325:INFO: * Debugger PIN: 102-679-597
+2024-03-06 17:00:24,646:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 17:00:24,646:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 17:00:24,648:INFO: * Restarting with stat
+2024-03-06 17:00:26,887:WARNING: * Debugger is active!
+2024-03-06 17:00:26,899:INFO: * Debugger PIN: 102-679-597
+2024-03-06 17:00:35,417:INFO:127.0.0.1 - - [06/Mar/2024 17:00:35] "GET /registration HTTP/1.1" 200 -
+2024-03-06 17:00:37,171:INFO:127.0.0.1 - - [06/Mar/2024 17:00:37] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 17:00:37,174:INFO:127.0.0.1 - - [06/Mar/2024 17:00:37] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 17:01:01,283:INFO:127.0.0.1 - - [06/Mar/2024 17:01:01] "[32mPOST /registration HTTP/1.1[0m" 302 -
+2024-03-06 17:01:01,292:INFO:127.0.0.1 - - [06/Mar/2024 17:01:01] "GET /registration HTTP/1.1" 200 -
+2024-03-06 17:01:01,365:INFO:127.0.0.1 - - [06/Mar/2024 17:01:01] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 17:01:01,422:INFO:127.0.0.1 - - [06/Mar/2024 17:01:01] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 17:01:03,412:INFO:127.0.0.1 - - [06/Mar/2024 17:01:03] "GET / HTTP/1.1" 200 -
+2024-03-06 17:01:03,453:INFO:127.0.0.1 - - [06/Mar/2024 17:01:03] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 17:01:03,471:INFO:127.0.0.1 - - [06/Mar/2024 17:01:03] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-06 17:01:03,554:INFO:127.0.0.1 - - [06/Mar/2024 17:01:03] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 17:01:21,948:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\services.py', reloading
+2024-03-06 17:01:22,095:INFO: * Restarting with stat
+2024-03-06 17:01:24,924:WARNING: * Debugger is active!
+2024-03-06 17:01:24,931:INFO: * Debugger PIN: 102-679-597
+2024-03-06 22:17:35,139:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 22:17:35,140:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 22:17:35,143:INFO: * Restarting with stat
+2024-03-06 22:17:37,549:WARNING: * Debugger is active!
+2024-03-06 22:17:37,562:INFO: * Debugger PIN: 102-679-597
+2024-03-06 23:00:43,615:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\routes.py', reloading
+2024-03-06 23:00:43,767:INFO: * Restarting with stat
+2024-03-06 23:00:46,268:WARNING: * Debugger is active!
+2024-03-06 23:00:46,277:INFO: * Debugger PIN: 102-679-597
+2024-03-06 23:00:53,748:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 23:00:53,749:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 23:00:53,750:INFO: * Restarting with stat
+2024-03-06 23:00:56,174:WARNING: * Debugger is active!
+2024-03-06 23:00:56,183:INFO: * Debugger PIN: 102-679-597
+2024-03-06 23:01:11,361:INFO:127.0.0.1 - - [06/Mar/2024 23:01:11] "GET / HTTP/1.1" 200 -
+2024-03-06 23:01:12,293:INFO:127.0.0.1 - - [06/Mar/2024 23:01:12] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 23:01:12,302:INFO:127.0.0.1 - - [06/Mar/2024 23:01:12] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:01:12,309:INFO:127.0.0.1 - - [06/Mar/2024 23:01:12] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:01:18,189:INFO:127.0.0.1 - - [06/Mar/2024 23:01:18] "GET /studentlogin HTTP/1.1" 200 -
+2024-03-06 23:01:18,241:INFO:127.0.0.1 - - [06/Mar/2024 23:01:18] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 23:01:18,292:INFO:127.0.0.1 - - [06/Mar/2024 23:01:18] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:01:55,635:INFO:127.0.0.1 - - [06/Mar/2024 23:01:55] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-03-06 23:01:55,676:INFO:127.0.0.1 - - [06/Mar/2024 23:01:55] "GET /Studentdashboard?login_success=1 HTTP/1.1" 200 -
+2024-03-06 23:01:55,783:INFO:127.0.0.1 - - [06/Mar/2024 23:01:55] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:01:59,025:INFO:127.0.0.1 - - [06/Mar/2024 23:01:59] "[33mGET /markattendance HTTP/1.1[0m" 404 -
+2024-03-06 23:02:02,363:INFO:127.0.0.1 - - [06/Mar/2024 23:02:02] "[33mGET /course_enrollment HTTP/1.1[0m" 404 -
+2024-03-06 23:02:13,789:INFO:127.0.0.1 - - [06/Mar/2024 23:02:13] "GET /Studentdashboard HTTP/1.1" 200 -
+2024-03-06 23:02:13,891:INFO:127.0.0.1 - - [06/Mar/2024 23:02:13] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:02:18,110:DEBUG:Logging out user.
+2024-03-06 23:02:18,112:INFO:127.0.0.1 - - [06/Mar/2024 23:02:18] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-03-06 23:02:18,124:INFO:127.0.0.1 - - [06/Mar/2024 23:02:18] "GET / HTTP/1.1" 200 -
+2024-03-06 23:02:18,237:INFO:127.0.0.1 - - [06/Mar/2024 23:02:18] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 23:02:18,247:INFO:127.0.0.1 - - [06/Mar/2024 23:02:18] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:02:18,262:INFO:127.0.0.1 - - [06/Mar/2024 23:02:18] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:07:58,952:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\routes.py', reloading
+2024-03-06 23:07:59,052:INFO: * Restarting with stat
+2024-03-06 23:08:01,250:WARNING: * Debugger is active!
+2024-03-06 23:08:01,258:INFO: * Debugger PIN: 102-679-597
+2024-03-06 23:11:29,493:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\config.py', reloading
+2024-03-06 23:11:29,587:INFO: * Restarting with stat
+2024-03-06 23:11:31,889:WARNING: * Debugger is active!
+2024-03-06 23:11:31,898:INFO: * Debugger PIN: 102-679-597
+2024-03-06 23:12:25,981:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\config.py', reloading
+2024-03-06 23:12:26,130:INFO: * Restarting with stat
+2024-03-06 23:12:28,571:WARNING: * Debugger is active!
+2024-03-06 23:12:28,578:INFO: * Debugger PIN: 102-679-597
+2024-03-06 23:12:37,033:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\config.py', reloading
+2024-03-06 23:12:37,111:INFO: * Restarting with stat
+2024-03-06 23:12:39,493:WARNING: * Debugger is active!
+2024-03-06 23:12:39,500:INFO: * Debugger PIN: 102-679-597
+2024-03-06 23:12:40,943:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\config.py', reloading
+2024-03-06 23:12:41,027:INFO: * Restarting with stat
+2024-03-06 23:12:43,317:WARNING: * Debugger is active!
+2024-03-06 23:12:43,324:INFO: * Debugger PIN: 102-679-597
+2024-03-06 23:13:18,902:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\config.py', reloading
+2024-03-06 23:13:19,031:INFO: * Restarting with stat
+2024-03-06 23:13:24,258:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 23:13:24,258:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 23:13:24,260:INFO: * Restarting with stat
+2024-03-06 23:13:26,758:WARNING: * Debugger is active!
+2024-03-06 23:13:26,768:INFO: * Debugger PIN: 102-679-597
+2024-03-06 23:13:38,951:INFO:127.0.0.1 - - [06/Mar/2024 23:13:38] "GET / HTTP/1.1" 200 -
+2024-03-06 23:13:41,182:INFO:127.0.0.1 - - [06/Mar/2024 23:13:41] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 23:13:41,381:INFO:127.0.0.1 - - [06/Mar/2024 23:13:41] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:13:41,462:INFO:127.0.0.1 - - [06/Mar/2024 23:13:41] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:13:42,201:INFO:127.0.0.1 - - [06/Mar/2024 23:13:42] "GET /studentlogin HTTP/1.1" 200 -
+2024-03-06 23:13:42,257:INFO:127.0.0.1 - - [06/Mar/2024 23:13:42] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 23:13:42,308:INFO:127.0.0.1 - - [06/Mar/2024 23:13:42] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:13:46,682:INFO:127.0.0.1 - - [06/Mar/2024 23:13:46] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-03-06 23:13:46,714:INFO:127.0.0.1 - - [06/Mar/2024 23:13:46] "GET /Studentdashboard?login_success=1 HTTP/1.1" 200 -
+2024-03-06 23:13:46,765:INFO:127.0.0.1 - - [06/Mar/2024 23:13:46] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:14:25,194:INFO:127.0.0.1 - - [06/Mar/2024 23:14:25] "GET /Studentdashboard?login_success=1 HTTP/1.1" 200 -
+2024-03-06 23:14:25,368:INFO:127.0.0.1 - - [06/Mar/2024 23:14:25] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:17:21,700:INFO:127.0.0.1 - - [06/Mar/2024 23:17:21] "GET /Studentdashboard?login_success=1 HTTP/1.1" 200 -
+2024-03-06 23:17:21,788:INFO:127.0.0.1 - - [06/Mar/2024 23:17:21] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:17:26,164:INFO:127.0.0.1 - - [06/Mar/2024 23:17:26] "GET /Studentdashboard?login_success=1 HTTP/1.1" 200 -
+2024-03-06 23:17:26,268:INFO:127.0.0.1 - - [06/Mar/2024 23:17:26] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:17:33,493:INFO:127.0.0.1 - - [06/Mar/2024 23:17:33] "[33mGET /markattendance HTTP/1.1[0m" 404 -
+2024-03-06 23:18:32,808:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\config.py', reloading
+2024-03-06 23:18:32,964:INFO: * Restarting with stat
+2024-03-06 23:18:35,285:WARNING: * Debugger is active!
+2024-03-06 23:18:35,295:INFO: * Debugger PIN: 102-679-597
+2024-03-06 23:18:40,974:INFO:127.0.0.1 - - [06/Mar/2024 23:18:40] "GET /Studentdashboard?login_success=1 HTTP/1.1" 200 -
+2024-03-06 23:18:41,863:INFO:127.0.0.1 - - [06/Mar/2024 23:18:41] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:23:44,200:INFO:127.0.0.1 - - [06/Mar/2024 23:23:44] "GET /Studentdashboard?login_success=1 HTTP/1.1" 200 -
+2024-03-06 23:23:44,314:INFO:127.0.0.1 - - [06/Mar/2024 23:23:44] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:25:14,237:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\config.py', reloading
+2024-03-06 23:25:14,357:INFO: * Restarting with stat
+2024-03-06 23:25:16,761:WARNING: * Debugger is active!
+2024-03-06 23:25:16,771:INFO: * Debugger PIN: 102-679-597
+2024-03-06 23:25:49,951:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 23:25:49,952:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 23:25:49,955:INFO: * Restarting with stat
+2024-03-06 23:25:52,720:WARNING: * Debugger is active!
+2024-03-06 23:25:52,732:INFO: * Debugger PIN: 102-679-597
+2024-03-06 23:25:56,079:INFO:127.0.0.1 - - [06/Mar/2024 23:25:56] "GET /Studentdashboard?login_success=1 HTTP/1.1" 200 -
+2024-03-06 23:25:56,496:INFO:127.0.0.1 - - [06/Mar/2024 23:25:56] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:25:59,715:INFO:127.0.0.1 - - [06/Mar/2024 23:25:59] "GET /home HTTP/1.1" 200 -
+2024-03-06 23:25:59,789:INFO:127.0.0.1 - - [06/Mar/2024 23:25:59] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 23:25:59,812:INFO:127.0.0.1 - - [06/Mar/2024 23:25:59] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:25:59,886:INFO:127.0.0.1 - - [06/Mar/2024 23:25:59] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:26:02,416:INFO:127.0.0.1 - - [06/Mar/2024 23:26:02] "GET / HTTP/1.1" 200 -
+2024-03-06 23:26:02,462:INFO:127.0.0.1 - - [06/Mar/2024 23:26:02] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 23:26:02,471:INFO:127.0.0.1 - - [06/Mar/2024 23:26:02] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:26:02,504:INFO:127.0.0.1 - - [06/Mar/2024 23:26:02] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:26:04,753:INFO:127.0.0.1 - - [06/Mar/2024 23:26:04] "GET /studentlogin HTTP/1.1" 200 -
+2024-03-06 23:26:04,843:INFO:127.0.0.1 - - [06/Mar/2024 23:26:04] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 23:26:05,116:INFO:127.0.0.1 - - [06/Mar/2024 23:26:05] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:26:09,274:INFO:127.0.0.1 - - [06/Mar/2024 23:26:09] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-03-06 23:26:09,285:INFO:127.0.0.1 - - [06/Mar/2024 23:26:09] "GET /Studentdashboard?login_success=1 HTTP/1.1" 200 -
+2024-03-06 23:26:09,332:INFO:127.0.0.1 - - [06/Mar/2024 23:26:09] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:26:13,085:INFO:127.0.0.1 - - [06/Mar/2024 23:26:13] "GET /Studentdashboard HTTP/1.1" 200 -
+2024-03-06 23:26:13,165:INFO:127.0.0.1 - - [06/Mar/2024 23:26:13] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:26:20,574:INFO:127.0.0.1 - - [06/Mar/2024 23:26:20] "GET /Studentdashboard HTTP/1.1" 200 -
+2024-03-06 23:26:20,678:INFO:127.0.0.1 - - [06/Mar/2024 23:26:20] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:26:24,565:INFO:127.0.0.1 - - [06/Mar/2024 23:26:24] "[33mGET /markattendance HTTP/1.1[0m" 404 -
+2024-03-06 23:32:29,424:INFO:127.0.0.1 - - [06/Mar/2024 23:32:29] "GET /Studentdashboard HTTP/1.1" 200 -
+2024-03-06 23:32:29,486:INFO:127.0.0.1 - - [06/Mar/2024 23:32:29] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:40:59,446:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\main.py', reloading
+2024-03-06 23:40:59,715:INFO: * Restarting with stat
+2024-03-06 23:41:05,944:WARNING: * Debugger is active!
+2024-03-06 23:41:05,969:INFO: * Debugger PIN: 102-679-597
+2024-03-06 23:41:13,645:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\main.py', reloading
+2024-03-06 23:41:13,787:INFO: * Restarting with stat
+2024-03-06 23:41:19,120:WARNING: * Debugger is active!
+2024-03-06 23:41:19,139:INFO: * Debugger PIN: 102-679-597
+2024-03-06 23:41:29,672:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\main.py', reloading
+2024-03-06 23:41:29,908:INFO: * Restarting with stat
+2024-03-06 23:41:36,162:WARNING: * Debugger is active!
+2024-03-06 23:41:36,180:INFO: * Debugger PIN: 102-679-597
+2024-03-06 23:42:12,276:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\app\\Student\\routes.py', reloading
+2024-03-06 23:42:12,509:INFO: * Restarting with stat
+2024-03-06 23:42:18,144:WARNING: * Debugger is active!
+2024-03-06 23:42:18,172:INFO: * Debugger PIN: 102-679-597
+2024-03-06 23:42:44,522:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 23:42:44,523:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 23:42:44,525:INFO: * Restarting with stat
+2024-03-06 23:42:50,066:WARNING: * Debugger is active!
+2024-03-06 23:42:50,083:INFO: * Debugger PIN: 102-679-597
+2024-03-06 23:42:51,301:INFO:127.0.0.1 - - [06/Mar/2024 23:42:51] "GET / HTTP/1.1" 200 -
+2024-03-06 23:42:52,928:INFO:127.0.0.1 - - [06/Mar/2024 23:42:52] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 23:42:52,930:INFO:127.0.0.1 - - [06/Mar/2024 23:42:52] "[36mGET /static/image/about-system.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:42:52,931:INFO:127.0.0.1 - - [06/Mar/2024 23:42:52] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:42:54,848:INFO:127.0.0.1 - - [06/Mar/2024 23:42:54] "GET /studentlogin HTTP/1.1" 200 -
+2024-03-06 23:42:54,920:INFO:127.0.0.1 - - [06/Mar/2024 23:42:54] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 23:42:55,009:INFO:127.0.0.1 - - [06/Mar/2024 23:42:55] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:42:58,991:INFO:127.0.0.1 - - [06/Mar/2024 23:42:58] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-03-06 23:42:59,031:INFO:127.0.0.1 - - [06/Mar/2024 23:42:59] "GET /Studentdashboard?login_success=1 HTTP/1.1" 200 -
+2024-03-06 23:42:59,143:INFO:127.0.0.1 - - [06/Mar/2024 23:42:59] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:46:06,571:INFO:127.0.0.1 - - [06/Mar/2024 23:46:06] "[32mGET /Studentdashboard HTTP/1.1[0m" 302 -
+2024-03-06 23:46:06,590:INFO:127.0.0.1 - - [06/Mar/2024 23:46:06] "GET /login HTTP/1.1" 200 -
+2024-03-06 23:46:06,680:INFO:127.0.0.1 - - [06/Mar/2024 23:46:06] "[36mGET /static/image/logo.png HTTP/1.1[0m" 304 -
+2024-03-06 23:46:06,817:INFO:127.0.0.1 - - [06/Mar/2024 23:46:06] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:46:21,148:INFO: * Detected change in 'C:\\Users\\Rehana\\Desktop\\Big_Data_Semester1\\Programming_for_big-data\\Project\\FacialRecognitionAttendanceSystem\\config.py', reloading
+2024-03-06 23:46:21,327:INFO: * Restarting with stat
+2024-03-06 23:46:33,253:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-06 23:46:33,253:INFO:[33mPress CTRL+C to quit[0m
+2024-03-06 23:46:33,257:INFO: * Restarting with stat
+2024-03-06 23:46:38,440:WARNING: * Debugger is active!
+2024-03-06 23:46:38,462:INFO: * Debugger PIN: 102-679-597
+2024-03-06 23:47:44,701:INFO:127.0.0.1 - - [06/Mar/2024 23:47:44] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-03-06 23:47:44,738:INFO:127.0.0.1 - - [06/Mar/2024 23:47:44] "GET /Studentdashboard?login_success=1 HTTP/1.1" 200 -
+2024-03-06 23:47:45,789:INFO:127.0.0.1 - - [06/Mar/2024 23:47:45] "[36mGET /static/image/background1.jpg HTTP/1.1[0m" 304 -
+2024-03-06 23:48:06,928:INFO:127.0.0.1 - - [06/Mar/2024 23:48:06] "[33mGET /course_enrollment HTTP/1.1[0m" 404 -

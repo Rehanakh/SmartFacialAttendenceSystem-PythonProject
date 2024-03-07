@@ -1,0 +1,40 @@
+{% extends "base_Student.html" %}
+
+{% block title %}Course Enrollment - Smart Attendance System{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <!-- Additional head content specific to course enrollment page -->
+{% endblock %}
+{% block extra_css %}
+<style>
+
+    h2{
+    color:#A8DADC;}
+    form{
+    color:white;}
+    .form-select {
+        color: #333; /* Dark text color for visibility */
+        background-color: #fff; /* Ensure background is white for contrast */
+    }
+    .form-select option {
+        color: #333; /* Dark text color for visibility */
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Course Enrollment</h2>
+    <form action="{{ url_for('enroll_in_course') }}" method="post">
+        <div class="mb-3">
+            <label for="courseSelect" class="form-label">Select Course:</label>
+            <select class="form-select" id="courseSelect" name="course_id">
+                {% for course in courses %}
+                <option value="{{ course.id }}">{{ course.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Enroll</button>
+    </form>
+</div>
+{% endblock %}
