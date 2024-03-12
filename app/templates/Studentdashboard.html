@@ -1,0 +1,106 @@
+{% extends "base_student.html" %}
+
+{% block title %}Student Dashboard - Smart Attendance System{% endblock %}
+
+{% block head %}
+    {{ super() }}
+
+    {% endblock %}
+{% block extra_css %}
+
+<!--    <style>-->
+<!--        html{-->
+<!--        height: 100%;-->
+<!--        margin: 0;-->
+<!--        }-->
+<!--        body {-->
+<!--            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;-->
+<!--            background-color: #708090;-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--            color:#E6E6FA;-->
+<!--            height: 100%;-->
+<!--        }-->
+<!--        .navbar, .footer {-->
+<!--        flex-shrink: 0;-->
+<!--         }-->
+<!--         .wrapper {-->
+<!--           display: flex;-->
+<!--           flex-direction: column;-->
+<!--           height: 100vh;-->
+<!--&lt;!&ndash;min-height: 100vh;&ndash;&gt;-->
+<!-- margin: 0;-->
+<!--        }-->
+<!--        .wrapper:after {-->
+<!--            content: "";-->
+<!--            display: block;-->
+<!--        }-->
+<!--           .container-fluid {-->
+<!--           flex: 1;-->
+<!--&lt;!&ndash;           max-height: calc(100vh - 56px - 50px);&ndash;&gt;-->
+<!--           overflow:auto;-->
+
+<!--        }-->
+<!--        .sidebar {-->
+<!--            overflow-y: auto;-->
+<!--            background-color: #f8f9fa;-->
+<!--            padding: 20px;-->
+<!--            height: 85vh;-->
+
+<!--        }-->
+<!--        .footer, .wrapper:after {-->
+<!--            height: 50px; /* Footer height */-->
+<!--        }-->
+<!--        .footer {-->
+<!--            background-color: #00BFFF;-->
+<!--            color: white;-->
+<!--            padding: 10px;-->
+<!--            text-align: center;-->
+<!--&lt;!&ndash;            position: relative;&ndash;&gt;-->
+<!--&lt;!&ndash;            bottom: 0;&ndash;&gt;-->
+<!--            width: 100%;-->
+<!--        }-->
+
+<!--        .navbar-custom {-->
+<!--            background-color: #00BFFF;-->
+<!--            color: white;-->
+<!--        }-->
+<!--        .btn-primary {-->
+<!--            background-color: #36454F;-->
+<!--            border-color: #36454F;-->
+<!--        }-->
+<!--        .navbar-nav .nav-link:hover {-->
+<!--            color: white;-->
+<!--            text-decoration: underline;-->
+<!--        }-->
+<!--        /* Add other common styles here */-->
+<!--    </style>-->
+{% endblock %}
+
+                 {% block content %}
+                 <!-- This block will be overridden by child templates -->
+                 {% endblock %}
+
+
+{% block scripts %}
+<script>
+    window.onload = function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const loginSuccess = urlParams.get('login_success');
+
+    if (loginSuccess === '1') {
+        alert('Login successful!');
+
+        // Remove the login_success query parameter
+        const newUrl = window.location.href.split('?')[0];
+        window.history.replaceState({}, document.title, newUrl);
+    }
+}
+<!--    // Check for login_success query parameter-->
+<!--    const urlParams = new URLSearchParams(window.location.search);-->
+<!--    const loginSuccess = urlParams.get('login_success');-->
+
+<!--    if (loginSuccess === '1') {-->
+<!--        alert('Login successful!');-->
+<!--    }-->
+</script>{% endblock %}
