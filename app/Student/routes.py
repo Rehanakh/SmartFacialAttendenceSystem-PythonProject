@@ -31,13 +31,25 @@ def setup_routes(app):
             email = request.form['email']
             full_name = request.form['fullname']
             password = request.form['password']
+            confirm_password = request.form['confirm_password']
 
-            register_user(userType, status, username, roll_no, email, full_name, password)
+            # Prepare data to send back to the form in case of re-rendering
+            session['form_data'] = {'username': username, 'email': email, 'fullname': full_name, 'roll_no': roll_no}
+            form_data = session.get('form_data', {})
 
-            flash('Registration Successful!', 'success')
+            if password != confirm_password:
+                flash('Passwords do not match. Please try again.', 'error')
+                return render_template('registration.html', form_data=session.pop('form_data', {}))
+
+            registration_successful = register_user(userType, status, username, roll_no, email, full_name, password)
+
+            if registration_successful:
+                flash('Registration Successful!', 'success')
+            else:
+                flash('Registration Failed! User Already Exists', 'error')
+
             return redirect(url_for('registration'))
         else:
-            print("Page loaded without form submission.")
             return render_template('registration.html')
 
     @app.route('/Studentdashboard')
@@ -49,7 +61,7 @@ def setup_routes(app):
         pass
 
     @app.route('/studentlogin', methods=['GET', 'POST'])
-    def studentlogin():
+    def studentlogin():      #For Student Login redirect to StudentLogin Page
         if request.method == 'POST':
             username = request.form['username']
             password = request.form['password']
@@ -70,7 +82,7 @@ def setup_routes(app):
         pass
 
     @app.route('/login', methods=['GET', 'POST'])
-    def login():
+    def login():     #To Login Student after putting credentials on Student Login page
         if request.method == 'POST':
             username = request.form['username']
             password = request.form['password']
@@ -102,5 +114,8 @@ def setup_routes(app):
         # flash('You have been logged out.', 'success')
         return redirect(url_for('home'))
         pass
+
+
+
 
 

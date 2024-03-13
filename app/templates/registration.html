@@ -45,6 +45,7 @@
 {% endblock %}
 
 {% block content %}
+
 <!-- Custom Alert/Modal -->
 <div id="customAlert" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:10000; justify-content:center; align-items:center;">
     <div style="background:#fff; padding:20px; border-radius:5px;">
@@ -58,7 +59,7 @@
 <script>
     function closeCustomAlert() {
         document.getElementById('customAlert').style.display = 'none';
-        window.location.href = "{{ url_for('home') }}"; // Redirect to home
+        window.location.href = "{{ url_for('registration') }}"; // Redirect to home
     }
 
     window.onload = function() {
@@ -74,7 +75,7 @@
     <div class="row text-center" style="padding: 20px;margin: 20px; display: flex; justify-content: center;">
 
          <div class="col-6"
-            style="border-radius: 20px;padding: 0px;background-color:rgb(211,211,211,0.5);margin:0px 10px 10px 10px;height: 550px;">
+            style="border-radius: 20px;padding: 0px;background-color:rgb(211,211,211,0.5);margin:0px 10px 10px 10px;height: 600px;">
             <form action='/registration' method="POST" enctype="multipart/form-data">
                 <h2 style="border-radius: 20px 20px 0px 0px;background-color: #0b4c61;color: white;padding: 10px;">Add
                     New User <i class="material-icons">control_point_duplicate</i></h2>
@@ -85,7 +86,9 @@
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
                     <div>
+<!--                        <input type="radio" id="student" name="userType" value="S" required>-->
                         <input type="radio" id="student" name="userType" value="S" required>
+<!--                               {{ 'checked' if userType == 'S' else '' }} required>-->
                         <label for="student">Student</label>
                     </div>
                     <div>
@@ -106,8 +109,9 @@
                     </div>
                     <div class="d-flex align-items-center" style="max-width: 300px;">
 
-                        <input type="text"  id="newusername" name='newusername'
-                               style="font-size: 20px;margin-top:10px;margin-bottom:10px;" required>
+                        <input type="text"  id="newusername" name='newusername' value="{{ username|default('') }}" style="font-size: 20px;margin-top:10px;margin-bottom:10px;" required>
+<!--                               value="{{ request.form.get('newusername', '') }}"-->
+
                     </div>
                 </div>
 
@@ -116,8 +120,7 @@
                          <label for="fullname" class="form-label" style="font-size: 20px;"><b>Enter Full Name*</b></label>
                      </div>
                      <div class="d-flex align-items-center" style="max-width: 300px;">
-                         <input type="text" id="fullname" name='fullname'
-                                style="font-size: 20px;margin-top:10px;margin-bottom:10px;"  required>
+                         <input type="text" id="fullname" name='fullname' value="{{ full_name|default('') }}" style="font-size: 20px;margin-top:10px;margin-bottom:10px;"  required>
                      </div>
                  </div>
 
@@ -126,7 +129,7 @@
                          <label for="email" class="form-label" style="font-size: 20px;"><b>Enter Email*</b></label>
                      </div>
                      <div class="d-flex align-items-center" style="max-width: 300px;">
-                         <input type="email"  id="email" name='email'
+                         <input type="email"  id="email" name='email' value="{{ email|default('') }}"
                                 style="font-size: 20px;margin-top:10px;margin-bottom:10px;"  required>
                      </div>
                  </div>
@@ -136,7 +139,7 @@
                         <label for="newrollno" class="form-label" style="font-size: 20px;"><b>Enter New Roll No*</b></label>
                     </div>
                     <div class="d-flex align-items-center" style="max-width: 300px;">
-                        <input type="number"   id="newrollno" name='newrollno'
+                        <input type="number"   id="newrollno" name='newrollno' value="{{ email|default('') }}"
                                 style="font-size: 20px;margin-top:10px;margin-bottom:10px;"  required>
                     </div>
                 </div>
@@ -151,15 +154,20 @@
                      </div>
                  </div>
 
+                 <div class="row align-items-center mb-3">
+                     <div class="col-md-6 text-end">
+                         <label for="password" class="form-label" style="font-size: 20px;"><b>Confirm Password*</b></label>
+                     </div>
+                     <div class="d-flex align-items-center" style="max-width: 300px;">
+                         <input type="password"  id="confirm_password" name='confirm_password'
+                                style="font-size: 20px;margin-top:10px;margin-bottom:10px;" required>
+                     </div>
+                 </div>
+
                  <!-- Submit Button -->
                  <div class="text-center">
                      <button type="submit" class="btn btn-dark">Add New User</button>
                  </div>
-
-<!--                &lt;!&ndash; Total Users &ndash;&gt;-->
-<!--                 <div class="text-center mt-3">-->
-<!--                     <h5><i>Total Users in Database: {{totalreg}}</i></h5>-->
-<!--                 </div>-->
 
             </form>
         </div>
@@ -169,16 +177,4 @@
 
 {% block scripts %}
 <div id="dynamicContent"></div>
-
-
-<!--    <script type="text/javascript">-->
-<!--        var clockElement=document.getElementById('clock');-->
-
-<!--        function clock(){-->
-<!--        clockElement.textContent= new Date().toString().slice(15,24);-->
-<!--        }-->
-
-<!--        setInterval(clock,1000);-->
-
-<!--    </script>-->
 {% endblock %}

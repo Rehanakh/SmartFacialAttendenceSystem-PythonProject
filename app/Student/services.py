@@ -8,7 +8,7 @@ import os
 from flask import flash
 db = DatabaseConnection()
 def fetch_user_details(username):
-    query = "SELECT UserId, Username, Email, FullName, RollNumber, PasswordHash FROM users WHERE Username = ?"
+    query = "SELECT UserId, Username, Email, FullName, RollNumber, PasswordHash FROM users WHERE Username = ? AND UserType = 'S' "
     db = DatabaseConnection()
     results = db.fetch_all(query, (username,))
     if results:
@@ -44,10 +44,15 @@ def fetch_user_image_path(username):
     # else:
     #     return None
 def register_user(userType, status, username, roll_no, email, full_name, password):
+    existing_user_query = "SELECT COUNT(*) FROM Users WHERE Username = ?"
     db = DatabaseConnection()
+    user_count = db.fetch_all(existing_user_query, (username,))
+    if user_count and user_count[0][0] > 0:
+        # Username already exists
+        flash('Username already exists. Please choose a different one.', 'error')
+        return False  # Indicate that registration was not successful
 
     # Capture and save the image
-
     userimagefolder = os.path.join(current_app.root_path, 'app/static/faces')
     if not os.path.isdir(userimagefolder):
         os.makedirs(userimagefolder)
@@ -76,7 +81,12 @@ def register_user(userType, status, username, roll_no, email, full_name, passwor
     # Insert user data into the database
     sql_query = """
         INSERT INTO Users (Username, RollNumber, Email, FullName, PasswordHash, ImagePath, UserType, Status, CreatedAt) 
-        VALUES (?, ?, ?, ?, CONVERT(varbinary(max), ?), ?, ?, ?, GETDATE())
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, GETDATE())
     """
     params = (username, roll_no, email, full_name, password, img_path, userType, status)
-    db.execute_query(sql_query, params)
+    try:
+        db.execute_query(sql_query, params)
+        return True  # Registration was successful
+    except Exception as e:
+        flash('An error occurred during registration.', 'error')
+        return False  # Registration failed

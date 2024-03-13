@@ -43,34 +43,40 @@
             width: 30%;
             font-size: 20px;
         }
+       .flash-message-container {
+    display: none; /* Start hidden */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1050; /* Ensure it's above other content */
+    max-width: 80%; /* Adjust as needed */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Adds a shadow for better visibility */
+}
+
+.flash-message {
+    padding: 20px;
+    background-color: #f8d7da; /* Example for error messages */
+    border-color: #f5c6cb;
+    color: #721c24;
+    border-radius: 5px;
+    text-align: center;
+}
     </style>
 {% endblock %}
 {% block content %}
-<!-- Login Form -->
-<!--    <div class="container d-flex justify-content-center">-->
-<!--        <div class="login-container col-md-4"-->
-<!--        style="border-radius: 20px;padding: 0px;background-color:rgb(211,211,211,0.5); ">-->
-<!--            <form action="/login" method="post">-->
+ <div class="flash-message-container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message alert alert-{{ category }}" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
 
-<!--                <h2 class="text-center" style="border-radius: 20px 20px 0px 0px;background-color: #0b4c61;color: white;padding: 10px;">Student Login</h2>-->
-<!--                <div class="mb-3" style="padding: 10px;">-->
-<!--                    <label for="username" class="form-label">Username:</label>-->
-<!--                    <input type="text" class="form-control" id="username" name="username" required>-->
-<!--                </div>-->
-<!--                <div class="mb-3" style="padding: 10px;">-->
-<!--                    <label for="password" class="form-label">Password:</label>-->
-<!--                    <input type="password" class="form-control" id="password" name="password" required>-->
-<!--                </div>-->
-<!--                <div class="text-center">-->
-<!--                <button type="submit" class="btn btn-dark login-btn">Login</button>-->
-<!--                </div>-->
-
-<!--            </form>-->
-<!--            <div class="text-center mt-3">-->
-<!--                <a href="/registration" style="color: white;">Don't have an account? Register here.</a>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
 <div class="container d-flex justify-content-center">
     <div class="login-container col-md-4" style="border-radius: 20px;background-color:rgba(211,211,211,0.5); padding: 0px;">
         <form action="/login" method="post">
@@ -103,4 +109,20 @@
 </div>
 
 {% endblock %}
+{% block scripts %}
+<script>
+window.onload = function() {
+    // Check if there are any flash messages
+    const flashContainer = document.querySelector('.flash-message-container');
+    if (flashContainer) {
+        // Make the flash message container visible
+        flashContainer.style.display = 'block';
 
+        // Hide the flash message container after 5 seconds
+        setTimeout(function() {
+            flashContainer.style.display = 'none';
+        }, 5000);
+    }
+};
+</script>
+{% endblock %}
