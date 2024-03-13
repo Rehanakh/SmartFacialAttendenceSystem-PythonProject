@@ -15,7 +15,7 @@ known_names = []
 today= datetime.date.today().strftime("%d_%m_%Y").replace("_","-")
 db = DatabaseConnection()
 
-def setup_routes(app):
+def student_setup_routes(app):
     @app.route('/')
     def home():
         # return 'Hello, World!'
@@ -115,7 +115,32 @@ def setup_routes(app):
         return redirect(url_for('home'))
         pass
 
+    @app.route('/StudentUpdateProfile', methods=['GET', 'POST'])
+    def StudentUpdateProfile():
+        if 'username' not in session:
+            flash('Please log in to view this page.', 'error')
+            return redirect(url_for('studentlogin'))
 
+        username = session['username']
+        user_details = fetch_user_details(username)
 
+        if request.method == 'POST':
+            email = request.form.get('email')
+            full_name = request.form.get('full_name')
+            roll_number = request.form.get('roll_number')
+            user_id = session['user_id']
+            new_username = request.form['Username']
 
+            existing_user = db.fetch_all("SELECT * FROM Users WHERE username = ? AND UserType = 'S'", (new_username,))
+            if existing_user:
+                flash('Username already exists. Choose a different one.', 'error')
+                return redirect(url_for('StudentProfileUpdate'))
 
+            # Construct the SQL query to update user details
+            query = "UPDATE users SET Username=?, Email=?, FullName=?, RollNumber=? WHERE UserId = ?"
+            db.execute_query(query, (new_username, email, full_name, roll_number, user_id))
+            session['username'] = new_username
+            flash('Profile updated successfully!', 'success')
+            return redirect(url_for('StudentUpdateProfile'))
+
+        return render_template('StudentUpdateProfile.html', user=user_details)
