@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Smart Attendance System{% endblock %}</title>
+    {% block head %}{% endblock %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    {% block extra_css %} {% endblock %}
+    <style>
+    html {
+        height: 100%;
+        margin: 0;
+    }
+    body {
+        background: url("{{ url_for('static', filename='image/background1.jpg') }}") no-repeat center center;
+        background-size: cover;
+        font-family: 'Nunito', sans-serif;
+        background-color: #FAFAFA;
+        margin: 0;
+        padding: 0;
+        color: #333; /* Dark text for readability */
+        height: 100%;
+    }
+    .navbar, .footer {
+        flex-shrink: 0;
+    }
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        margin: 0;
+    }
+    .container-fluid {
+        flex: 1;
+        overflow: auto;
+    }
+    .sidebar {
+        overflow-y: auto;
+        background-color: #A8DADC; /* Soft teal for the sidebar */
+        padding: 20px;
+        color: #0b4c61; /* Dark teal for sidebar links */
+        text-decoration: none;
+        padding-left:40px;
+        height: 85vh;
+    }
+     .sidebar a {
+        color: #0b4c61 !important; /* Ensures this color has priority */
+        padding: 20px;
+
+    }
+    .sidebar a:hover {
+        color: #048BA8; /* Slightly brighter teal for hover effects */
+        text-decoration: underline; /* Optional: Adds underline on hover */
+    }
+    .footer, .wrapper:after {
+        height: 50px;
+    }
+    .footer {
+        background-color: #1D3557; /* Dark blue, matching the sidebar text */
+        color: white;
+        padding: 10px;
+        text-align: center;
+        width: 100%;
+    }
+    .navbar-custom {
+        background-color: #F4A261; /* Sandy brown for the navbar */
+        color: white;
+    }
+    .btn-primary {
+        background-color: #E76F51; /* Burnt sienna for primary buttons */
+        border-color: #E76F51;
+    }
+    .navbar-nav .nav-link {
+        color: white;
+    }
+    .navbar-nav .nav-link:hover {
+        color: #2A9D8F; /* Slightly darker teal for hover effects */
+        text-decoration: underline;
+    }
+    /* Dropdown menu styling for better visibility and aesthetics */
+    .dropdown-menu {
+        background-color: #A8DADC; /* Soft teal to match the sidebar */
+    }
+    .dropdown-item {
+        color: #1D3557; /* Dark blue for text */
+    }
+    .dropdown-item:hover {
+        background-color: #F4A261; /* Sandy brown for hover, matching the navbar */
+        color: white;
+    }
+    /* Box shadows for added depth */
+    .sidebar, .navbar, .footer {
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+</style>
+
+</head>
+<body>
+<div class="wrapper">
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+  <div class="container">
+    <a class="navbar-brand" href="/home">Smart Attendance</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#features">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/markattendance">Mark Attendance</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="#"   aria-expanded="false">
+            Welcome, {{ session.username }}</a>
+        </li>
+        <li class="nav-item">
+            {% if session.username %}
+            <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+            <a class="nav-link" href="{{ url_for('adminlogin') }}">Student Login</a>
+            {% endif %}
+
+        </li>
+
+
+<!--          <ul class="navbar-nav">-->
+<!--        <li class="nav-item dropdown">-->
+<!--          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--            Welcome, {{ student_username }}-->
+<!--          </a>-->
+<!--          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--            <li><a class="dropdown-item" href="/profile">My Profile</a></li>-->
+<!--            <li><a class="dropdown-item" href="/settings">Settings</a></li>-->
+<!--            <li><hr class="dropdown-divider"></li>-->
+<!--            <li><a class="dropdown-item" href="/logout">Logout</a></li>-->
+<!--          </ul>-->
+<!--        </li>-->
+<!--      </ul>-->
+      </ul>
+    </div>
+  </div>
+</nav>
+     <div class="container-fluid">
+         <div class="row">
+             <div class="col-md-3 sidebar">
+            <!-- Sidebar content -->
+            <ul class="nav flex-column">
+                <li class="nav-item"><a class="nav-link" href="/Admindashboard">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="/markattendance">Mark Attendance</a></li>
+                <li class="nav-item"><a class="nav-link" href="/course_enrollment">Course Enrollment</a></li>
+                <li class="nav-item"><a class="nav-link" href="/attendance_insights">Attendance Insights</a></li>
+                <li class="nav-item"><a class="nav-link" href="/AdminUpdateProfile">My Profile </a></li>
+
+                <!-- Add more student-specific links as needed -->
+            </ul>
+             </div>
+             <div class="col-md-9">
+
+                 {% block content %}
+                 <!-- This block will be overridden by child templates -->
+                 {% endblock %}
+             </div>
+         </div>
+     </div>
+    <div class="footer">
+    © 2023 Smart Attendance System. All rights reserved.
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+{% block scripts %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+{% endblock %}
+</body>
+</html>
