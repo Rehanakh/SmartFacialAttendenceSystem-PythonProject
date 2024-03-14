@@ -1,29 +1,32 @@
-from flask import Flask,Blueprint, render_template, request, flash, redirect, url_for, jsonify,Response,session
+
+from flask import Flask, Blueprint, render_template, request, flash, redirect, url_for, jsonify, Response, session
 
 from app.Admin.Services import register_user, fetch_user_details
 from app.util.connection import DatabaseConnection
-# import face_recognition
+import face_recognition
 import datetime
 import os
 import time
 import cv2
 import logging
+
 logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s:%(levelname)s:%(message)s')
-#print("key",os.urandom(24))
+# print("key",os.urandom(24))
 
 known_faces = []
 known_names = []
-today= datetime.date.today().strftime("%d_%m_%Y").replace("_","-")
+today = datetime.date.today().strftime("%d_%m_%Y").replace("_", "-")
 db = DatabaseConnection()
 
-def setup_routes(app):
+
+def admin_setup_routes(app):
     @app.route('/')
-    def home():
+    def admin_home():
         # return 'Hello, World!'
         return render_template('home.html')
 
     @app.route('/registration', methods=['GET', 'POST'])
-    def registration():
+    def admin_registration():
         if request.method == 'POST':
             userType = request.form.get('userType', 'defaultType')  # Added defaultType as a fallback
             status = request.form.get('status', 'pending')
@@ -71,19 +74,19 @@ def setup_routes(app):
         return render_template('adminlogin1.html')
         pass
 
-    @app.route('/home', methods=['GET'], endpoint='home_endpoint')
-    def home():
+    @app.route('/home', methods=['GET'], endpoint='admin_home_endpoint')
+    def admin_home():
         # Assuming 'home.html' is the name of your HTML file with the navbar
         return render_template('home.html')
         pass
 
-    @app.route('/')
+    @app.route('/', methods=['GET'], endpoint='admin_index')
     def index():
         return redirect(url_for('home'))
         pass
 
-    @app.route('/login', methods=['GET', 'POST'])
-    def login():     #To Login Student after putting credentials on Student Login page
+    @app.route('/admin_login', methods=['GET', 'POST'])
+    def admin_login():  # To Login Student after putting credentials on Student Login page
         if request.method == 'POST':
             username = request.form['username']
             password = request.form['password']
@@ -96,7 +99,7 @@ def setup_routes(app):
                 session['username'] = user.Username
                 session['roll_no'] = user.RollNumber
                 session.permanent = True
-                #change:03-03-2024
+                # change:03-03-2024
                 return redirect(url_for('Admindashboard') + '?login_success=1')
 
             else:
@@ -107,16 +110,11 @@ def setup_routes(app):
         return render_template('adminlogin1.html', login_success=request.args.get('login_success', '0'))
         pass
 
-    @app.route('/logout')
-    def logout():
+    @app.route('/admin_logout')
+    def admin_logout():
         logging.debug('Logging out user.')
         # Clear the session
         session.clear()
         # flash('You have been logged out.', 'success')
         return redirect(url_for('home'))
         pass
-
-
-
-
-
