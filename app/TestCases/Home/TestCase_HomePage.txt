@@ -1,0 +1,23 @@
+Test Case ID   Test Case Description           Test Steps                                              Expected Result
+TC01           Check homepage response         1. Open browser                                         Homepage loads successfully
+                                                                                                       Homepage content displays
+                                               2. Navigate to homepage URL                             correctly
+                                               3. Verify page elements (e.g., logo, navigation
+                                               menu)                                                   All expected elements are visible
+                                               4. Check responsiveness (resize window)                 Page adjusts layout appropriately
+TC02           Test search functionality       1. Enter search query                                   Relevant search results appear
+                                               2. Click search button                                  Search results page opens
+                                               3. Verify search results                                Expected results match query
+TC03           Test link navigation            1. Click on “About Us” link                             About Us page opens
+                                               2. Verify content on About Us page                      Relevant information displayed
+TC04           Test footer links               1. Click on each footer link (e.g., Contact, Privacy)   Corresponding pages open
+                                               2. Verify content on each page                          Expected information is present
+                                                                                                       Homepage with navbar loads
+TC05           Check navbar navigation links   1. Open browser                                         successfully
+                                                                                                       All links are visible and correctly
+                                               2. Inspect the navigation links in the navbar           labeled
+                                               3. Click each link one by one                           Corresponding pages open
+                                               4. Verify content on each page                          Expected information is displayed
+                                                                                                       It should redirect to Registration
+                                               5. Verify GetStared link is working                     Pages.
+

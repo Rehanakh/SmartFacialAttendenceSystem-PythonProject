@@ -1,0 +1,29 @@
+Test                                                                                                               Post         Actual
+Case ID Description     Preconditions          Test Steps                Test Data      Expected Result            Conditions   Result Status
+                                                                                        The user is logged in
+                                                                         - User         successfully. The ‘My
+                                                                         credentials    Profile’ page is
+                                                                         for login -    displayed. User can        The user’s
+                                              1. Navigate to the ‘My     Existing       edit their information.    profile is
+       Update Student 1. Log in to the Smart Profile’ section from the   student        Changes are saved          updated
+TC_001 Profile        Attendance System dashboard.                       profile data   and updated.               successfully. Pass
+                                              2. Click on the ‘Update
+                      with valid credentials. Profile’ button.
+                                              3. Modify the details in
+                                              the fields like Email
+                                              address, Full Name, Roll
+                                              Number, etc.
+                                              4. Click on the ‘Update’
+                                              button after making
+                                              changes.
+
+
+Test                                                                                                               Post         Actual
+Case ID Description   Preconditions            Test Steps                Test Data      Expected Result            Conditions   Result Status
+                      1. Log in to the Smart                             - Incorrect    The user will be able
+       Update Student Attendance System        1. Attempt to navigate to user           to update .getting         The ‘My
+       Profile        with invalid             the ‘My Profile’ section  credentials    msg: pleaee fill out all   Profile’ page is
+TC_002 (Negative)     credentials.             from the dashboard.       for login      mandatory fields.          inaccessible. Pass
+                                               2. try to update some     Empty any
+                                               field to null             fileds.
+

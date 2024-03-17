@@ -1,0 +1,52 @@
+          1Positive Test Cases (Valid Inputs):
+Test Case
+ID         Description                                      Steps                                            Expected Result
+                                                                                                             The student should be
+                                                                                                             successfully logged in and
+                                                                                                             redirected to the homepage or
+            Verify successful login with valid username and                                                  dashboard of the Smart
+TC001       password.                                       1. Navigate to the Student Login Page            Attendance System.
+                                                            2. Enter a valid username
+                                                            3. Enter a valid password
+                                                            4. Click “Login”
+            Verify login with minimum allowed username      1. Follow the same steps as TC001 with         Successful login with minimal-
+TC002       and password length.                            minimal-length credentials                     length credentials
+            Verify login with alphanumeric username and     1. Use an alphanumeric username and            Successful login with
+TC003       password.                                       password in TC001                              alphanumeric credentials
+            Verify successful login with the “Remember Me” 1. Check the “Remember Me” checkbox during      The system should remember
+TC004       option selected.                                login                                          the user’s login details
+                                                                                                           Successful login using the
+            Verify login using a valid email address as the 1. Enter a valid email address as the username email address as the
+TC005       username.                                       in TC001                                       username
+                                                                                                           Successful login with a
+            Verify login with a username containing special 1. Use a username with special characters in username containing special
+TC005       characters (e.g., @, #, $).                     TC001                                          characters
+
+
+
+          2Negative Test Cases (Invalid Inputs):
+
+Test Case
+ID        Description                                       Steps                                            Expected Result
+          Verify login with an incorrect password for a     1. Follow the steps in TC001 with an incorrect   The system should reject the
+TC001     valid username.                                   password                                         login attempt
+          Verify login with an incorrect username for a     1. Follow the steps in TC001 with an incorrect   The system should reject the
+TC002     valid password.                                   username                                         login attempt
+                                                                                                             The system should prompt the
+TC003       Verify login with an empty username field.      1. Leave the username field blank in TC001       user to enter a username
+                                                                                                           The system should prompt the
+TC004       Verify login with an empty password field.      1. Leave the password field blank in TC001     user to enter a password
+                                                                                                           The system should display an
+            Verify login with a username that does not exist                                               error message for an invalid
+TC005       in the system.                                   1. Use a non-existent username in TC001       username
+                                                                                                           The system should prompt the
+            Verify login with a password that does not meet 1. Use a weak password (e.g., too short, lacks user to choose a stronger
+TC006       strength requirements.                           complexity) in TC001                          password
+            Verify login with excessively long usernames     1. Use very long usernames and passwords in The system should handle
+TC007       and passwords.                                   TC001                                         long credentials appropriately
+            Verify login with incorrect case                 1. Use different case variations (e.g.,       The system should treat the
+TC008       (uppercase/lowercase) in the username.           uppercase, lowercase) in TC001                username as case-sensitive
+                                                                                                           The system should not allow
+            Verify login with incorrect case should not be   1. Use different case variations (e.g.,       login with any other password
+TC009       allowed                                          uppercase, lowercase) in password field       irrespective of case-sensitive.
+

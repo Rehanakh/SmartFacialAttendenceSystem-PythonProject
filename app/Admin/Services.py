@@ -1,6 +1,6 @@
-from app.Student.models import User
+from app.Admin.models import User
 from app.util.connection import DatabaseConnection
-# import  face_recognition
+import  face_recognition
 
 from flask import current_app
 import time
@@ -14,6 +14,8 @@ def fetch_user_details(username):
     results = db.fetch_all(query, (username,))
     if results:
         user_data = results[0]
+
+
 
         # Assuming your user table columns are in the order: UserId, Username, Email, FullName, RollNumber
         return User(UserId=user_data[0], Username=user_data[1], Email=user_data[2], FullName=user_data[3], RollNumber=user_data[4], PasswordHash=user_data[5])
