@@ -1,0 +1,38 @@
+          1 Positive Test Cases (Valid Inputs):
+Test
+Case ID    Description                                 Steps                                                        Expected Result
+                                                                                                                    User should be
+TC001      Verify user registration                    1. Navigate to the Registration Page                         registered successfully
+                                                       2. Select “Register As” option (Student, Professor, Admin)
+                                                       3. Enter valid data in “Enter New User Name”, “Enter Full
+                                                       Name”, “Enter Email” fields
+                                                        4. Enter a unique roll number in “Enter New Roll No”
+                                                       5. Enter a strong password in “Enter Password”
+
+
+
+          2 Negative Test Cases (Invalid Inputs):
+Test
+Case ID    Description                                 Steps                                                          Expected Result
+                                                                                                                      The system should
+                                                                                                                      display an error message
+                                                                                                                      indicating that the
+           Verify registration with an existing                                                                       username is already
+TC002      username.                                      1. Follow the steps in TC001 with an existing username.     taken.
+                                                                                                                      The system should
+                                                                                                                      display an error message
+           Verify registration with an invalid email      1. Use an invalid email format (e.g., missing @ or domain) indicating an invalid
+TC003      format.                                        in TC001.                                                   email format.
+                                                                                                                      The system should
+                                                                                                                      display an error message
+           Verify registration with mismatched            1. Enter a password in TC001.&lt;br&gt;2. Enter a different indicating that the
+TC005      passwords.                                     password in the “Confirm Password” field.                   passwords do not match.
+                                                                                                                      The system should
+                                                                                                                      display an error message
+                                                                                                                      indicating that the
+           Verify registration with missing mandatory 1. Leave any of the mandatory fields (e.g., username,           mandatory fields are
+TC006      fields.                                        email, password) blank in TC001.                            missing.
+                                                                                                                      The system should allow
+           Verify registration with special characters in 1. Use special characters (e.g., @, #, $) in the username special characters in the
+TC008      the username.                                  field in TC001.                                             username.
+

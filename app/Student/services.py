@@ -6,6 +6,8 @@ import time
 import cv2
 import os
 from flask import flash
+known_faces = []
+known_names = []
 db = DatabaseConnection()
 def fetch_user_details(username):
     query = "SELECT UserId, Username, Email, FullName, RollNumber, PasswordHash FROM users WHERE Username = ? AND UserType = 'S' "
@@ -20,29 +22,27 @@ def fetch_user_details(username):
 def fetch_user_image_path(username):
     query = "SELECT ImagePath FROM Users WHERE Username = ?"
     results = db.fetch_all(query, (username,))
-    print("Query results:", results)
+
     if results:
         image_path_from_db = results[0][0]
 
-        # Adjust the path to include the 'app' directory
+        image_path_from_db = os.path.normpath(image_path_from_db)
+
         # Note: Adjust the path as necessary based on your project structure
         absolute_image_path = os.path.join(current_app.root_path, 'app', image_path_from_db)
 
         # Check if the file exists
         if os.path.exists(absolute_image_path):
+            user_image = face_recognition.load_image_file(absolute_image_path)
+            user_encoding = face_recognition.face_encodings(user_image)[0]
+            known_faces.append(user_encoding)
+            known_names.append(username)
             return absolute_image_path
         else:
             return None
     else:
         return None
 
-    #     # Use the actual ImagePath from the database if available
-    #     image_path = results[0][0]
-    #     # Construct the absolute path to verify it exists
-    #     absolute_image_path = os.path.join(current_app.root_path, image_path)
-    #     return absolute_image_path if os.path.exists(absolute_image_path) else None
-    # else:
-    #     return None
 def register_user(userType, status, username, roll_no, email, full_name, password):
     existing_user_query = "SELECT COUNT(*) FROM Users WHERE Username = ?"
     db = DatabaseConnection()
