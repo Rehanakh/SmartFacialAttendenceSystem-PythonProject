@@ -191,11 +191,20 @@ def student_setup_routes(app):
     def mark_attendance_route():
         # Assuming you want to pass today's date, total registrations, etc.
         today = datetime.date.today().strftime("%Y-%m-%d")
-        courses = db.fetch_all("SELECT course_id, course_name FROM Courses")
-        # userDetails = fetch_all_attendance_for_today(db, today)
+        student_id = session.get('user_id')
 
-        # logging.debug('Recognized names: {}'.format(recognized_names))
-        # Fetch list of courses from the database
+        if student_id:
+            # Fetch only the courses the student is enrolled in
+            courses_query = """
+                            SELECT c.course_id, c.course_name 
+                            FROM CourseEnrollment ce
+                            JOIN Courses c ON ce.course_id = c.course_id
+                            WHERE ce.student_id=?
+                            """
+            courses = db.fetch_all(courses_query, [student_id])
+        else:
+            flash('Please log in to mark attendance.', 'warning')
+            return redirect(url_for('login'))
 
         if request.method == 'POST':
             selected_course_id = request.form.get('course_id')
@@ -299,4 +308,36 @@ def student_setup_routes(app):
             return redirect(url_for('mark_attendance_route'))
         pass
 
+    @app.route('/course_enrollment', methods=['GET', 'POST'])
+    def course_enrollment():
+        if request.method == 'POST':
+            student_id = session.get('user_id')
+            course_id = request.form.get('course_id')
+            enrollment_date = datetime.datetime.now()
 
+            # Check if the student is already enrolled in the course
+            existing_enrollment = db.fetch_all("SELECT * FROM CourseEnrollment WHERE student_id=? AND course_id=?", [student_id, course_id])
+            if not existing_enrollment:
+                db.execute_query(
+                    "INSERT INTO CourseEnrollment (student_id, course_id, enrollment_date) VALUES (?, ?,?)",
+                    [student_id, course_id, enrollment_date])
+                flash('You have successfully enrolled in the course!', 'success')
+            else:
+                flash('You are already enrolled in this course.', 'warning')
+            return redirect(url_for('course_enrollment'))
+
+        student_id = session.get('user_id')
+        if student_id:
+            enrollments_query = """
+                        SELECT ce.enrollment_id, ce.course_id, c.course_name, ce.enrollment_date 
+                        FROM CourseEnrollment ce
+                        JOIN Courses c ON ce.course_id = c.course_id
+                        WHERE ce.student_id=?
+                        """
+            enrollments = db.fetch_all(enrollments_query, [student_id])
+        else:
+            flash('Please log in to view enrolled courses.', 'warning')
+            return redirect(url_for('login'))
+
+        courses = db.fetch_all("SELECT * FROM Courses")
+        return render_template('course_enrollment.html', courses=courses, enrollments=enrollments)
