@@ -1,40 +1,35 @@
-{% extends "base_Student.html" %}
-
+{% extends "base_student.html" %}
 {% block title %}Course Enrollment - Smart Attendance System{% endblock %}
 
 {% block head %}
     {{ super() }}
-    <!-- Additional head content specific to course enrollment page -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet1.css') }}">
 {% endblock %}
-{% block extra_css %}
-<style>
 
-    h2{
-    color:#A8DADC;}
-    form{
-    color:white;}
-    .form-select {
-        color: #333; /* Dark text color for visibility */
-        background-color: #fff; /* Ensure background is white for contrast */
-    }
-    .form-select option {
-        color: #333; /* Dark text color for visibility */
-    }
-</style>
-{% endblock %}
 {% block content %}
-<div class="container mt-5">
-    <h2>Course Enrollment</h2>
-    <form action="{{ url_for('enroll_in_course') }}" method="post">
+<div class="container mt-4">
+    <h2>Enroll in a Course</h2>
+    <form method="POST" action="{{ url_for('course_enrollment') }}">
         <div class="mb-3">
             <label for="courseSelect" class="form-label">Select Course:</label>
-            <select class="form-select" id="courseSelect" name="course_id">
+            <select class="form-select" id="courseSelect" name="course_id" required>
+                <option value="">Select...</option>
                 {% for course in courses %}
-                <option value="{{ course.id }}">{{ course.name }}</option>
+                <option value="{{ course.course_id }}">{{ course.course_name }}</option>
                 {% endfor %}
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Enroll</button>
+        <button type="submit" class="btn btn-primary">Submit Course Request</button>
     </form>
+
+    <h3 class="mt-5">Enrolled Courses</h3>
+    <ul class="list-group">
+        {% for enrollment in enrollments %}
+        <li class="list-group-item">{{ enrollment.course_name }}</li>
+        {% else %}
+        <li class="list-group-item">No courses enrolled yet.</li>
+        {% endfor %}
+    </ul>
 </div>
 {% endblock %}
+

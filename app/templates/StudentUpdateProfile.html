@@ -1,14 +1,18 @@
 {% extends "base_student.html" %}
 {% block title %}Update profile - Smart Attendance System{% endblock %}
 
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet1.css') }}">
+ {% endblock %}
 {% block extra_css %}
-<style>
+<!--<style>-->
 
-    h2{
-    color:#A8DADC;}
-    form{
-    color:white;}
-</style>
+<!--    h2{-->
+<!--    color:#A8DADC;}-->
+<!--    form{-->
+<!--    color:white;}-->
+<!--</style>-->
 {% endblock %}
 {% block content %}
 <div class="container">
