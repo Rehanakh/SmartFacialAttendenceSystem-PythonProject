@@ -1,0 +1,71 @@
+                                                                                                                  Expected
+Test Case IDTest Description         Test Steps                                                                   Result
+                                                                                                                  The student
+                                                                                                                  is
+                                                                                                                  successfully
+                                                                                                                  enrolled in
+            Enroll in a course                                                                                    the selected
+TC001       successfully             1. Log in as a student.                                                      course.
+                                     2. Navigate to the course enrollment page.
+                                     3. Select a course to enroll in.
+                                     4. Click the “Enroll” button.
+                                                                                                                  The system
+                                                                                                                  displays an
+                                                                                                                  appropriate
+                                                                                                                  error
+                                                                                                                  message
+                                                                                                                  indicating
+                                                                                                                  that the
+                                                                                                                  student is
+                                                                                                                  already
+            Attempt to enroll in an                                                                               enrolled in
+TC002       already enrolled course 1. Log in as a student.                                                       the course.
+                                    2. Navigate to the course enrollment page.
+                                    3. Select a course that the student is already enrolled in.
+                                    4. Click the “Enroll” button.
+                                                                                                                  The student
+                                                                                                                  sees a list of
+                                                                                                                  courses they
+            View list of enrolled    1. Log in as a student. 2. Navigate to the “My Courses” section. 3. Verify   are currently
+TC003       courses                  the list of enrolled courses.                                                enrolled in.
+                                     2. Navigate to the “My Courses” section.
+                                     3. Verify the list of enrolled courses.
+
+                                                                                                                  The system
+                                                                                                                  displays an
+                                                                                                                  appropriate
+                                                                                                                  error
+                                                                                                                  message
+                                                                                                                  indicating
+            Enroll in a course with                                                                               that the
+            invalid credentials (e.g.,                                                                            course code
+TC004       incorrect course code) 1. Log in as a student.                                                        is invalid.
+                                       2. Navigate to the course enrollment page.
+                                       3. Enter an invalid course code.
+
+                                     4. Click the “Enroll” button.
+                                                                                                                  The system
+                                                                                                                  displays an
+                                                                                                                  appropriate
+                                                                                                                  error
+                                                                                                                  message
+                                                                                                                  indicating
+                                                                                                                  that the
+            Enroll in a course with                                                                               student does
+            insufficient prerequisites                                                                            not meet the
+            (e.g., missing                                                                                        prerequisites
+            prerequisite course                                                                                   for the
+TC005       enrollment)                1. Log in as a student.                                                    course.
+                                       2. Navigate to the course enrollment page.
+                                       3. Select a course with prerequisites.
+                                       4. Attempt to enroll.
+                                                                                                                  The student
+                                                                                                                  sees that the
+                                                                                                                  course is
+                                                                                                                  marked as
+            Verify course enrollment                                                                              “Enrolled” in
+            status after successful                                                                               their
+TC006       enrollment               1. Log in as a student.                                                      account.
+                                     2. Navigate to the “My Courses” section.
+                                     3. Verify the list of enrolled courses.
+

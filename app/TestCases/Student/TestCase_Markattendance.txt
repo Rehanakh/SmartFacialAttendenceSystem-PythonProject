@@ -22,8 +22,8 @@ TC04    Duplicate Attendance      1. Mark attendance for a student. attendance i
                                   session again.
         Verify Attendance
         Marking for Different                                         - Attendance should be successfully marked for each
-TC05    Students                  1. Select a course and session.     student.&lt;br&gt;- No duplicates should be allowed.
-                                  2. Mark attendance for different
+TC05    Students                  1. Select a course and session.     student.
+                                  2. Mark attendance for different     - No duplicates should be allowed.
                                   students.
                                   1. Check the layout of the
                                                                       The UI elements should be consistent, visually appealing, and user-
@@ -33,11 +33,14 @@ TC06    Verify UI Elements                                            friendly.
                                   color of text.
                                   3. Check if buttons and dropdowns
                                   are properly styled.
-                                  1. Try to mark attendance without Appropriate error messages should be displayed. The system
+                                  1. Try to mark attendance without   Appropriate error messages should be displayed. The system
 TC07    Verify Error Handling     selecting a course or session.      should prevent invalid actions.
                                   2.. Try to mark attendance for an
                                   invalid session.
                                                                       The default course and session dropdowns should be empty. No
                                                                       attendance data should be displayed until a course and session are
 TC08    Verify Default Values     1. Open the attendance page.        selected.
-
+
+TCo9    Verify Attendance in      1. Mark attendance with different   -Attendance may not mark successfully
+        different Operating           os , with blur camera
+        Systems .
