@@ -1,9 +1,8 @@
-
 from flask import Flask, Blueprint, render_template, request, flash, redirect, url_for, jsonify, Response, session
 
-from app.Admin.Services import register_user, fetch_user_details
+from app.Admin.Services import register_user, fetch_user_details, fetch_all_usernames_and_statuses, update_user_status
 from app.util.connection import DatabaseConnection
-import face_recognition
+# import face_recognition
 import datetime
 import os
 import time
@@ -80,6 +79,11 @@ def admin_setup_routes(app):
         return render_template('home.html')
         pass
 
+    @app.route('/users', methods=['GET'], endpoint='admin_user_endpoint')
+    def users():
+        usernames_statuses = fetch_all_usernames_and_statuses()
+        return render_template('users.html', usernames_statuses=usernames_statuses)
+
     @app.route('/', methods=['GET'], endpoint='admin_index')
     def index():
         return redirect(url_for('home'))
@@ -118,3 +122,50 @@ def admin_setup_routes(app):
         # flash('You have been logged out.', 'success')
         return redirect(url_for('home'))
         pass
+
+    @app.route('/AdminUpdateProfile', methods=['GET', 'POST'])
+    def AdminUpdateProfile():
+        if 'username' not in session:
+            flash('Please log in to view this page.', 'error')
+            return redirect(url_for('adminlogin1'))
+
+        username = session['username']
+        user_details = fetch_user_details(username)
+
+        if request.method == 'POST':
+            email = request.form.get('email')
+            full_name = request.form.get('full_name')
+            roll_number = request.form.get('roll_number')
+            user_id = session['user_id']
+            new_username = request.form['Username']
+
+            existing_user = db.fetch_all("SELECT * FROM Users WHERE username = ? AND UserType = 'S'", (new_username,))
+            if existing_user:
+                flash('Username already exists. Choose a different one.', 'error')
+                return redirect(url_for('StudentProfileUpdate'))
+
+            # Construct the SQL query to update user details
+            query = "UPDATE users SET Username=?, Email=?, FullName=?, RollNumber=? WHERE UserId = ?"
+            db.execute_query(query, (new_username, email, full_name, roll_number, user_id))
+            session['username'] = new_username
+            flash('Profile updated successfully!', 'success')
+            return redirect(url_for('StudentUpdateProfile'))
+
+        return render_template('AdminUpdateProfile.html', user=user_details)
+
+    @app.route('/approve/<username>', methods=['POST'])
+    def approve_user(username):
+        # Call service method to update status in the database
+        success = update_user_status(username, 'Approved')  # Assuming you have a service method to update the status
+        if success:
+            return 'User approved successfully', 200
+        else:
+            return 'Failed to approve user', 500
+
+    @app.route('/decline/<username>', methods=['POST'])
+    def decline_user(username):
+        success = update_user_status(username, 'Declined')  # Assuming you have a service method to update the status
+        if success:
+            return 'User declined successfully', 200
+        else:
+            return 'Failed to decline user', 500
