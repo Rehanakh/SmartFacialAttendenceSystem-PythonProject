@@ -1,6 +1,6 @@
 from app.Admin.models import User
 from app.util.connection import DatabaseConnection
-import  face_recognition
+# import  face_recognition
 
 from flask import current_app
 import time
@@ -18,8 +18,11 @@ def fetch_user_details(username):
 
 
         # Assuming your user table columns are in the order: UserId, Username, Email, FullName, RollNumber
-        return User(UserId=user_data[0], Username=user_data[1], Email=user_data[2], FullName=user_data[3], RollNumber=user_data[4], PasswordHash=user_data[5])
+        return User(UserId=user_data[0], Username=user_data[1], Email=user_data[2], FullName=user_data[3],
+                    RollNumber=user_data[4], PasswordHash=user_data[5])
     return None
+
+
 def fetch_user_image_path(username):
     query = "SELECT ImagePath FROM Users WHERE Username = ?"
     results = db.fetch_all(query, (username,))
@@ -46,6 +49,8 @@ def fetch_user_image_path(username):
     #     return absolute_image_path if os.path.exists(absolute_image_path) else None
     # else:
     #     return None
+
+
 def register_user(userType, status, username, roll_no, email, full_name, password):
     existing_user_query = "SELECT COUNT(*) FROM Users WHERE Username = ?"
     db = DatabaseConnection()
@@ -93,3 +98,28 @@ def register_user(userType, status, username, roll_no, email, full_name, passwor
     except Exception as e:
         flash('An error occurred during registration.', 'error')
         return False  # Registration failed
+
+
+def fetch_all_usernames_and_statuses():
+    query = "SELECT Username, Status, UserType FROM users"
+    db = DatabaseConnection()  # Assuming DatabaseConnection is a class to handle database connections
+    results = db.fetch_all(query)
+
+    usernames_statuses = []
+    for row in results:
+        usernames_statuses.append({'username': row[0], 'status': row[1], 'user_type': row[2]})
+
+    return usernames_statuses
+
+
+
+def update_user_status(username, new_status):
+    query = "UPDATE users SET Status = ? WHERE Username = ?"
+    db = DatabaseConnection()
+    try:
+        db.execute_query(query, (new_status, username))
+        return True  # Return True if update operation succeeds
+    except Exception as e:
+        print("Error updating user status:", e)
+        return False  # Return False if update operation fails
+
