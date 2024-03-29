@@ -10,7 +10,7 @@ known_faces = []
 known_names = []
 db = DatabaseConnection()
 def fetch_user_details(username):
-    query = "SELECT UserId, Username, Email, FullName, RollNumber, PasswordHash FROM users WHERE Username = ? AND UserType = 'S' "
+    query = "SELECT UserId, Username, Email, FullName, RollNumber, PasswordHash FROM users WHERE Username = ? AND UserType = 'S' AND Status='Approved'"
     db = DatabaseConnection()
     results = db.fetch_all(query, (username,))
     if results:
