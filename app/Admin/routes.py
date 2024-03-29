@@ -2,7 +2,7 @@ from flask import Flask, Blueprint, render_template, request, flash, redirect, u
 
 from app.Admin.Services import register_user, fetch_user_details, fetch_all_usernames_and_statuses, update_user_status
 from app.util.connection import DatabaseConnection
-# import face_recognition
+import face_recognition
 import datetime
 import os
 import time

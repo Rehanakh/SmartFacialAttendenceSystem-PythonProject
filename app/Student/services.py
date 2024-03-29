@@ -43,7 +43,18 @@ def fetch_user_image_path(username):
     else:
         return None
 
-def register_user(userType, status, username, roll_no, email, full_name, password,captured_image_path):
+def register_user(user_details):
+    # Extract user details
+    userType = user_details.get('userType')
+    status = user_details.get('status', 'pending')  # Default to 'pending' if not provided
+    username = user_details['username']
+    roll_no = user_details['roll_no']
+    email = user_details['email']
+    full_name = user_details['full_name']
+    password = user_details['password']
+    captured_image_path = user_details['captured_image_path']  # Ensure this is included in user_details
+
+    db = DatabaseConnection()
     existing_user_query = "SELECT COUNT(*) FROM Users WHERE Username = ?"
     db = DatabaseConnection()
     user_count = db.fetch_all(existing_user_query, (username,))

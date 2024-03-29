@@ -21,11 +21,16 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit Course Request</button>
     </form>
-
-    <h3 class="mt-5">Enrolled Courses</h3>
+     <h3 class="mt-5">Enrolled Courses</h3>
     <ul class="list-group">
         {% for enrollment in enrollments %}
-        <li class="list-group-item">{{ enrollment.course_name }}</li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ enrollment.course_name }}
+            <!-- Remove Course Form -->
+            <form action="{{ url_for('drop_course', enrollment_id=enrollment.enrollment_id) }}" method="post">
+                <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+            </form>
+        </li>
         {% else %}
         <li class="list-group-item">No courses enrolled yet.</li>
         {% endfor %}
