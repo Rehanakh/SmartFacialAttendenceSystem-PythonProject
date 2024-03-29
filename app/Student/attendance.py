@@ -21,7 +21,7 @@ def get_known_encoding(app):
             known_names.append(os.path.splitext(filename)[0])
     return known_faces, known_names
 
-def check_attendance_already_marked(db, user_id,session_id, date):
+def check_attendance_already_marked(db, user_id,session_id,course_id, date):
     # Check if an attendance record exists for the given user_id, course_id, and date
     try:
         date_object = datetime.datetime.strptime(date, '%Y-%m-%d')
@@ -31,16 +31,16 @@ def check_attendance_already_marked(db, user_id,session_id, date):
         flash(f"Error formatting date: {e}", 'error')
         return False
 
-    query = "SELECT COUNT(*) FROM Attendance WHERE student_id = ? AND session_id = ? AND attendance_date = ?"
-    result = db.fetch_all(query, (user_id, session_id, formatted_date))
+    query = "SELECT COUNT(*) FROM Attendance WHERE student_id = ? AND session_id = ? AND course_id=? AND attendance_date = ?"
+    result = db.fetch_all(query, (user_id, session_id,course_id, formatted_date))
     if result:
         count = result[0][0]  # Assuming COUNT(*) returns a single row with a single column
         return count > 0
     return False
 
-def markattendance_db(db, user_id, session_id, today):
+def markattendance_db(db, user_id, session_id,course_id, today):
     # Check if attendance for the given session has already been marked
-    if check_attendance_already_marked(db, user_id, session_id, today):
+    if check_attendance_already_marked(db, user_id, session_id,course_id, today):
         flash('Attendance already marked for today.', 'info')
         return 'already_marked'
         # return False
@@ -49,10 +49,10 @@ def markattendance_db(db, user_id, session_id, today):
     status = 'Present'
     try:
         # Insert the attendance record
-        query_insert = """INSERT INTO Attendance (session_id, student_id, attendance_date, attendance_time, status) 
-                                       VALUES (?, ?, ?, ?, ?)"""
+        query_insert = """INSERT INTO Attendance (session_id, course_id, student_id, attendance_date, attendance_time, status) 
+                                       VALUES (?, ?, ?,?, ?, ?)"""
         attendance_time = datetime.datetime.now().strftime("%H:%M:%S")
-        db.execute_query(query_insert, (session_id, user_id, today, attendance_time, status))
+        db.execute_query(query_insert, (session_id,course_id, user_id, today, attendance_time, status))
         db.commit()
     except Exception as e:
         print(f"Error inserting attendance record: {e}")

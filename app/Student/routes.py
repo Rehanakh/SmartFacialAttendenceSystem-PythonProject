@@ -482,7 +482,7 @@ def student_setup_routes(app):
 
                             if recognized_username == session.get('username'):
                                 if not attendance_marked:
-                                    markattendance_db(db, session['user_id'], session_id, today)
+                                    markattendance_db(db, session['user_id'], session_id,course_id, today)
                                     cv2.putText(img, "Attendance Marked Successfully", (50, 50),
                                                 cv2.FONT_HERSHEY_SIMPLEX,
                                                 1, (0, 255, 0), 2)
@@ -579,12 +579,14 @@ def student_setup_routes(app):
 
                     if register_user(user_details):
                     # if register_user(user_details['userType'],user_details['status'], user_details['username'], user_details['roll_no'],  user_details['email'],user_details['full_name'],user_details['password'],user_details['captured_image_path']):
+                        update_encodings()
                         flash('OTP verified successfully! Registration complete.', 'success')
                         # Redirect to the registration page or a dashboard/home page as needed
                         user_name = user_details.get('full_name')
                         user_email = user_details.get('email')
+                        #send email
+                        send_welcome_email(user_email,user_name)
 
-                    #verify_otp.html
                     else:
                         flash('Registration failed. Please try again.', 'error')
                         # return render_template('verify_otp.html')
@@ -598,17 +600,3 @@ def student_setup_routes(app):
                 # return render_template('verify_otp.html')
         # Display OTP verification form
         return render_template('verify_otp.html')
-    @app.route('/send-email', methods=['POST'])
-    def send_email():
-        mail = current_app.extensions['mail']
-        email = request.form['email']  # Assuming you have an 'email' field in your form
-        subject = "Welcome to Our Service"
-        message_body = "Thank you for signing up for our service!"
-
-        msg = Message(subject,
-                      recipients=[email],
-                      body=message_body)
-        mail.send(msg)
-
-        flash('Email sent successfully!', 'success')
-        return redirect(url_for('some_route'))  # Redirect as needed
