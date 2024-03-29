@@ -173,8 +173,40 @@
         </div>
 
     </div>
+<!-- OTP input field (hidden initially) -->
+<div id="otpInput" style="display:none;">
+    <label for="otp">Enter OTP:</label>
+    <input type="text" id="otp" name="otp" required>
+    <button type="button" onclick="verifyOtp()">Verify OTP</button>
+</div>
 {% endblock %}
 
 {% block scripts %}
 <div id="dynamicContent"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function showOtpInput() {
+        document.getElementById('otpInput').style.display = 'block';
+    }
+
+    function verifyOtp() {
+        var otp = $('#otp').val();
+        $.ajax({
+            url: '/verify_otp', // Ensure this matches the route you define in Flask for OTP verification
+            method: 'POST',
+            data: {otp: otp},
+            success: function(response) {
+                if (response.success) {
+                    alert("OTP verified successfully.");
+                    // Redirect or refresh the page as needed, or finalize registration
+                    window.location.href = "{{ url_for('registration') }}";
+                } else {
+                    alert("Invalid OTP. Please try again.");
+                }
+            }
+        });
+    }
+</script>
+
 {% endblock %}

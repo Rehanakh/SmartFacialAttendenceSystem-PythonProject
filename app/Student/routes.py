@@ -9,18 +9,17 @@ import datetime
 import os
 import time
 import shutil
+from flask_mail import Message
+import random
 from .models import CourseSession
 from sqlalchemy import or_
 import cv2
 import logging
 logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s:%(levelname)s:%(message)s')
 #print("key",os.urandom(24))
-
 today= datetime.date.today().strftime("%Y_%m_%d").replace("_","-")
 db = DatabaseConnection()
-
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-
 
 def student_setup_routes(app):
     @app.route('/')
@@ -76,22 +75,14 @@ def student_setup_routes(app):
                 # Step 2: Check if the face is unique
                 if not is_face_unique(new_user_encoding):
                     flash('A similar face has already been registered.', 'error')
-                    os.remove(captured_image_path)
+                    if os.path.exists(captured_image_path):
+                        os.remove(captured_image_path)
                     return render_template('registration.html')
             except IndexError:
                 flash("No face detected in the image. Please try again.", "error")
                 if os.path.exists(captured_image_path):
                     os.remove(captured_image_path)
                 return render_template('registration.html')
-
-            # if is_face_unique(new_user_encoding):
-                #write below in regiter_user()
-                # img_name = f"{username}_{roll_no}.jpg"
-                # permanent_image_path = os.path.join(current_app.root_path, 'app', 'static', 'faces', img_name)
-                #
-                # # Save the captured image to the permanent path
-                # with open(permanent_image_path, "wb") as img_file:
-                #     img_file.write(captured_image.getbuffer())  # Assuming 'captured_image' supports this operation
 
             # Construct the permanent image path
             img_name = f"{username}_{roll_no}.jpg"
@@ -100,19 +91,29 @@ def student_setup_routes(app):
             # Move the image from the temporary path to the permanent path
             shutil.move(captured_image_path, permanent_image_path)
 
-            # Step 3 & 4: Proceed with registration since the face is unique
+            # Generate OTP and send it via email before completing registration
+            otp = random.randint(100000, 999999)
+            session['otp'] = otp  # Store OTP in session for verification
 
-            if register_user(userType, status, username, roll_no, email, full_name, password, permanent_image_path):
+            email_subject = "Your Registration OTP"
+            email_body = f"Here is your OTP for registration: {otp}"
+            send_otp_email(email, email_subject, email_body)
 
-                # Step 5: Update encodings
-                update_encodings()  # Update encoding file with new user's encoding
-                flash('Registration Successful!', 'success')
-            else:
-                flash('Registration Failed! Please try again.', 'error')
+            # Here you save all necessary information into the session
+            session['form_data'] = {
+                'userType': userType,
+                'status': status,
+                'username': username,
+                'roll_no': roll_no,
+                'email': email,
+                'full_name': full_name,
+                'password': password,
+                'captured_image_path': permanent_image_path
+                # Assuming this variable holds the path to the captured image
+            }
 
-            if os.path.exists(captured_image_path):
-                os.remove(captured_image_path)
-            return redirect(url_for('registration'))
+            # Redirect to an OTP verification page, you need to implement this
+            return redirect(url_for('verify_otp'))
 
         return render_template('registration.html')
 
@@ -387,6 +388,24 @@ def student_setup_routes(app):
         courses = db.fetch_all("SELECT * FROM Courses")
         return render_template('course_enrollment.html', courses=courses, enrollments=enrollments)
 
+    @app.route('/drop_course/<enrollment_id>', methods=['POST'])
+    def drop_course(enrollment_id):
+        student_id = session.get('user_id')
+        if not student_id:
+            flash('Please log in to manage courses.', 'warning')
+            return redirect(url_for('login'))
+
+        # Verify that the enrollment belongs to the logged-in student
+        enrollment = db.fetch_all("SELECT * FROM CourseEnrollment WHERE enrollment_id=? AND student_id=?",
+                                  [enrollment_id, student_id])
+        if enrollment:
+            db.execute_query("DELETE FROM CourseEnrollment WHERE enrollment_id=?", [enrollment_id])
+            flash('Course successfully dropped.', 'success')
+        else:
+            flash('Course could not be found or does not belong to you.', 'error')
+
+        return redirect(url_for('course_enrollment'))
+
     @app.route('/video_feed', methods=['GET', 'POST'])
     def video_feed():
         if request.method == 'POST':
@@ -402,9 +421,7 @@ def student_setup_routes(app):
 
             today = datetime.datetime.now().strftime("%Y-%m-%d")
 
-
             ##########  code for face recognition  ####
-
             user_image_path = fetch_user_image_path(session['username'])
             if user_image_path is None or not os.path.exists(user_image_path):
                 flash("User's image not found. Please ensure your profile image has been uploaded.", 'error')
@@ -465,7 +482,7 @@ def student_setup_routes(app):
 
                             if recognized_username == session.get('username'):
                                 if not attendance_marked:
-                                    markattendance_db(db, session['user_id'], session_id, today)
+                                    markattendance_db(db, session['user_id'], session_id,course_id, today)
                                     cv2.putText(img, "Attendance Marked Successfully", (50, 50),
                                                 cv2.FONT_HERSHEY_SIMPLEX,
                                                 1, (0, 255, 0), 2)
@@ -503,3 +520,83 @@ def student_setup_routes(app):
             video_capture.release()
             cv2.destroyAllWindows()
             return redirect(url_for('mark_attendance_route'))
+    def send_otp_email(to_email, subject, body):
+        mail = current_app.extensions['mail']
+        msg = Message(subject,
+                      recipients=[to_email],
+                      body=body)
+        mail.send(msg)
+
+    def send_welcome_email(to_email,user_name):
+        mail = current_app.extensions['mail']
+        subject = "Welcome to Smart Attendance System"
+        message_body = f"Dear {user_name},\n\n" \
+                       "Welcome to Smart Attendance System! We're excited to have you on board. " \
+                       "This system allows for efficient and secure attendance tracking using state-of-the-art " \
+                       "facial recognition technology.\n\n" \
+                       "Thank you for choosing us.\n\n" \
+                       "Best regards,\nThe Smart Attendance System Team"
+        msg = Message(subject, recipients=[to_email], body=message_body)
+        try:
+            mail.send(msg)
+            return True
+        except Exception as e:
+            print(f"Failed to send email: {e}")
+            return False
+
+    @app.route('/verify_otp', methods=['GET', 'POST'])
+    def verify_otp():
+        if request.method == 'POST':
+            user_otp = request.form['otp']
+            if 'otp' in session and int(user_otp) == session['otp']:
+                session.pop('otp', None)  # Clear the OTP
+
+                # Assuming all the user's registration information is stored in session['form_data']
+                user_details = session.get('form_data',None)
+
+                if not user_details:
+                    flash('Session expired or invalid access. Please start the registration process again.', 'error')
+                    return redirect(url_for('registration'))
+                # return jsonify({'success': True, 'message': 'OTP verified successfully! Registration complete.'})
+                # return redirect(url_for('registration'))
+
+                # # Step 3 & 4: Proceed with registration since the face is unique
+                #
+                # if register_user(userType, status, username, roll_no, email, full_name, password, permanent_image_path):
+                #
+                #     # Step 5: Update encodings
+                #     update_encodings()  # Update encoding file with new user's encoding
+                #     flash('Registration Successful!', 'success')
+                # else:
+                #     flash('Registration Failed! Please try again.', 'error')
+                #
+                # if os.path.exists(captured_image_path):
+                #     os.remove(captured_image_path)
+                # return redirect(url_for('registration'))
+                try:
+                    # Assuming 'register_user' is your function to insert a new user into the database.
+                    # This function should return True if the insertion was successful, False otherwise.
+
+                    if register_user(user_details):
+                    # if register_user(user_details['userType'],user_details['status'], user_details['username'], user_details['roll_no'],  user_details['email'],user_details['full_name'],user_details['password'],user_details['captured_image_path']):
+                        update_encodings()
+                        flash('OTP verified successfully! Registration complete.', 'success')
+                        # Redirect to the registration page or a dashboard/home page as needed
+                        user_name = user_details.get('full_name')
+                        user_email = user_details.get('email')
+                        #send email
+                        send_welcome_email(user_email,user_name)
+
+                    else:
+                        flash('Registration failed. Please try again.', 'error')
+                        # return render_template('verify_otp.html')
+                except Exception as e:
+                    # Log the error or handle it as needed
+                    print(f"Error during registration: {e}")
+                    flash('An error occurred during registration. Please try again.', 'error')
+                return redirect(url_for('registration'))
+            else:
+                flash('Invalid OTP. Please try again.', 'error')
+                # return render_template('verify_otp.html')
+        # Display OTP verification form
+        return render_template('verify_otp.html')
