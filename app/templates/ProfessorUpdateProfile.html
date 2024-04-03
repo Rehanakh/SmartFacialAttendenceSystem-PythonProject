@@ -1,0 +1,39 @@
+{% extends "base_professor.html" %}  <!-- Change to base professor template -->
+{% block title %}Update Profile - Smart Attendance System{% endblock %}
+
+{% block extra_css %}
+<style>
+    h2{
+        color: #A8DADC;
+    }
+    form{
+        color: white;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Update Profile</h2>
+    <form method="POST">
+        <div class="mb-3">
+            <label for="Username" class="form-label">User Name</label>
+            <input type="text" class="form-control" id="Username" name="Username" value="{{ user.Username }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" value="{{ user.Email }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="full_name" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="full_name" name="full_name" value="{{ user.FullName }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="department" class="form-label">Department</label>  <!-- Changed from Roll Number to Department -->
+            <input type="text" class="form-control" id="department" name="department" value="{{ user.Department }}" required>
+        </div>
+        <!-- Add other fields specific to professor's profile if needed -->
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
+{% endblock %}
