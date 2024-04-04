@@ -38,7 +38,7 @@ def check_attendance_already_marked(db, user_id,session_id,course_id, date):
         return count > 0
     return False
 
-def markattendance_db(db, user_id, session_id,course_id, today):
+def markattendance_db(db, user_id, session_id,course_id, today,emotion):
     # Check if attendance for the given session has already been marked
     if check_attendance_already_marked(db, user_id, session_id,course_id, today):
         flash('Attendance already marked for today.', 'info')
@@ -49,10 +49,10 @@ def markattendance_db(db, user_id, session_id,course_id, today):
     status = 'Present'
     try:
         # Insert the attendance record
-        query_insert = """INSERT INTO Attendance (session_id, course_id, student_id, attendance_date, attendance_time, status) 
-                                       VALUES (?, ?, ?,?, ?, ?)"""
+        query_insert = """INSERT INTO Attendance (session_id, course_id, student_id, attendance_date, attendance_time, status, emotion) 
+                                       VALUES (?, ?, ?,?, ?, ?, ?)"""
         attendance_time = datetime.datetime.now().strftime("%H:%M:%S")
-        db.execute_query(query_insert, (session_id,course_id, user_id, today, attendance_time, status))
+        db.execute_query(query_insert, (session_id,course_id, user_id, today, attendance_time, status,emotion))
         db.commit()
     except Exception as e:
         print(f"Error inserting attendance record: {e}")

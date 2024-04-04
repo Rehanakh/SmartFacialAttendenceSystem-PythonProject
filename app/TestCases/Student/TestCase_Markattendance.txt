@@ -1,46 +1,50 @@
 Test
-Case ID Test Case Description     Test Steps                        Expected Result
-        Verify Course Selection   1. Open the attendance marking
-TC01    Dropdown                  page.                             The selected course should be displayed in the dropdown.
-                                  2. Click on the course selection
-                                  dropdown.
-                                  3. Choose a valid course from the
-                                  list.
-        Verify Session Dropdown
-        Based on Course           1. Select a course from the course The session dropdown should populate with valid session values
-TC02    Selection                 dropdown.                           related to the selected course.
-                                  2. Observe the session dropdown.
-                                                                      - The attendance for today’s date should be displayed. Each
-        Verify Attendance Display                                     student’s name, roll number, and attendance status (present/absent)
-TC03    for Today                 1. Select a course and session.     should be displayed
-                                  2. Mark attendance for different
-                                  students.
-        Verify Prevention of                                          A validation error message should appear, indicating that duplicate
-TC04    Duplicate Attendance      1. Mark attendance for a student. attendance is not allowed for the same session.
-                                  2. Attempt to mark attendance for
-                                  the same student in the same
-                                  session again.
+Case ID Test Case Description Test Steps                    Expected Result
+        Verify Course         1. Open the attendance        The selected course should be displayed in the
+TC01 Selection Dropdown marking page.                       dropdown.(Pass)
+                              2. Click on the course
+                              selection dropdown.
+                              3. Choose a valid course from
+                              the list.
+        Verify Session
+        Dropdown Based on 1. Select a course from the       The session dropdown should populate with valid session
+TC02 Course Selection         course dropdown.              values related to the selected course.(Pass)
+                              2. Observe the session
+                              dropdown.
+                                                            - The attendance for today’s date should be displayed.
+        Verify Attendance     1. Select a course and        Each student’s name, roll number, and attendance status
+TC03 Display for Today        session.                      (present/absent) should be displayed                                       (Pass)
+                              2. Mark attendance for
+                              different students.
+                                                            A validation error message should appear, indicating that
+        Verify Prevention of  1. Mark attendance for a      duplicate attendance is not allowed for the same session.
+TC04 Duplicate Attendance student.                          (Pass)
+                              2. Attempt to mark attendance
+                              for the same student in the
+                              same session again.
         Verify Attendance
-        Marking for Different                                         - Attendance should be successfully marked for each
-TC05    Students                  1. Select a course and session.     student.
-                                  2. Mark attendance for different     - No duplicates should be allowed.
-                                  students.
-                                  1. Check the layout of the
-                                                                      The UI elements should be consistent, visually appealing, and user-
-                                  attendance page.
-TC06    Verify UI Elements                                            friendly.
-                                  2. Verify alignment, font size, and
-                                  color of text.
-                                  3. Check if buttons and dropdowns
-                                  are properly styled.
-                                  1. Try to mark attendance without   Appropriate error messages should be displayed. The system
-TC07    Verify Error Handling     selecting a course or session.      should prevent invalid actions.
-                                  2.. Try to mark attendance for an
-                                  invalid session.
-                                                                      The default course and session dropdowns should be empty. No
-                                                                      attendance data should be displayed until a course and session are
-TC08    Verify Default Values     1. Open the attendance page.        selected.
-
-TCo9    Verify Attendance in      1. Mark attendance with different   -Attendance may not mark successfully
-        different Operating           os , with blur camera
-        Systems .
+        Marking for Different 1. Select a course and        Attendance should be successfully marked for each
+TC05 Students                 session.                      student. No duplicates should be allowed.(Pass)
+                              2. Mark attendance for
+                              different students.
+                                1. Check the layout of the        The UI elements should be consistent, visually appealing,
+TC06    Verify UI Elements      attendance page.                  and user-friendly.
+                                2. Verify alignment, font size,
+                                and color of text.
+                                3. Check if buttons and
+                                dropdowns are properly
+                                styled.
+                                1. Try to mark attendance
+                                without selecting a course or      Appropriate error messages should be displayed. The
+TC07    Verify Error Handling   session.                          system should prevent invalid actions.(Pass)
+                                2.. Try to mark attendance for
+                                an invalid session.
+                                                             The default course and session dropdowns should be
+                                                             empty. No attendance data should be displayed until a
+TC08    Verify Default Values 1. Open the attendance page. course and session are selected.                                   (Pass)
+TC09    Detect emotion         1. Open attendance page
+                               2. Mark attendance for logged While marking attendance , it should detect emotion of
+                               in user.                      face. (Pass)
+                               1. Mark attendance for logged Emotion detection can mark incorrect emotion based on
+TC10    Detect correct emotion in user.                      Webcam quality and different operation system (can Fail)
+

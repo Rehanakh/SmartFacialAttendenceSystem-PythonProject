@@ -13,6 +13,7 @@ from flask_mail import Message
 import random
 from .models import CourseSession
 from sqlalchemy import or_
+from deepface import DeepFace
 import cv2
 import logging
 logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s:%(levelname)s:%(message)s')
@@ -29,18 +30,18 @@ def student_setup_routes(app):
 
     known_faces, known_names = [], []
 
-    def load_known_faces():
-        known_faces_dir =  r"C:\Users\Rehana\Desktop\Big_Data_Semester1\Programming_for_big-data\Project\FacialRecognitionAttendanceSystem\app\static\faces"
-        for filename in os.listdir(known_faces_dir):
-            name, _ = os.path.splitext(filename)
-            image_path = os.path.join(known_faces_dir, filename)
-            image = face_recognition.load_image_file(image_path)
-            encoding = face_recognition.face_encodings(image)[0]
-            known_faces.append(encoding)
-            known_names.append(name)
-        print("Loaded known faces.")
-
-    load_known_faces()
+    # def load_known_faces():
+    #     known_faces_dir =  r"C:\Users\Rehana\Desktop\Big_Data_Semester1\Programming_for_big-data\Project\FacialRecognitionAttendanceSystem\app\static\faces"
+    #     for filename in os.listdir(known_faces_dir):
+    #         name, _ = os.path.splitext(filename)
+    #         image_path = os.path.join(known_faces_dir, filename)
+    #         image = face_recognition.load_image_file(image_path)
+    #         encoding = face_recognition.face_encodings(image)[0]
+    #         known_faces.append(encoding)
+    #         known_names.append(name)
+    #     print("Loaded known faces.")
+    #
+    # load_known_faces()
 
     @app.route('/registration', methods=['GET', 'POST'])
     def registration():
@@ -353,7 +354,6 @@ def student_setup_routes(app):
     #         cv2.destroyAllWindows()
     #         return redirect(url_for('mark_attendance_route'))
     #     pass
-
     @app.route('/course_enrollment', methods=['GET', 'POST'])
     def course_enrollment():
         if request.method == 'POST':
@@ -457,7 +457,7 @@ def student_setup_routes(app):
                     break
                 current_time = time.time()
 
-                if not success or (current_time - last_action_time > action_timeout and process_complete ):
+                if not success or (current_time - last_action_time > action_timeout and process_complete) or attendance_marked:
                     break
                 imgs=cv2.resize(img,(0,0),None, 0.25,0.25)
                 img= cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
@@ -473,50 +473,98 @@ def student_setup_routes(app):
                     matches = face_recognition.compare_faces(encodeListKnown, encodeFace)
                     faceDis = face_recognition.face_distance(encodeListKnown, encodeFace)
 
-                    if matches:
-                        matchIndex = np.argmin(faceDis)
-                        if matches[matchIndex]:
-                            # Known face detected
-                            recognized_id = studentIds[matchIndex]
-                            recognized_username = recognized_id.split('_')[0]
+                    matchIndex = np.argmin(faceDis) if matches else None
+                    if matchIndex is not None  and not attendance_marked:
+                        #comment sacling frame coordinates for now
+                        # y1, x2, y2, x1 = faceLoc
+                        # y1, x2, y2, x1 = y1 * 4, x2 * 4, y2 * 4, x1 * 4  # Scale back up face location since the frame was scaled to 1/4 size
+                        # cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), 2)
+                        # Draw a rectangle around the face
+                        # recognized_id = studentIds[matchIndex]
+                        # recognized_username = recognized_id.split('_')[0]
 
-                            if recognized_username == session.get('username'):
-                                if not attendance_marked:
-                                    markattendance_db(db, session['user_id'], session_id,course_id, today)
-                                    cv2.putText(img, "Attendance Marked Successfully", (50, 50),
-                                                cv2.FONT_HERSHEY_SIMPLEX,
-                                                1, (0, 255, 0), 2)
-                                    attendance_marked = True
-                                    # process_complete = True
-                                    # face_detected_and_processed = True
+                        recognized_username = studentIds[matchIndex].split('_')[0]
+
+                        # Known face detected
+                        if recognized_username == session.get('username'):
+                            cv2.putText(img, "Press 'q' to mark attendance", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1,
+                                        (0, 255, 0), 2)
+                            cv2.imshow('Face Recognition', img)
+                            if cv2.waitKey(1) & 0xFF == ord('q'):
+                                face_image = img[faceLoc[0] * 4:faceLoc[2] * 4, faceLoc[3] * 4:faceLoc[1] * 4]
+                                face_image = cv2.cvtColor(face_image, cv2.COLOR_RGB2BGR)
+                                try:
+                                    analysis = DeepFace.analyze(face_image, actions=['emotion'], enforce_detection=False)
+                                    print(analysis)
+                                    # dominant_emotion = analysis["dominant_emotion"]
+                                    # Access the first element of the list, then the 'dominant_emotion' from the dictionary
+                                    dominant_emotion = analysis[0]["dominant_emotion"]
+
+                                    print("Detected emotion:", dominant_emotion)
+                                    cv2.putText(img, f"Emotion: {dominant_emotion}", (50, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+                                except Exception as e:
+                                    print(f"Emotion detection failed: {e}")
+
+                                    #Mark attendance in db
+                                markattendance_db(db, session['user_id'], session_id, course_id, today,dominant_emotion)
+                                cv2.putText(img, "Attendance Marked Successfully", (50, 100), cv2.FONT_HERSHEY_SIMPLEX,
+                                            1,
+                                            (0, 255, 0), 2)
+                                cv2.imshow('Face Recognition', img)
+                                cv2.waitKey(5000)  # Wait for 5 seconds
+                                attendance_marked = True
+                                time.sleep(2)
+                                break
+                            #comment below code to change functionality to detect emotions with attendance
+                            # if not attendance_marked:
+                            #     cv2.rectangle(img, (faceLoc[3] * 4, faceLoc[0] * 4),
+                            #                   (faceLoc[1] * 4, faceLoc[2] * 4),
+                            #                   (0, 255, 0), 2)
+                            #     cv2.putText(img, "Press 'q' to mark attendance", (50, 50), cv2.FONT_HERSHEY_SIMPLEX,
+                            #                 1,
+                            #                 (0, 255, 0), 2)
+                            #     cv2.imshow('Face Recognition', img)
+                            #     key = cv2.waitKey(1) & 0xFF
+                            #     if key == ord('q'):
+                            #         top, right, bottom, left = faceLoc
+                            #         face_image = img[top:bottom, left:right]
+                            #         face_image = cv2.cvtColor(face_image, cv2.COLOR_BGR2RGB)
+                                    # try:
+                                    #     analysis = DeepFace.analyze(face_image, actions=['emotion'])
+                                    #     dominant_emotion = analysis["dominant_emotion"]
+                                    #     cv2.putText(img, f"Emotion: {dominant_emotion}", (50, 100),
+                                    #                 cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+                                    #
+                                    #     cv2.putText(img, f"Emotion: {dominant_emotion}", (50, 100),
+                                    #                 cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+                                    # except Exception as e:
+                                    #     print(f"Emotion detection failed: {e}")
+                                    #
+                                    # markattendance_db(db, session['user_id'], session_id, course_id, today)
+                                    # # cv2.putText(img, "Attendance Marked Successfully", (50, 50),  cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+                                    # cv2.putText(img, "Attendance Marked Successfully", (50, 150),
+                                    #             cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+                                    # attendance_marked = True
+                                    # time.sleep(2)
                                     # break
-                                else:
-                                    cv2.putText(img, "Attendance Already Marked", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1,
-                                                (0, 255, 255), 2)
-                                    face_processed = True
-                                    break
-
-                            else:
-                                cv2.putText(img, "Face Not Associated With Logged-In User", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
-                                face_processed = True
+                            # else:
+                            #     cv2.putText(img, "Attendance Already Marked", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1,
+                            #                 (0, 255, 255), 2)
+                            #     face_processed = True
+                            #     break
 
                         else:
-                            cv2.putText(img, "Face Not Recognized", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0),2)
+                            cv2.putText(img, "Face Not Associated With Logged-In User", (50, 50),
+                                            cv2.FONT_HERSHEY_SIMPLEX, 1,
+                                            (0, 0, 255), 2)
                             face_processed = True
-
-                # if face_detected_and_processed or not faceCurFrame:
-                #     last_action_time = time.time()
-                if face_processed or not face_detected:
-                    last_action_time = current_time
+                    else:
+                        cv2.putText(img, "Face Not Recognized", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
+                        face_processed = True
 
                 cv2.imshow('Face Recognition', img)
-
-                if cv2.waitKey(1) & 0xFF == ord('q') or process_complete or (face_processed and (current_time - last_action_time > action_timeout)):
-                #if cv2.waitKey(1) & 0xFF == ord('q') or process_complete or ( not face_detected and (current_time - last_action_time > action_timeout)):
-                # if cv2.waitKey(1) & 0xFF == ord('q') or process_complete or (current_time - last_action_time > action_timeout):
-                # if cv2.waitKey(1) & 0xFF == ord('q') or process_complete:
+                if cv2.waitKey(1) & 0xFF == ord('q'):
                     break
-
             video_capture.release()
             cv2.destroyAllWindows()
             return redirect(url_for('mark_attendance_route'))
@@ -551,34 +599,17 @@ def student_setup_routes(app):
             if 'otp' in session and int(user_otp) == session['otp']:
                 session.pop('otp', None)  # Clear the OTP
 
-                # Assuming all the user's registration information is stored in session['form_data']
+                # All the user's registration information is stored in session['form_data']
                 user_details = session.get('form_data',None)
 
                 if not user_details:
                     flash('Session expired or invalid access. Please start the registration process again.', 'error')
                     return redirect(url_for('registration'))
-                # return jsonify({'success': True, 'message': 'OTP verified successfully! Registration complete.'})
-                # return redirect(url_for('registration'))
 
-                # # Step 3 & 4: Proceed with registration since the face is unique
-                #
-                # if register_user(userType, status, username, roll_no, email, full_name, password, permanent_image_path):
-                #
-                #     # Step 5: Update encodings
-                #     update_encodings()  # Update encoding file with new user's encoding
-                #     flash('Registration Successful!', 'success')
-                # else:
-                #     flash('Registration Failed! Please try again.', 'error')
-                #
-                # if os.path.exists(captured_image_path):
-                #     os.remove(captured_image_path)
-                # return redirect(url_for('registration'))
                 try:
-                    # Assuming 'register_user' is your function to insert a new user into the database.
                     # This function should return True if the insertion was successful, False otherwise.
 
                     if register_user(user_details):
-                    # if register_user(user_details['userType'],user_details['status'], user_details['username'], user_details['roll_no'],  user_details['email'],user_details['full_name'],user_details['password'],user_details['captured_image_path']):
                         update_encodings()
                         flash('OTP verified successfully! Registration complete.', 'success')
                         # Redirect to the registration page or a dashboard/home page as needed
@@ -589,14 +620,12 @@ def student_setup_routes(app):
 
                     else:
                         flash('Registration failed. Please try again.', 'error')
-                        # return render_template('verify_otp.html')
                 except Exception as e:
-                    # Log the error or handle it as needed
+                    # Log the error
                     print(f"Error during registration: {e}")
                     flash('An error occurred during registration. Please try again.', 'error')
                 return redirect(url_for('registration'))
             else:
                 flash('Invalid OTP. Please try again.', 'error')
-                # return render_template('verify_otp.html')
         # Display OTP verification form
         return render_template('verify_otp.html')
