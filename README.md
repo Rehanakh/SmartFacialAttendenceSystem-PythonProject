@@ -5,11 +5,12 @@ This project is an Attendance Management System designed to automate the attenda
 1.Student Module:
 - Allows students to register 
 - After registration. Allow students to login once registration approved.
-- - Utilized Flask-Mail for email operations, enabling seamless integration with SMTP servers for sending emails.
+- Utilized Flask-Mail for email operations, enabling seamless integration with SMTP servers for sending emails.
 - Implemented an OTP-based email verification system for new user registrations.
 - Added automatic welcome email functionality upon successful registration and OTP verification. 
 - Enables students to view their attendance records.
 - Utilizes face recognition for marking attendance automatically during classes.
+- Implemented emotion detection functionality while marking attendance
 - Students can enroll in the courses
 - Students can remove the courses from the enrolled list
 
