@@ -1,0 +1,15 @@
+Test
+Case
+ID    Description          Test Steps                                                  Expected Result
+      View overall                                                                     Overall attendance history is displayed
+TC001 attendance history   1. Log in as a student.                                     correctly.(Pass)
+                           2. Select a course from the dropdown.
+                            3. Verify that the attendance for the selected course is
+                           displayed.
+
+      View course-wise                                                                 Course-wise attendance is displayed correctly.
+TC002 attendance           1. Log in as a student.                                     (Pass)
+                           2. Select a course from the dropdown.
+                           3. Verify that the attendance for the selected course is
+                           displayed.
+

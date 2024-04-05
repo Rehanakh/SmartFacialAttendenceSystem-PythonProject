@@ -191,3 +191,37 @@ def capture_image_from_webcam(username, roll_no):
         return temp_image_path
     else:
         raise Exception("Failed to capture image from webcam.")
+
+def get_attendance_records(student_id,course_id=None, page=1, per_page=10):
+    db = DatabaseConnection()
+    offset = (page - 1) * per_page
+    query = """
+        SELECT a.attendance_date, c.course_name,a.session_id, CONVERT(VARCHAR, cs.start_time, 108) + ' - ' + CONVERT(VARCHAR, cs.end_time, 108) AS session_time, 
+         a.status FROM Attendance a
+        JOIN Courses c ON a.course_id = c.course_id
+        JOIN CourseSessions cs ON a.session_id = cs.session_id WHERE a.student_id = ?
+    """
+    params = [student_id]
+
+    if course_id:
+        query += " AND a.course_id = ?"
+        params.append(course_id)
+
+    query += " ORDER BY a.attendance_date DESC"
+    query += " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY"
+    params.extend([offset, per_page])
+
+    records = db.fetch_all(query, params)
+    # Assuming total_records query is implemented
+    total_records_query = """
+            SELECT COUNT(*)
+            FROM Attendance a
+            WHERE a.student_id = ?
+        """
+    total_records_params = [student_id]
+    if course_id:
+        total_records_query += " AND a.course_id = ?"
+        total_records_params.append(course_id)
+    total_records = db.fetch_all(total_records_query, total_records_params)[0][0]
+
+    return records, total_records
