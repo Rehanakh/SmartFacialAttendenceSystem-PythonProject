@@ -1,7 +1,7 @@
 import pickle
 import numpy as np
 from flask import Flask,Blueprint, current_app, render_template, request, flash, redirect, url_for, jsonify,Response,session
-from .services import fetch_user_details,fetch_user_image_path,register_user ,known_faces,known_names,update_encodings,is_face_unique,capture_image_from_webcam
+from .services import fetch_user_details,fetch_user_image_path,register_user ,known_faces,known_names,update_encodings,is_face_unique,capture_image_from_webcam,get_attendance_records
 from .attendance import markattendance_db
 from app.util.connection import DatabaseConnection
 import face_recognition
@@ -629,3 +629,28 @@ def student_setup_routes(app):
                 flash('Invalid OTP. Please try again.', 'error')
         # Display OTP verification form
         return render_template('verify_otp.html')
+
+    @app.route('/attendance_history', methods=['GET'])
+    def attendance_history():
+        if 'username' not in session:
+            return redirect(url_for('login'))
+
+        selected_course = request.args.get('course', None)
+        page = request.args.get('page', 1, type=int)
+        per_page = 10  # Adjust as needed
+
+        db = DatabaseConnection()
+        # Assume get_attendance_records is defined in services.py
+        attendance_records, total_records = get_attendance_records(session['user_id'],selected_course, page, per_page)
+        courses = db.fetch_all("SELECT * FROM Courses")
+
+        # Calculate total pages for pagination
+        total_pages = (total_records + per_page - 1) // per_page
+
+        return render_template('attendance_history.html',
+                               attendance_records=attendance_records,
+                               courses=courses,
+                               selected_course=selected_course,
+                               page=page,
+                               total_pages=total_pages,
+                               per_page=per_page)
