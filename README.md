@@ -13,6 +13,7 @@ This project is an Attendance Management System designed to automate the attenda
 - Implemented emotion detection functionality while marking attendance
 - Students can enroll in the courses
 - Students can remove the courses from the enrolled list
+- Student can view attendance history of own 
 
 
 Each module has its route.py and a common connection.py for database connection.
