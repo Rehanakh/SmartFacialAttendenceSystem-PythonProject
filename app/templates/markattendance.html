@@ -94,9 +94,9 @@
             <h2 style="border-radius: 20px 20px 0px 0px;background-color:#0b4c61;color: white;padding: 10px;">Today's Attendance <i class="material-icons">assignment</i></h2>
 
           <form method="POST" action="{{ url_for('video_feed') }}" class="attendance-form">
-              <div class="row align-items-center justify-content-center">
+              <div class="row gx-5 align-items-center justify-content-center">
                   <!-- Course Dropdown -->
-                  <div class="col-md-4">
+                  <div class="col-md-4" style="margin-right: 35px;">
                       <label for="courseSelect">Select Course:</label>
                       <select class="form-control" id="courseSelect" name="course_id">
                           <option value="">Select...</option>
@@ -105,7 +105,8 @@
                           {% endfor %}
                       </select>
                   </div>
-                  <div class="col-md-4">
+
+                  <div class="col-md-4" style="margin-left: 35px;">
                       <label for="sessionSelect">Select Session:</label>
                       <select class="form-control" id="sessionSelect" name="session_id">
                           <!-- Options will be added dynamically -->

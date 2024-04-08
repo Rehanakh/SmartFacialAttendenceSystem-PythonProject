@@ -4,82 +4,70 @@
 
 {% block head %}
     {{ super() }}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     {% endblock %}
 {% block extra_css %}
+<style>
+.maindiv {
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+  backdrop-filter: blur(10px); /* Apply a blur effect to the background */
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  border-radius: 10px; /* Optional: Rounds the corners */
+  padding: 20px; /* Optional: Adds some spacing inside the div */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
+  margin: 10px 0; /* Optional: Adds some spacing around the div */
+  height:100%;
+}
 
-<!--    <style>-->
-<!--        html{-->
-<!--        height: 100%;-->
-<!--        margin: 0;-->
-<!--        }-->
-<!--        body {-->
-<!--            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;-->
-<!--            background-color: #708090;-->
-<!--            margin: 0;-->
-<!--            padding: 0;-->
-<!--            color:#E6E6FA;-->
-<!--            height: 100%;-->
-<!--        }-->
-<!--        .navbar, .footer {-->
-<!--        flex-shrink: 0;-->
-<!--         }-->
-<!--         .wrapper {-->
-<!--           display: flex;-->
-<!--           flex-direction: column;-->
-<!--           height: 100vh;-->
-<!--&lt;!&ndash;min-height: 100vh;&ndash;&gt;-->
-<!-- margin: 0;-->
-<!--        }-->
-<!--        .wrapper:after {-->
-<!--            content: "";-->
-<!--            display: block;-->
-<!--        }-->
-<!--           .container-fluid {-->
-<!--           flex: 1;-->
-<!--&lt;!&ndash;           max-height: calc(100vh - 56px - 50px);&ndash;&gt;-->
-<!--           overflow:auto;-->
+.charts-container {
+  display: flex;
+  justify-content: center; /* Center the charts container */
+  padding-top: 20px; /* Adjust top padding as needed */
+  flex-wrap: wrap; /* Allows items to wrap if needed */
 
-<!--        }-->
-<!--        .sidebar {-->
-<!--            overflow-y: auto;-->
-<!--            background-color: #f8f9fa;-->
-<!--            padding: 20px;-->
-<!--            height: 85vh;-->
-
-<!--        }-->
-<!--        .footer, .wrapper:after {-->
-<!--            height: 50px; /* Footer height */-->
-<!--        }-->
-<!--        .footer {-->
-<!--            background-color: #00BFFF;-->
-<!--            color: white;-->
-<!--            padding: 10px;-->
-<!--            text-align: center;-->
-<!--&lt;!&ndash;            position: relative;&ndash;&gt;-->
-<!--&lt;!&ndash;            bottom: 0;&ndash;&gt;-->
-<!--            width: 100%;-->
-<!--        }-->
-
-<!--        .navbar-custom {-->
-<!--            background-color: #00BFFF;-->
-<!--            color: white;-->
-<!--        }-->
-<!--        .btn-primary {-->
-<!--            background-color: #36454F;-->
-<!--            border-color: #36454F;-->
-<!--        }-->
-<!--        .navbar-nav .nav-link:hover {-->
-<!--            color: white;-->
-<!--            text-decoration: underline;-->
-<!--        }-->
-<!--        /* Add other common styles here */-->
-<!--    </style>-->
+}
+.chart-container {
+  flex-basis: 50%; /* Each chart container will try to take up half of the container's width */
+<!--  max-width: 50%; /* Prevents the chart from taking more than half the width */-->
+  box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+  padding: 0 20px; /* Adjust padding as needed for spacing around the charts */
+}
+.pie-chart-container {
+  max-width: 300px; /* Adjust this value to make the pie chart smaller or larger */
+  margin: auto; /* This will center the chart in the container */
+}
+.trends-chart-container {
+  flex-basis: 60%; /* Increase the basis to give more space */
+  max-width: 60%; /* Allows the trends chart to take up more space */
+}
+</style>
 {% endblock %}
+{% block content %}
+<div class="maindiv">
+<div class="charts-container">
+    <div class="chart-container pie-chart-container">
+        <canvas id="attendanceSummaryChart"></canvas>
+    </div>
+    <div class="chart-container trends-chart-container">
+        <canvas id="attendanceTrendsChart"></canvas>
+    </div>
+</div>
+</div>
 
-                 {% block content %}
-                 <!-- This block will be overridden by child templates -->
-                 {% endblock %}
+<div>
+    <!-- Display Risk Status -->
+    <h2>Risk Status: {{ risk_status }}</h2>
+
+    <!-- Conditional Display of Risk Status -->
+    {% if risk_status == "At Risk" %}
+    <div class="badge badge-danger">At Risk</div>
+    {% else %}
+    <div class="badge badge-success">Not At Risk</div>
+    {% endif %}
+</div>
+
+{% endblock %}
 
 
 {% block scripts %}
@@ -96,11 +84,75 @@
         window.history.replaceState({}, document.title, newUrl);
     }
 }
-<!--    // Check for login_success query parameter-->
-<!--    const urlParams = new URLSearchParams(window.location.search);-->
-<!--    const loginSuccess = urlParams.get('login_success');-->
 
-<!--    if (loginSuccess === '1') {-->
-<!--        alert('Login successful!');-->
-<!--    }-->
-</script>{% endblock %}
+    // Initialize Attendance Summary Chart
+
+var summaryCtx = document.getElementById('attendanceSummaryChart').getContext('2d');
+    var attendanceSummaryChart = new Chart(summaryCtx, {
+        type: 'pie',
+        data: {
+            labels: {{ attendance_data.statuses | tojson }},
+            datasets: [{
+                label: 'Attendance Summary',
+                data: {{ attendance_data.counts | tojson }},
+                backgroundColor: [
+                    // Add more colors as needed
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(255, 99, 132, 0.2)',
+                    // ...
+                ],
+                borderColor: [
+                    // Add more colors as needed
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(255,99,132,1)',
+                    // ...
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            tooltips: {
+            callbacks: {
+                label: function(tooltipItem, data) {
+                    var dataset = data.datasets[tooltipItem.datasetIndex];
+                    var total = dataset.data.reduce(function(previousValue, currentValue) {
+                        return previousValue + currentValue;
+                    });
+                    var currentValue = dataset.data[tooltipItem.index];
+                    var percentage = Math.floor(((currentValue/total) * 100)+0.5);
+                    return data.labels[tooltipItem.index] + ": " + percentage + "%";
+                }
+            }
+        }
+    }
+});
+
+    // Initialize Attendance Trends Chart
+    // Ensure `attendance_trends` data is structured similarly, with `dates` for the x-axis and `counts` for the y-axis.
+    var trendsCtx = document.getElementById('attendanceTrendsChart').getContext('2d');
+    var attendanceTrendsChart = new Chart(trendsCtx, {
+        type: 'line',
+        data: {
+            labels: {{ attendance_trends.dates | tojson }},
+            datasets: [{
+                label: 'Attendance Trends',
+                data: {{ attendance_trends.counts | tojson }},
+                backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                borderColor: 'rgba(153, 102, 255, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            responsive: true,
+        }
+    });
+</script>
+
+
+{% endblock %}
