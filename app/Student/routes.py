@@ -1,7 +1,7 @@
 import pickle
 import numpy as np
 from flask import Flask,Blueprint, current_app, render_template, request, flash, redirect, url_for, jsonify,Response,session
-from .services import fetch_user_details,fetch_user_image_path,register_user ,known_faces,known_names,update_encodings,is_face_unique,capture_image_from_webcam,get_attendance_records
+from .services import fetch_user_details,fetch_user_image_path,register_user ,known_faces,known_names,update_encodings,is_face_unique,capture_image_from_webcam,get_attendance_records,get_attendance_data,get_attendance_trends,predict_risk
 from .attendance import markattendance_db
 from app.util.connection import DatabaseConnection
 import face_recognition
@@ -123,8 +123,33 @@ def student_setup_routes(app):
         if 'username' not in session:
             # Redirect to login page if user is not logged in
             return redirect(url_for('login'))
-        return render_template('Studentdashboard.html')
-        pass
+
+        student_id = session['user_id']
+        attendance_raw_data = get_attendance_data(student_id)
+        attendance_trends_raw_data = get_attendance_trends(student_id)
+
+        attendance_data = {
+            'statuses': [item[0] for item in attendance_raw_data],
+            'counts': [item[1] for item in attendance_raw_data]
+        }
+
+        # Assuming you want to aggregate counts by date for trends
+        trends_data = {}
+        for date, status, count in attendance_trends_raw_data:
+            if date not in trends_data:
+                trends_data[date] = 0
+            trends_data[date] += count
+
+        attendance_trends = {
+            'dates': list(trends_data.keys()),
+            'counts': list(trends_data.values())
+        }
+
+        risk_status = predict_risk(student_id)
+        # You can also pass the scores and attendance summary to the template if needed
+
+        return render_template('studentdashboard.html', attendance_data=attendance_data,
+                               attendance_trends=attendance_trends, risk_status=risk_status)
 
     @app.route('/studentlogin', methods=['GET', 'POST'])
     def studentlogin():      #For Student Login redirect to StudentLogin Page
@@ -246,7 +271,7 @@ def student_setup_routes(app):
                             SELECT c.course_id, c.course_name 
                             FROM CourseEnrollment ce
                             JOIN Courses c ON ce.course_id = c.course_id
-                            WHERE ce.student_id=?
+                            WHERE ce.student_id=? and ce.status='Approved'
                             """
             courses = db.fetch_all(courses_query, [student_id])
         else:
@@ -365,27 +390,18 @@ def student_setup_routes(app):
             existing_enrollment = db.fetch_all("SELECT * FROM CourseEnrollment WHERE student_id=? AND course_id=?", [student_id, course_id])
             if not existing_enrollment:
                 db.execute_query(
-                    "INSERT INTO CourseEnrollment (student_id, course_id, enrollment_date) VALUES (?, ?,?)",
-                    [student_id, course_id, enrollment_date])
-                flash('You have successfully enrolled in the course!', 'success')
+                    "INSERT INTO CourseEnrollment (student_id, course_id, enrollment_date,status) VALUES (?, ?,?,?)",
+                    [student_id, course_id, enrollment_date, 'Requested'])
+                flash('Course request submitted.', 'success')
             else:
                 flash('You are already enrolled in this course.', 'warning')
             return redirect(url_for('course_enrollment'))
 
-        student_id = session.get('user_id')
-        if student_id:
-            enrollments_query = """
-                        SELECT ce.enrollment_id, ce.course_id, c.course_name, ce.enrollment_date 
-                        FROM CourseEnrollment ce
-                        JOIN Courses c ON ce.course_id = c.course_id
-                        WHERE ce.student_id=?
-                        """
-            enrollments = db.fetch_all(enrollments_query, [student_id])
-        else:
-            flash('Please log in to view enrolled courses.', 'warning')
-            return redirect(url_for('login'))
-
         courses = db.fetch_all("SELECT * FROM Courses")
+        # Fetch enrollments where status is 'Approved' or requests made by the student
+        enrollments = db.fetch_all(
+            "SELECT ce.*, c.course_name FROM CourseEnrollment ce JOIN Courses c ON ce.course_id = c.course_id WHERE ce.student_id=? AND (ce.status='Approved' OR ce.status='Requested' OR ce.status='Requested Removal')",
+            [session.get('user_id')])
         return render_template('course_enrollment.html', courses=courses, enrollments=enrollments)
 
     @app.route('/drop_course/<enrollment_id>', methods=['POST'])
@@ -396,11 +412,14 @@ def student_setup_routes(app):
             return redirect(url_for('login'))
 
         # Verify that the enrollment belongs to the logged-in student
-        enrollment = db.fetch_all("SELECT * FROM CourseEnrollment WHERE enrollment_id=? AND student_id=?",
+        enrollment = db.fetch_all("SELECT * FROM CourseEnrollment WHERE enrollment_id=? AND student_id=? AND status='Approved'",
                                   [enrollment_id, student_id])
         if enrollment:
-            db.execute_query("DELETE FROM CourseEnrollment WHERE enrollment_id=?", [enrollment_id])
-            flash('Course successfully dropped.', 'success')
+            db.execute_query("UPDATE CourseEnrollment SET status='Requested Removal' WHERE enrollment_id=?",
+                             [enrollment_id])
+            # db.execute_query("DELETE FROM CourseEnrollment WHERE enrollment_id=?", [enrollment_id])
+            flash('Removal request submitted.', 'info')  # Updated message to indicate request submission
+
         else:
             flash('Course could not be found or does not belong to you.', 'error')
 
@@ -654,3 +673,4 @@ def student_setup_routes(app):
                                page=page,
                                total_pages=total_pages,
                                per_page=per_page)
+

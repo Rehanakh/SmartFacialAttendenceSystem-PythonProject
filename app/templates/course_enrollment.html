@@ -4,11 +4,71 @@
 {% block head %}
     {{ super() }}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet1.css') }}">
-{% endblock %}
+ <script>
+      function removeCourse(button, formId) {
+        var form = document.getElementById(formId);
 
+        // Prepare FormData object for AJAX submission
+        var formData = new FormData(form);
+
+        // Change the button text and disable it
+        button.innerText = "Request Removal";
+        button.disabled = true;
+
+        // AJAX request to submit the form without reloading the page
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => {
+            if(response.ok) {
+                alert("Removal requested successfully.");
+                // Optionally, update the UI to reflect the change
+            } else {
+                // Handle errors (optional)
+                alert("An error occurred. Please try again.");
+                button.disabled = false; // Re-enable the button for retry
+            }
+        })
+        .catch(error => {
+            console.error('Error during form submission:', error);
+            button.disabled = false; // Re-enable the button for retry
+        });
+
+        // Prevent the form from submitting the traditional way
+        event.preventDefault();
+    }
+    </script>
+{% endblock %}
+{% block extra_css %}
+<style>
+/* Style for Courses Waiting for Approval */
+.waiting-for-approval {
+  background-color: rgba(255, 255, 255, 0.1); /* Slightly more transparent */
+  backdrop-filter: blur(8px); /* Slightly less blur */
+  -webkit-backdrop-filter: blur(8px); /* For Safari */
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+}
+
+/* Style for Enrolled Courses */
+.enrolled-courses {
+  background-color: rgba(255, 255, 255, 0.2); /* Less transparent */
+  backdrop-filter: blur(10px); /* More blur for a softer look */
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+}
+
+</style>
+{% endblock %}
 {% block content %}
 <div class="container mt-4">
-    <h2>Enroll in a Course</h2>
+    <h2>Get Enroll in a Course(Add)</h2>
     <form method="POST" action="{{ url_for('course_enrollment') }}">
         <div class="mb-3">
             <label for="courseSelect" class="form-label">Select Course:</label>
@@ -21,20 +81,43 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit Course Request</button>
     </form>
-     <h3 class="mt-5">Enrolled Courses</h3>
+
+    <div class="waiting-for-approval">
+   <h3 class="mt-5">Courses Waiting for Approval</h3>
     <ul class="list-group">
-        {% for enrollment in enrollments %}
+    {% for enrollment in enrollments if enrollment.status == 'Requested' %}
         <li class="list-group-item d-flex justify-content-between align-items-center">
             {{ enrollment.course_name }}
-            <!-- Remove Course Form -->
-            <form action="{{ url_for('drop_course', enrollment_id=enrollment.enrollment_id) }}" method="post">
-                <button type="submit" class="btn btn-danger btn-sm">Remove</button>
-            </form>
+            <button class="btn btn-info btn-sm" disabled>Approval Pending</button>
         </li>
-        {% else %}
-        <li class="list-group-item">No courses enrolled yet.</li>
-        {% endfor %}
+    {% else %}
+        <li class="list-group-item">No courses waiting for approval.</li>
+    {% endfor %}
     </ul>
+    </div>
+
+ <div class="enrolled-courses">
+<h3 class="mt-5">Enrolled Courses</h3>
+    <ul class="list-group">
+        {% if enrollments %}
+            {% for enrollment in enrollments %}
+                {% if enrollment.status != 'Requested' %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{ enrollment.course_name }}
+                        {% if enrollment.status == 'Requested Removal' %}
+                                    <button class="btn btn-danger btn-sm" disabled>Request Removal</button>
+                        {% elif enrollment.status == 'Approved' %}
+                        <form id="removeForm-{{ enrollment.enrollment_id }}" action="{{ url_for('drop_course', enrollment_id=enrollment.enrollment_id) }}" method="post">
+                             </form>
+                             <button class="btn btn-danger btn-sm" onclick="removeCourse(this, 'removeForm-{{ enrollment.enrollment_id }}')">Remove</button>
+                        {% endif %}
+                    </li>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <li class="list-group-item">No courses enrolled yet.</li>
+        {% endif %}
+    </ul>
+ </div>
 </div>
 {% endblock %}
-
