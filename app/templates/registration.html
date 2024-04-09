@@ -76,7 +76,7 @@
 
          <div class="col-6"
             style="border-radius: 20px;padding: 0px;background-color:rgb(211,211,211,0.5);margin:0px 10px 10px 10px;height: 600px;">
-            <form action='/registration' method="POST" enctype="multipart/form-data">
+            <form id="registrationForm" action="" method="POST" enctype="multipart/form-data">
                 <h2 style="border-radius: 20px 20px 0px 0px;background-color: #0b4c61;color: white;padding: 10px;">Add
                     New User <i class="material-icons">control_point_duplicate</i></h2>
 
@@ -166,7 +166,7 @@
 
                  <!-- Submit Button -->
                  <div class="text-center">
-                     <button type="submit" class="btn btn-dark">Add New User</button>
+                     <button type="submit" class="btn btn-dark" onclick="setFormActionAndSubmit()">Add New User</button>
                  </div>
 
             </form>
@@ -207,6 +207,24 @@
             }
         });
     }
+
+
+function setFormActionAndSubmit() {
+    var form = document.getElementById('registrationForm');
+    var userType = document.querySelector('input[name="userType"]:checked').value;
+
+    if (userType === 'S') {
+        form.action = "{{ url_for('registration') }}";  // Adjust based on your Flask route for student registration
+    } else if (userType === 'P') {
+        form.action = "{{ url_for('Professor_registration') }}"; // Adjust based on your Flask route for professor registration
+    } else if (userType === 'A') {
+        form.action = "{{ url_for('admin_registration') }}";     // Adjust based on your Flask route for admin registration
+    }
+
+    form.submit(); // Submit the form
+}
 </script>
+
+
 
 {% endblock %}

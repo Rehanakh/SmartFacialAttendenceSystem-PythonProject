@@ -24,7 +24,7 @@ def admin_setup_routes(app):
         # return 'Hello, World!'
         return render_template('home.html')
 
-    @app.route('/registration', methods=['GET', 'POST'])
+    @app.route('/admin_registration', methods=['GET', 'POST'])
     def admin_registration():
         if request.method == 'POST':
             userType = request.form.get('userType', 'defaultType')  # Added defaultType as a fallback

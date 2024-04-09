@@ -21,7 +21,7 @@ def professor_setup_routes(app):
     def Professor_home():
         return render_template('home.html')
 
-    @app.route('/registration', methods=['GET', 'POST'])
+    @app.route('/Professor_registration', methods=['GET', 'POST'])
     def Professor_registration():
         if request.method == 'POST':
             userType = request.form.get('userType', 'defaultType')  # Change default type to 'P' for Professor
