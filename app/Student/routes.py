@@ -133,16 +133,35 @@ def student_setup_routes(app):
             'counts': [item[1] for item in attendance_raw_data]
         }
 
-        # Assuming you want to aggregate counts by date for trends
-        trends_data = {}
+        formatted_trends_data = {}
         for date, status, count in attendance_trends_raw_data:
-            if date not in trends_data:
-                trends_data[date] = 0
-            trends_data[date] += count
+            if isinstance(date, datetime.date):
+                formatted_date = date.strftime("%d-%m-%Y")
+            else:
+                # If 'date' is somehow a string, parse it first
+                # This is just a fallback and may not be necessary
+                parsed_date = datetime.datetime.strptime(date, "%a, %d%B %Y %H:%M:%S GMT")
+                formatted_date = parsed_date.strftime("%d-%m-%Y")
+            # Assuming date is a string that needs to be parsed into a datetime object
+            # Adjust the format in strptime if your date format is different
+            # parsed_date = datetime.datetime.strptime(date, "%a, %d%B %Y %H:%M:%S GMT")  # Example format
+            # formatted_date = parsed_date.strftime("%d-%m-%Y")  # Desired format: DD-MM-YYYY
+
+            if formatted_date not in formatted_trends_data:
+                formatted_trends_data[formatted_date] = 0
+            formatted_trends_data[formatted_date] += count
+
+
+        # # Assuming you want to aggregate counts by date for trends
+        # trends_data = {}
+        # for date, status, count in attendance_trends_raw_data:
+        #     if date not in trends_data:
+        #         trends_data[date] = 0
+        #     trends_data[date] += count
 
         attendance_trends = {
-            'dates': list(trends_data.keys()),
-            'counts': list(trends_data.values())
+            'dates': list(formatted_trends_data.keys()),
+            'counts': list(formatted_trends_data.values())
         }
 
         risk_status = predict_risk(student_id)
