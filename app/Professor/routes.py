@@ -92,4 +92,71 @@ def professor_setup_routes(app):
         session.clear()
         return redirect(url_for('home'))
 
-# ... other routes specific to professors ...
+    @app.route('/ProfessorUpdateProfile', methods=['GET', 'POST'])
+    def ProfessorUpdateProfile():
+        if 'username' not in session:
+            flash('Please log in to view this page.', 'error')
+            return redirect(url_for('ProfessorLogin'))
+
+        username = session['username']
+        user_details = fetch_user_details(username)
+
+        if request.method == 'POST':
+            email = request.form.get('email')
+            full_name = request.form.get('full_name')
+            roll_number = request.form.get('roll_number')
+            user_id = session['user_id']
+            new_username = request.form['Username']
+
+            existing_user = db.fetch_all("SELECT * FROM Users WHERE username = ? AND UserType = 'S'", (new_username,))
+            if existing_user:
+                flash('Username already exists. Choose a different one.', 'error')
+                return redirect(url_for('ProfessorUpdateProfile'))
+
+            # Construct the SQL query to update user details
+            query = "UPDATE users SET Username=?, Email=?, FullName=?, RollNumber=? WHERE UserId = ?"
+            db.execute_query(query, (new_username, email, full_name, roll_number, user_id))
+            session['username'] = new_username
+            flash('Profile updated successfully!', 'success')
+            return redirect(url_for('ProfessorUpdateProfile'))
+
+        return render_template('ProfessorUpdateProfile.html', user=user_details)
+
+    @app.route('/ProfessorSession', methods=['GET', 'POST'])
+    def ProfessorSession():
+        if request.method == 'POST':
+            course_id = request.form.get('course_id')
+            start_time = request.form.get('start_time')
+            end_time = request.form.get('end_time')
+            day_of_week = request.form.get('day_of_week')
+            session_date = request.form.get('session_date')
+
+            # Assuming you have a function to insert session data into the database
+            insert_session_data(course_id, start_time, end_time, day_of_week, session_date)
+            flash('Session created successfully!', 'success')
+            return redirect(url_for('ProfessorSession'))  # Redirect to the same route after form submission
+
+        else:
+            # Fetch course names from the database
+            db_connection = DatabaseConnection()
+            courses = db_connection.fetch_all("SELECT course_id, course_name FROM Courses")
+
+            # Fetch session data from the database
+            sessions = db_connection.fetch_all("SELECT * FROM CourseSessions")
+            db_connection.close()
+
+            return render_template('ProfessorSession.html', courses=courses, sessions=sessions)
+
+    def insert_session_data(course_id, start_time, end_time, day_of_week, session_date):
+        try:
+            db_connection = DatabaseConnection()
+            query = "INSERT INTO CourseSessions (course_id, start_time, end_time, day_of_week, session_date) VALUES (?, ?, ?, ?, ?)"
+            params = (course_id, start_time, end_time, day_of_week, session_date)
+            db_connection.execute_query(query, params)
+            db_connection.close()
+        except Exception as e:
+            print("Error inserting session data:", e)
+            # Handle insertion errors as needed
+
+
+
