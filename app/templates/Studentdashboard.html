@@ -44,11 +44,42 @@
 </style>
 {% endblock %}
 {% block content %}
+<div>
+    <label for="courseFilter">Filter by Course:</label>
+    <select id="courseFilter">
+    <option value="all">All Courses</option>
+    {% for course in courses %}
+                <option value="{{ course['course_id'] }}">{{ course['course_name'] }}</option>
+<!--            <option value="{{ course }}">{{ course }}</option>-->
+
+    {% endfor %}
+</select>
+
+    <label for="monthFilter">Filter by Month:</label>
+    <select id="monthFilter">
+        <option value="all">All Months</option>
+        <option value="01">January</option>
+        <option value="02">February</option>
+        <option value="03">March</option>
+        <option value="04">April</option>
+        <option value="05">May</option>
+        <option value="06">June</option>
+        <option value="07">July</option>
+        <option value="08">August</option>
+        <option value="09">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+    </select>
+</div>
+
 <div class="maindiv">
+
 <div class="charts-container">
     <div class="chart-container pie-chart-container">
         <canvas id="attendanceSummaryChart"></canvas>
     </div>
+
     <div class="chart-container trends-chart-container">
         <canvas id="attendanceTrendsChart"></canvas>
     </div>
@@ -68,8 +99,6 @@
 </div>
 
 {% endblock %}
-
-
 {% block scripts %}
 <script>
     window.onload = function() {
@@ -128,31 +157,139 @@ var summaryCtx = document.getElementById('attendanceSummaryChart').getContext('2
     }
 });
 
-    // Initialize Attendance Trends Chart
-    // Ensure `attendance_trends` data is structured similarly, with `dates` for the x-axis and `counts` for the y-axis.
-    var trendsCtx = document.getElementById('attendanceTrendsChart').getContext('2d');
-    var attendanceTrendsChart = new Chart(trendsCtx, {
-        type: 'line',
-        data: {
-            labels: {{ attendance_trends.dates | tojson }},
-            datasets: [{
-                label: 'Attendance Trends',
-                data: {{ attendance_trends.counts | tojson }},
-                backgroundColor: 'rgba(153, 102, 255, 0.2)',
-                borderColor: 'rgba(153, 102, 255, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+
+    // Variables to hold the chart instance and original data
+    let attendanceTrendsChart = null;
+    const originalData = {
+        labels: {{ attendance_trends.dates | tojson }},
+        counts: {{ attendance_trends.counts | tojson }},
+        courseIds: {{ courseIds | tojson }},
+     };
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize the chart with the original data
+        initAttendanceTrendsChart(originalData);
+
+        // Event listeners for the filter dropdowns
+        document.getElementById('courseFilter').addEventListener('change', filterAndUpdateChart);
+        document.getElementById('monthFilter').addEventListener('change', filterAndUpdateChart);
+    });
+
+    function filterAndUpdateChart() {
+        const selectedCourse = document.getElementById('courseFilter').value;
+        const selectedMonth = document.getElementById('monthFilter').value;
+
+        // Filter the original data based on the selected course and month
+        // This is a placeholder - implement this based on your actual data structure and filtering logic
+        const filteredData = filterData(originalData, selectedCourse, selectedMonth);
+
+        // Update the chart with the filtered data
+        updateAttendanceTrendsChart(filteredData);
+    }
+
+    function initAttendanceTrendsChart(data) {
+        const ctx = document.getElementById('attendanceTrendsChart').getContext('2d');
+        attendanceTrendsChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: data.labels,
+                datasets: [{
+                    label: 'Attendance Trends',
+                    data: data.counts,
+                    backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    borderWidth: 1
+                }]
             },
-            responsive: true,
+            options: {
+                scales: { y: { beginAtZero: true } },
+                responsive: true,
+            }
+        });
+    }
+
+    function updateAttendanceTrendsChart(data) {
+        // Update the chart data
+        attendanceTrendsChart.data.labels = data.labels;
+        attendanceTrendsChart.data.datasets[0].data = data.counts;
+        attendanceTrendsChart.update();
+    }
+
+    function filterData(data, selectedCourse, selectedMonth) {
+    let filteredLabels = [];
+    let filteredCounts = [];
+
+    data.labels.forEach((label, index) => {
+<!--        const date = new Date(label);-->
+        const [year, month, day] = label.split("-");
+
+        const monthMatches = selectedMonth === 'all' ||  month === selectedMonth;
+        const courseMatches = selectedCourse === 'all' || data.courseIds[index].toString() === selectedCourse;
+
+        if (monthMatches && courseMatches) {
+            filteredLabels.push(label);
+            filteredCounts.push(data.counts[index]);
         }
     });
+
+    return { labels: filteredLabels, counts: filteredCounts };
+}
+
+
+<!--    function filterData(data, course, month) {-->
+<!--    // Placeholder for filtered data-->
+<!--    let filteredLabels = [];-->
+<!--    let filteredCounts = [];-->
+
+<!--    // Loop through each entry in the original data-->
+<!--    data.labels.forEach((dateStr, index) => {-->
+<!--        const dateParts = dateStr.split("-");-->
+<!--        const dataMonth = dateParts[1]; // Assuming DD-MM-YYYY format-->
+
+<!--        // If the selected month matches the data month or if 'all' months are selected-->
+<!--        if (month === "all" || dataMonth === month) {-->
+<!--            filteredLabels.push(dateStr);-->
+<!--            filteredCounts.push(data.counts[index]);-->
+<!--        }-->
+<!--    });-->
+
+<!--    return {-->
+<!--        labels: filteredLabels,-->
+<!--        counts: filteredCounts-->
+<!--    };-->
+<!--}-->
+
+
+
+
+
+
+
+<!--    // Initialize Attendance Trends Chart-->
+<!--    // Ensure `attendance_trends` data is structured similarly, with `dates` for the x-axis and `counts` for the y-axis.-->
+<!--    var trendsCtx = document.getElementById('attendanceTrendsChart').getContext('2d');-->
+<!--    var attendanceTrendsChart = new Chart(trendsCtx, {-->
+<!--        type: 'line',-->
+<!--        data: {-->
+<!--            labels: {{ attendance_trends.dates | tojson }},-->
+<!--            datasets: [{-->
+<!--                label: 'Attendance Trends',-->
+<!--                data: {{ attendance_trends.counts | tojson }},-->
+<!--                backgroundColor: 'rgba(153, 102, 255, 0.2)',-->
+<!--                borderColor: 'rgba(153, 102, 255, 1)',-->
+<!--                borderWidth: 1-->
+<!--            }]-->
+<!--        },-->
+<!--        options: {-->
+<!--            scales: {-->
+<!--                y: {-->
+<!--                    beginAtZero: true-->
+<!--                }-->
+<!--            },-->
+<!--            responsive: true,-->
+<!--        }-->
+<!--    });-->
+
+
 </script>
-
-
 {% endblock %}

@@ -1,7 +1,7 @@
 import pickle
 import numpy as np
 from flask import Flask,Blueprint, current_app, render_template, request, flash, redirect, url_for, jsonify,Response,session
-from .services import fetch_user_details,fetch_user_image_path,register_user ,known_faces,known_names,update_encodings,is_face_unique,capture_image_from_webcam,get_attendance_records,get_attendance_data,get_attendance_trends,predict_risk
+from .services import fetch_user_details,fetch_user_image_path,register_user ,known_faces,known_names,update_encodings,is_face_unique,capture_image_from_webcam,get_attendance_records,get_attendance_data,get_attendance_trends_with_courses,predict_risk
 from .attendance import markattendance_db
 from app.util.connection import DatabaseConnection
 import face_recognition
@@ -126,7 +126,23 @@ def student_setup_routes(app):
 
         student_id = session['user_id']
         attendance_raw_data = get_attendance_data(student_id)
-        attendance_trends_raw_data = get_attendance_trends(student_id)
+        attendance_trends_raw_data = get_attendance_trends_with_courses(student_id)
+
+        # courses = {item['course_name'] for item in attendance_trends_raw_data}
+        # Assuming each tuple is structured like (attendance_date, status, count, course_name)
+        # courses = {item[3] for item in attendance_trends_raw_data}  # item[3] is where the course_name is expected to be
+
+        # Assuming attendance_trends_raw_data now includes course_id and course_name
+        courses = [
+            {"course_id": item[4], "course_name": item[3]}
+            for item in attendance_trends_raw_data
+        ]
+        # course_ids = [course['course_id'] for course in courses]
+        course_ids = [entry[4] for entry in attendance_trends_raw_data]  # Assuming index 4 is where the course_id is
+
+        # Remove duplicates, preserving order
+        seen = set()
+        courses = [x for x in courses if x['course_id'] not in seen and not seen.add(x['course_id'])]
 
         attendance_data = {
             'statuses': [item[0] for item in attendance_raw_data],
@@ -134,7 +150,7 @@ def student_setup_routes(app):
         }
 
         formatted_trends_data = {}
-        for date, status, count in attendance_trends_raw_data:
+        for date, status, count, course_name,course_id in attendance_trends_raw_data:
             if isinstance(date, datetime.date):
                 formatted_date = date.strftime("%d-%m-%Y")
             else:
@@ -167,8 +183,9 @@ def student_setup_routes(app):
         risk_status = predict_risk(student_id)
         # You can also pass the scores and attendance summary to the template if needed
 
+
         return render_template('studentdashboard.html', attendance_data=attendance_data,
-                               attendance_trends=attendance_trends, risk_status=risk_status)
+                               attendance_trends=attendance_trends, risk_status=risk_status,courses=list(courses),courseIds=course_ids)
 
     @app.route('/studentlogin', methods=['GET', 'POST'])
     def studentlogin():      #For Student Login redirect to StudentLogin Page
