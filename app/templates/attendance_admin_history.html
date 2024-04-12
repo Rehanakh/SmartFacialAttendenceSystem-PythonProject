@@ -1,0 +1,132 @@
+{% extends "base_admin.html" %}
+{% block title %}Attendance History - Smart Attendance System{% endblock %}
+
+{% block head %}
+    {{ super() }}
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet1.css') }}">-->
+<style>
+     .attendance-table { /* Updated class name for clarity */
+        width: 100%; /* Ensuring full width */
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+     .attendance-table, .attendance-table th, .attendance-table td {
+        border: 1px solid #ddd; /* Lighter border for a subtle look */
+    }
+    .attendance-table th {
+        background-color: #007bff; /* Lighter blue */
+        color: white;
+    }
+    .attendance-table tbody tr:nth-child(odd) {
+        background-color: #f2f2f2; /* Zebra striping for rows */
+    }
+    .attendance-table tbody tr:hover {
+        background-color: #ddd; /* Hover effect for rows */
+    }
+    .custom-select {
+        background-color: #f8f9fa;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        padding: 0.375rem 1.75rem 0.375rem 0.75rem;
+        height: calc(2.25rem + 2px);
+        font-size: 1rem;
+        color: #495057;
+    }
+    .custom-select option {
+        background-color: white;
+        color: black;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 style="color: white;">Attendance Details</h2>
+
+    <div class="row">
+        <!-- Filter by Course -->
+        <div class="col-md-6">
+            <div class="filter-section">
+                <label for="courseFilter" style="color: white;">Filter by Course:</label>
+                <select id="courseFilter" name="courseFilter" class="custom-select" onchange="applyFilter()">
+                    <option value="">All Courses</option>
+                    {% for course in courses %}
+                        <option value="{{ course[0] }}" {% if course[0] == selected_course %} selected {% endif %}>
+                            {{ course[1] }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <!-- Filter by Student ID -->
+        <div class="col-md-6">
+            <div class="filter-section">
+                <label for="studentFilter" style="color: white;">Filter by Student ID:</label>
+                <select id="studentFilter" name="studentFilter" class="custom-select" onchange="applyFilter()">
+                    <option value="">All Students</option>
+                    {% for student in students %}
+                        <option value="{{ student[0] }}" {% if student[0] == selected_student %} selected {% endif %}>
+                            {{ student[0] }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <!-- Attendance Records Table -->
+    <table class="attendance-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Course</th>
+                <th>Session Time</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="attendanceRecords" style="background-color: #f0f0f0;">
+            {% for record in attendance_records %}
+                <tr>
+                    <td>{{ record.attendance_date }}</td>
+                    <td>{{ record.course_name }}</td>
+                    <td>{{ record.session_time }}</td>
+                    <td>{{ record.status }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Pagination Controls -->
+    <div class="pagination" style="color: white;">
+        {% if page > 1 %}
+            <a href="{{ url_for('attendance_admin_history', page=page-1, course=selected_course) }}">Previous</a>
+        {% endif %}
+        <span>Page {{ page }}</span>
+        {% if attendance_records|length >= per_page %}
+            <a href="{{ url_for('attendance_admin_history', page=page+1, course=selected_course) }}">Next</a>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+    function applyFilter() {
+        var selectedCourse = document.getElementById("courseFilter").value;
+        var selectedStudent = document.getElementById("studentFilter").value;
+        var url = "{{ url_for('attendance_admin_history') }}";
+
+        if (selectedCourse) {
+            url += "?course=" + selectedCourse;
+        }
+
+        if (selectedStudent) {
+            url += (url.includes("?") ? "&" : "?") + "student=" + selectedStudent;
+        }
+
+        window.location.href = url;
+    }
+</script>
+
+{% endblock %}
