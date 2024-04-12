@@ -158,5 +158,65 @@ def professor_setup_routes(app):
             print("Error inserting session data:", e)
             # Handle insertion errors as needed
 
+    @app.route('/ProfessorEnrollment', methods=['GET', 'POST'])
+    def ProfessorEnrollment():
+        if request.method == 'POST':
+            enrollment_id = request.form.get('enrollment_id')
+            action = request.form.get('action')  # Either 'accept' or 'decline'
 
+            if action == 'accept':
+                # Update status to 'Accepted' in the database
+                update_enrollment_status(enrollment_id, 'Accepted')
+                flash('Enrollment request accepted successfully!', 'success')
+            elif action == 'decline':
+                # Update status to 'Declined' in the database
+                update_enrollment_status(enrollment_id, 'Declined')
+                flash('Enrollment request declined successfully!', 'danger')
 
+            return redirect(url_for('ProfessorEnrollment'))
+
+        else:
+            # Fetch enrollment requests from the database
+            enrollments = fetch_enrollments()
+            return render_template('ProfessorEnrollment.html', enrollments=enrollments)
+
+    def fetch_enrollments():
+        try:
+            # Create an instance of the DatabaseConnection class
+            db_connection = DatabaseConnection()
+
+            # SQL query to fetch enrollments from the CourseEnrollment table
+            query = "SELECT * FROM CourseEnrollment"
+
+            # Fetch all enrollments using the execute_query method
+            enrollments = db_connection.fetch_all(query)
+
+            # Close the database connection
+            db_connection.close()
+
+            return enrollments
+
+        except Exception as e:
+            print("Error fetching enrollments:", e)
+            return []
+
+    def update_enrollment_status(enrollment_id, status):
+        try:
+            # Create an instance of the DatabaseConnection class
+            db_connection = DatabaseConnection()
+
+            # SQL query to update enrollment status
+            query = "UPDATE CourseEnrollment SET status = ? WHERE enrollment_id = ?"
+            params = (status, enrollment_id)
+
+            # Execute the query
+            db_connection.execute_query(query, params)
+
+            # Commit the transaction
+            db_connection.commit()
+
+            # Close the database connection
+            db_connection.close()
+
+        except Exception as e:
+            print("Error updating enrollment status:", e)
