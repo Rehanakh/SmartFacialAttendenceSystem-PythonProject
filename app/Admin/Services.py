@@ -7,15 +7,16 @@ import time
 import cv2
 import os
 from flask import flash
+
 db = DatabaseConnection()
+
+
 def fetch_user_details(username):
     query = "SELECT UserId, Username, Email, FullName, RollNumber, PasswordHash FROM users WHERE Username = ? AND UserType = 'A' "
     db = DatabaseConnection()
     results = db.fetch_all(query, (username,))
     if results:
         user_data = results[0]
-
-
 
         # Assuming your user table columns are in the order: UserId, Username, Email, FullName, RollNumber
         return User(UserId=user_data[0], Username=user_data[1], Email=user_data[2], FullName=user_data[3],
@@ -112,7 +113,6 @@ def fetch_all_usernames_and_statuses():
     return usernames_statuses
 
 
-
 def update_user_status(username, new_status):
     query = "UPDATE users SET Status = ? WHERE Username = ?"
     db = DatabaseConnection()
@@ -123,3 +123,87 @@ def update_user_status(username, new_status):
         print("Error updating user status:", e)
         return False  # Return False if update operation fails
 
+
+# def get_attendance_records(student_id, course_id=None, page=1, per_page=10):
+#     db = DatabaseConnection()
+#     offset = (page - 1) * per_page
+#     query = """
+#         SELECT a.attendance_date, c.course_name,a.session_id, CONVERT(VARCHAR, cs.start_time, 108) + ' - ' + CONVERT(VARCHAR, cs.end_time, 108) AS session_time,
+#          a.status FROM Attendance a
+#         JOIN Courses c ON a.course_id = c.course_id
+#         JOIN CourseSessions cs ON a.session_id = cs.session_id
+#     """
+#     params = []
+#
+#     if course_id:
+#         query += " AND a.course_id = ?"
+#         params.append(course_id)
+#
+#     query += " ORDER BY a.attendance_date DESC"
+#     query += " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY"
+#     params.extend([offset, per_page])
+#
+#     records = db.fetch_all(query, params)
+#     # Assuming total_records query is implemented
+#     total_records_query = """
+#             SELECT COUNT(*)
+#             FROM Attendance a
+#             WHERE a.student_id = ?
+#         """
+#     total_records_params = [student_id]
+#     if course_id:
+#         total_records_query += " AND a.course_id = ?"
+#         total_records_params.append(course_id)
+#     total_records = db.fetch_all(total_records_query, total_records_params)[0][0]
+#
+#     return records, total_records
+def get_attendance_records(student_id, course_id=None, page=1, per_page=10):
+    db = DatabaseConnection()
+    offset = (page - 1) * per_page  # Calculate offset based on page number and per_page
+
+    query = """
+        SELECT a.attendance_date, c.course_name, a.session_id,
+               CONVERT(VARCHAR, cs.start_time, 108) + ' - ' + CONVERT(VARCHAR, cs.end_time, 108) AS session_time,
+               a.status
+        FROM Attendance a
+        JOIN Courses c ON a.course_id = c.course_id
+        JOIN CourseSessions cs ON a.session_id = cs.session_id
+        WHERE 1 = 1
+    """
+    params = []
+
+    if student_id:
+        query += " AND a.student_id = ?"
+        params.append(student_id)
+
+    if course_id:
+        query += " AND a.course_id = ?"
+        params.append(course_id)
+
+    query += " ORDER BY a.attendance_date DESC"
+    query += " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY"
+    params.extend([offset, per_page])
+
+    records = db.fetch_all(query, params)
+
+    # Total records query
+    total_records_query = """
+        SELECT COUNT(*)
+        FROM Attendance a
+        JOIN Courses c ON a.course_id = c.course_id
+        JOIN CourseSessions cs ON a.session_id = cs.session_id
+        WHERE 1 = 1
+    """
+    total_params = []
+
+    if student_id:
+        total_records_query += " AND a.student_id = ?"
+        total_params.append(student_id)
+
+    if course_id:
+        total_records_query += " AND a.course_id = ?"
+        total_params.append(course_id)
+
+    total_records = db.fetch_all(total_records_query, total_params)[0]
+
+    return records, total_records

@@ -1,6 +1,7 @@
 from flask import Flask, Blueprint, render_template, request, flash, redirect, url_for, jsonify, Response, session
 
-from app.Admin.Services import register_user, fetch_user_details, fetch_all_usernames_and_statuses, update_user_status
+from app.Admin.Services import register_user, fetch_user_details, fetch_all_usernames_and_statuses, update_user_status, \
+    get_attendance_records
 from app.util.connection import DatabaseConnection
 import face_recognition
 import datetime
@@ -169,3 +170,65 @@ def admin_setup_routes(app):
             return 'User declined successfully', 200
         else:
             return 'Failed to decline user', 500
+
+    # @app.route('/attendance_admin_history', methods=['GET'])
+    # def attendance_admin_history():
+    #     if 'username' not in session:
+    #         return redirect(url_for('login'))
+    #
+    #     selected_course = request.args.get('course', None)
+    #     page = request.args.get('page', 1, type=int)
+    #     per_page = 10  # Adjust as needed
+    #
+    #     db = DatabaseConnection()
+    #     # Assume get_attendance_records is defined in services.py
+    #     attendance_records, total_records = get_attendance_records(session['user_id'], selected_course, page, per_page)
+    #     courses = db.fetch_all("SELECT * FROM Courses")
+    #     students = db.fetch_all("SELECT DISTINCT student_id FROM Attendance")
+    #     # Calculate total pages for pagination
+    #     total_pages = (total_records + per_page - 1) // per_page
+    #
+    #     return render_template('attendance_admin_history.html',
+    #                            attendance_records=attendance_records,
+    #                            courses=courses,
+    #                            students=students,
+    #                            selected_course=selected_course,
+    #                            page=page,
+    #                            total_pages=total_pages,
+    #                            per_page=per_page)
+    @app.route('/attendance_admin_history', methods=['GET'])
+    def attendance_admin_history():
+        if 'username' not in session:
+            return redirect(url_for('login'))
+
+        selected_course = request.args.get('course')
+        selected_student = request.args.get('student')
+        page = request.args.get('page', 1, type=int)
+        per_page = 10
+
+        db = DatabaseConnection()
+
+        # Retrieve attendance records based on selected student, course, and pagination parameters
+        attendance_records, total_records = get_attendance_records(student_id=selected_student,
+                                                                   course_id=selected_course,
+                                                                   page=page,
+                                                                   per_page=per_page)
+
+        # Fetch courses and distinct student IDs for dropdown population
+        courses = db.fetch_all("SELECT * FROM Courses")
+        students = db.fetch_all("SELECT DISTINCT student_id FROM Attendance")
+
+        # Calculate total pages for pagination
+        total_pages = (total_records[0] + per_page - 1) // per_page
+
+        return render_template('attendance_admin_history.html',
+                               attendance_records=attendance_records,
+                               courses=courses,
+                               students=students,
+                               selected_course=selected_course,
+                               selected_student=selected_student,
+                               page=page,
+                               total_pages=total_pages,
+                               per_page=per_page)
+
+

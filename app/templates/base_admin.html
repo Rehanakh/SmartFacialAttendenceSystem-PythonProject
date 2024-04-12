@@ -42,7 +42,7 @@
         color: #0b4c61; /* Dark teal for sidebar links */
         text-decoration: none;
         padding-left:40px;
-        height: 85vh;
+        height: 90vh;
     }
      .sidebar a {
         color: #0b4c61 !important; /* Ensures this color has priority */
@@ -109,15 +109,7 @@
         <li class="nav-item">
           <a class="nav-link" href="#about">About</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#features">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#contact">Contact</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/markattendance">Mark Attendance</a>
-        </li>
+
         <li class="nav-item dropdown">
           <a class="nav-link" href="#"   aria-expanded="false">
             Welcome, {{ session.username }}</a>
@@ -155,7 +147,7 @@
             <!-- Sidebar content -->
             <ul class="nav flex-column">
                 <li class="nav-item"><a class="nav-link" href="/Admindashboard">Dashboard</a></li>
-                 <li class="nav-item"><a class="nav-link" href="/attendance_insights">Attendance Insights</a></li>
+                 <li class="nav-item"><a class="nav-link" href="/attendance_admin_history">Attendance Insights</a></li>
                 <li class="nav-item"><a class="nav-link" href="/AdminUpdateProfile">My Profile </a></li>
                  <li class="nav-item"><a class="nav-link" href="/users">Users</a></li>
                 <!-- Add more student-specific links as needed -->
