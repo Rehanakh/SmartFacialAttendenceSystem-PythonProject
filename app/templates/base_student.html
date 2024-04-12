@@ -93,6 +93,51 @@
     .sidebar, .navbar, .footer {
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
+        .notification-bell {
+    position: relative;
+    cursor: pointer;
+}
+
+#notification-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+}
+
+.notification-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+#notification-details {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    min-width: 200px;
+    z-index: 1050;  /* Higher than other page elements */
+}
+.notification-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee; /* Light grey line as a separator */
+}
+
+.notification-item:last-child {
+    border-bottom: none; /* Remove bottom border for the last item */
+}
+
+
 </style>
 
 </head>
@@ -110,12 +155,6 @@
           <a class="nav-link" href="#about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#features">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#contact">Contact</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="/markattendance">Mark Attendance</a>
         </li>
         <li class="nav-item dropdown">
@@ -129,11 +168,32 @@
             <a class="nav-link" href="{{ url_for('studentlogin') }}">Student Login</a>
             {% endif %}
         </li>
+       <!-- Notification Bell Icon -->
+<li class="nav-item">
+    <span id="notification-bell" style="cursor:pointer; position: relative; color: black; font-size: 24px;">
+        🔔 <span id="notification-count" style="font-size: 16px; background-color: red; color: white; border-radius: 50%; padding: 2px 6px; position: absolute; top: -10px; right: -10px;">0</span>
+    </span>
+    <div id="notification-details"  >
+        <!-- Notifications will be appended here -->
+    </div>
+</li>
+
 
       </ul>
+
     </div>
   </div>
+
+<!-- <div class="notification-bell">-->
+<!--        <i class="fa fa-bell" onclick="showNotifications()"></i>-->
+<!--        <span id="notification-count"></span>-->
+<!--    </div>-->
 </nav>
+<!--    <div id="notification-dropdown" class="notification-dropdown">-->
+<!--    &lt;!&ndash; Notifications will be loaded here &ndash;&gt;-->
+<!--</div>-->
+
+
      <div class="container-fluid">
          <div class="row">
              <div class="col-md-3 sidebar">
@@ -171,5 +231,60 @@
   {% endif %}
 {% endwith %}
 {% endblock %}
+<script>
+// Function to fetch and display notifications
+function fetchNotifications() {
+    fetch('/notifications')
+        .then(response => response.json())
+        .then(data => {
+            const details = document.getElementById('notification-details');
+            const notificationCount = document.getElementById('notification-count');
+            details.innerHTML = '';  // Clear existing notifications
+
+            // Update notification count
+            notificationCount.textContent = data.length;  // Set count to number of notifications
+
+            data.forEach(notification => {
+                const item = document.createElement('div');
+                item.className = 'notification-item';  // Apply the class for styling
+                let timeParts = notification.start_time.split(':');
+                let hours = parseInt(timeParts[0]);
+                let minutes = timeParts[1];
+                let ampm = hours >= 12 ? 'PM' : 'AM';
+                hours = hours % 12;
+                hours = hours ? hours : 12;  // Adjust the hours for 12-hour format
+
+                let formattedTime = `${hours}:${minutes} ${ampm}`;
+                item.innerHTML = `<strong>${notification.course_name}</strong><br/>Class at ${formattedTime} on ${notification.day_of_week}`;
+                details.appendChild(item);
+            });
+        })
+        .catch(error => console.error('Error fetching notifications:', error));
+}
+
+// Event listener for clicking the notification bell
+document.getElementById('notification-bell').addEventListener('click', (event) => {
+    event.stopPropagation();  // Prevent the event from bubbling up to the document
+    const details = document.getElementById('notification-details');
+    fetchNotifications();  // Fetch notifications on click
+    details.style.display = details.style.display === 'none' ? 'block' : 'none';  // Toggle visibility
+});
+
+// Close the notification panel when clicking outside of it
+document.addEventListener('click', (event) => {
+    const details = document.getElementById('notification-details');
+    if (details.style.display === 'block' && !details.contains(event.target)) {
+        details.style.display = 'none';
+    }
+});
+
+// Fetch notifications on page load to initialize the count
+document.addEventListener('DOMContentLoaded', (event) => {
+    fetchNotifications();  // Fetch notifications as soon as the page loads
+});
+
+
+
+</script>
 </body>
 </html>

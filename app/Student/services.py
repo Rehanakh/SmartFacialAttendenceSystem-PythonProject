@@ -519,7 +519,6 @@ def get_aggregated_scores(student_id):
     """
     params = (student_id,)
     aggregated_scores = db.fetch_all(query, params)
-    print(aggregated_scores)
     return aggregated_scores
 
 def get_attendance_summary(student_id):
@@ -531,48 +530,47 @@ def get_attendance_summary(student_id):
     """
     params = (student_id,)
     attendance_summary = db.fetch_all(query, params)
-    print(attendance_summary)
     return attendance_summary
 
 def predict_risk(student_id):
     scores = get_aggregated_scores(student_id)
     attendance = get_attendance_summary(student_id)
 
-    print("Scores Data:", scores)
-    print("Attendance Data:", attendance)
-
     if not scores or not attendance:
-        # Handle case where no scores or attendance data is available
         return "Data Unavailable"
 
     try:
         scores_list = [list(score) for score in scores]  # Convert each tuple to a list
-        print("Scores List for DataFrame:", scores_list)
+        scores_df = pd.DataFrame(scores_list, columns=['course_id', 'avg_test_score', 'avg_participation_score', 'avg_assignment_score'])
 
-        if scores_list:
-            print("First item length:", len(scores_list[0]))
-            print("First item contents:", scores_list[0])
-
-            # Convert scores and attendance to DataFrame for easier manipulation (optional, based on how fetch_all returns data)
-        scores_df = pd.DataFrame(scores_list, columns=['course_id', 'avg_test_score', 'avg_participation_score',
-                                                           'avg_assignment_score'])
-        print("Scores DataFrame:", scores_df)
-
-        # attendance_df = pd.DataFrame(attendance, columns=['course_id', 'status', 'status_count'])
         attendance_list = [list(attendance_tuple) for attendance_tuple in attendance]
         attendance_df = pd.DataFrame(attendance_list, columns=['course_id', 'status', 'status_count'])
-        print("Attendance DataFrame:", attendance_df)
 
-        # Merge scores and attendance data on 'course_id'
-        combined_df = pd.merge(scores_df, attendance_df, on='course_id')
+        # Aggregate attendance data by course and status
+        attendance_agg = attendance_df.groupby(['course_id', 'status']).agg({'status_count': 'sum'}).reset_index()
+        # Pivot the aggregated attendance data to have one row per course with columns for each status
+        attendance_pivot = attendance_agg.pivot(index='course_id', columns='status', values='status_count').fillna(
+            0).reset_index()
 
-        # risk_status = "At Risk" if scores_df['avg_test_score'].mean() < 30 else "Not At Risk"
-        combined_df['absent_rate'] = combined_df.apply(
-            lambda row: row['status_count'] if row['status'] == 'Absent' else 0, axis=1)
-        combined_df['at_risk'] = combined_df.apply(lambda row: row['avg_test_score'] < 70 or row['absent_rate'] > 3,
-                                                   axis=1)
+        # Assuming 'Present' status is an indicator of attendance, calculate an average based on some criterion
+        # Here we just use 'Present' count directly as 'avg_attendance_score' for simplicity
+        attendance_pivot['avg_attendance_score'] = attendance_pivot['Present']  # Adjust this calculation as needed
 
-        # Aggregate risk status across all courses
+        # Merge the scores and calculated attendance scores
+        combined_df = pd.merge(scores_df, attendance_pivot, on='course_id', how='left')
+
+
+        # combined_df['absent_rate'] = combined_df.apply(
+        #     lambda row: row['status_count'] if row['status'] == 'Absent' else 0, axis=1)
+        # combined_df['at_risk'] = combined_df.apply(lambda row: row['avg_test_score'] < 70 or row['absent_rate'] > 3,
+        #                                            axis=1)
+
+        # Calculate the overall average score
+        combined_df['overall_avg_score'] = combined_df[
+            ['avg_test_score', 'avg_participation_score', 'avg_assignment_score', 'avg_attendance_score']].mean(axis=1)
+
+        # Determine risk status
+        combined_df['at_risk'] = combined_df.apply( lambda row: row['overall_avg_score'] < 70 or row.get('Absent', 0) > 3 or row.get('Late', 0) > 5, axis=1)
         risk_status = "At Risk" if combined_df['at_risk'].any() else "Not At Risk"
 
         return risk_status
@@ -587,6 +585,3 @@ def predict_risk(student_id):
     except Exception as e:
         print("Unexpected error occurred:", e)
         return "Error"
-
-
-
