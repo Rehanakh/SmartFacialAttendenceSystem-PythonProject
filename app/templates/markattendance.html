@@ -101,7 +101,8 @@
                       <select class="form-control" id="courseSelect" name="course_id">
                           <option value="">Select...</option>
                           {% for course in courses %}
-                          <option value="{{ course.course_id }}">{{ course.course_name }}</option>
+                          <option value="{{ course.course_id }}"{% if course.course_id == selected_course_id %}selected{% endif %}>
+                              {{ course.course_name }}</option>
                           {% endfor %}
                       </select>
                   </div>
