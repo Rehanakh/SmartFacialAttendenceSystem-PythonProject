@@ -311,7 +311,7 @@ def student_setup_routes(app):
                             SELECT c.course_id, c.course_name 
                             FROM CourseEnrollment ce
                             JOIN Courses c ON ce.course_id = c.course_id
-                            WHERE ce.student_id=? and ce.status='Approved'
+                            WHERE ce.student_id=? and ce.status='Accepted'
                             """
             courses = db.fetch_all(courses_query, [student_id])
         else:
@@ -440,7 +440,7 @@ def student_setup_routes(app):
         courses = db.fetch_all("SELECT * FROM Courses")
         # Fetch enrollments where status is 'Approved' or requests made by the student
         enrollments = db.fetch_all(
-            "SELECT ce.*, c.course_name FROM CourseEnrollment ce JOIN Courses c ON ce.course_id = c.course_id WHERE ce.student_id=? AND (ce.status='Approved' OR ce.status='Requested' OR ce.status='Requested Removal')",
+            "SELECT ce.*, c.course_name FROM CourseEnrollment ce JOIN Courses c ON ce.course_id = c.course_id WHERE ce.student_id=? AND (ce.status='Accepted' OR ce.status='Requested' OR ce.status='Requested Removal')",
             [session.get('user_id')])
         return render_template('course_enrollment.html', courses=courses, enrollments=enrollments)
 
@@ -452,7 +452,7 @@ def student_setup_routes(app):
             return redirect(url_for('login'))
 
         # Verify that the enrollment belongs to the logged-in student
-        enrollment = db.fetch_all("SELECT * FROM CourseEnrollment WHERE enrollment_id=? AND student_id=? AND status='Approved'",
+        enrollment = db.fetch_all("SELECT * FROM CourseEnrollment WHERE enrollment_id=? AND student_id=? AND status='Accepted'",
                                   [enrollment_id, student_id])
         if enrollment:
             db.execute_query("UPDATE CourseEnrollment SET status='Requested Removal' WHERE enrollment_id=?",
