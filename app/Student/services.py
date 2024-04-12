@@ -7,6 +7,7 @@ import cv2
 import os
 from flask import flash
 import pandas as pd
+import datetime
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 known_faces = []
@@ -491,25 +492,6 @@ def get_attendance_trends_with_courses(student_id):
     results = db.fetch_all(query, params)
     return results
 
-# def train_model():
-#     db = DatabaseConnection()
-#     query = """
-#     SELECT s.student_id, s.course_id, s.participation_score, s.assignment_completion_score, s.test_score, a.status
-#     FROM Scores s
-#     left JOIN Attendance a ON s.student_id = a.student_id AND s.course_id = a.course_id
-#     """
-#     df = pd.read_sql(query, db)
-#     df['at_risk'] = (df['test_score'] < 70) | (df['status'] == 'Absent')
-#
-#     features = df[['participation_score', 'assignment_completion_score', 'test_score']]
-#     labels = df['at_risk']
-#
-#     X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=0.2, random_state=42)
-#
-#     model = RandomForestClassifier()
-#     model.fit(X_train, y_train)
-#     return model
-
 def get_aggregated_scores(student_id):
     query = """
         SELECT course_id, AVG(test_score) AS avg_test_score, AVG(participation_score) AS avg_participation_score, AVG(assignment_completion_score) AS avg_assignment_score
@@ -585,3 +567,15 @@ def predict_risk(student_id):
     except Exception as e:
         print("Unexpected error occurred:", e)
         return "Error"
+
+def create_temp_user(details, otp):
+    db = DatabaseConnection()
+    expiration_time = datetime.datetime.now() + datetime.timedelta(minutes=5)
+    try:
+        db.execute_query('INSERT INTO temp_users (Username, Email, FullName, RollNumber, PasswordHash, ImagePath, UserType, Status, OTP, ExpiresAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            (details['username'], details['email'], details['fullname'], details['roll_no'], details['password'], details['captured_image_path'], details['userType'], details['status'], otp, expiration_time))
+        db.commit()
+    except Exception as e:
+        print("Failed to create temp user:", e)
+    finally:
+        db.close()

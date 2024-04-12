@@ -1,7 +1,7 @@
 import pickle
 import numpy as np
 from flask import Flask,Blueprint, current_app, render_template, request, flash, redirect, url_for, jsonify,Response,session
-from .services import fetch_user_details,fetch_user_image_path,register_user ,known_faces,known_names,update_encodings,is_face_unique,capture_image_from_webcam,get_attendance_records,get_attendance_data,get_attendance_trends_with_courses,predict_risk
+from .services import fetch_user_details,fetch_user_image_path,register_user ,known_faces,known_names,update_encodings,is_face_unique,capture_image_from_webcam,get_attendance_records,get_attendance_data,get_attendance_trends_with_courses,predict_risk,create_temp_user
 from .attendance import markattendance_db
 from app.util.connection import DatabaseConnection
 import face_recognition
@@ -55,6 +55,7 @@ def student_setup_routes(app):
             if not captured_image_path or not os.path.exists(captured_image_path):
                 flash("Failed to capture image. Please try again.", "error")
                 return render_template('registration.html')
+            session['temp_image_path'] = captured_image_path
 
             try:
                 new_user_image = face_recognition.load_image_file(captured_image_path)
@@ -72,16 +73,31 @@ def student_setup_routes(app):
                     os.remove(captured_image_path)
                 return render_template('registration.html')
 
-            # Construct the permanent image path
-            img_name = f"{username}_{roll_no}.jpg"
-            permanent_image_path = os.path.join(current_app.root_path, 'app', 'static', 'faces', img_name)
+            # # Construct the permanent image path #moving after verifying otp
+            # img_name = f"{username}_{roll_no}.jpg"
+            # permanent_image_path = os.path.join(current_app.root_path, 'app', 'static', 'faces', img_name)
+            #
+            # # Move the image from the temporary path to the permanent path
+            # shutil.move(captured_image_path, permanent_image_path)
 
-            # Move the image from the temporary path to the permanent path
-            shutil.move(captured_image_path, permanent_image_path)
 
             # Generate OTP and send it via email before completing registration
             otp = random.randint(100000, 999999)
             session['otp'] = otp  # Store OTP in session for verification
+
+            user_details = {
+                'username': username,
+                'email': email,
+                'fullname': full_name,
+                'roll_no': roll_no,
+                'password': password,
+                # 'captured_image_path': permanent_image_path,
+                'captured_image_path':captured_image_path,
+                'userType': userType,
+                'status': status
+            }
+
+            create_temp_user(user_details, otp)
 
             email_subject = "Your Registration OTP"
             email_body = f"Here is your OTP for registration: {otp}"
@@ -96,7 +112,7 @@ def student_setup_routes(app):
                 'email': email,
                 'full_name': full_name,
                 'password': password,
-                'captured_image_path': permanent_image_path
+                'captured_image_path': captured_image_path
                 # Assuming this variable holds the path to the captured image
             }
 
@@ -287,6 +303,7 @@ def student_setup_routes(app):
         # Assuming you want to pass today's date, total registrations, etc.
         today = datetime.date.today().strftime("%Y-%m-%d")
         student_id = session.get('user_id')
+        selected_course_id = request.form.get('course_id')
 
         if student_id:
             # Fetch only the courses the student is enrolled in
@@ -305,7 +322,7 @@ def student_setup_routes(app):
             selected_course_id = request.form.get('course_id')
             # Additional logic to handle marking attendance for the selected course
 
-        return render_template('markattendance.html', today=today, courses=courses)
+        return render_template('markattendance.html', today=today, courses=courses, selected_course_id=selected_course_id)
         pass
     @app.route('/fetch_attendance', methods=['POST'])
     def fetch_attendance():
@@ -639,39 +656,59 @@ def student_setup_routes(app):
         if request.method == 'POST':
             user_otp = request.form['otp']
             if 'otp' in session and int(user_otp) == session['otp']:
-                session.pop('otp', None)  # Clear the OTP
+                db = DatabaseConnection()
+                temp_users = db.fetch_all('SELECT * FROM temp_users WHERE OTP = ? AND ExpiresAt > ?',(user_otp, datetime.datetime.now()))
+                print(f"Temp user fetched from database: {temp_users}")  # Prints the fetched user details
 
+                # session.pop('otp', None)  # Clear the OTP
                 # All the user's registration information is stored in session['form_data']
-                user_details = session.get('form_data',None)
+                # user_details = session.get('form_data',None)
+                if temp_users:
+                    temp_user = temp_users[0]  # Assuming fetch_all returns a list of tuples and we take the first one
+                    temp_user_dict = {
+                        'username': temp_user[1],
+                        'email': temp_user[2],
+                        'full_name': temp_user[3],
+                        'roll_no': temp_user[4],
+                        'password': temp_user[5],
+                        'captured_image_path': temp_user[6],
+                        'userType': temp_user[7],
+                        'status': temp_user[8],
+                        # Add more fields as per your database schema
+                    }
+                    username = temp_user[1]
+                    roll_no = temp_user[4]
+                    captured_image_path = temp_user[6]
 
-                if not user_details:
-                    flash('Session expired or invalid access. Please start the registration process again.', 'error')
+                    # Move the image to a permanent location
+                    img_name = f"{username}_{roll_no}.jpg"
+                    # img_name = f"{temp_user['username']}_{temp_user['roll_no']}.jpg"
+                    permanent_image_path = os.path.join(current_app.root_path, 'app', 'static', 'faces', img_name)
+                    shutil.move(temp_user_dict['captured_image_path'], permanent_image_path)
+
+                    temp_user_dict['captured_image_path'] = permanent_image_path  # Update path to permanent
+
+                    try:
+                        if register_user(temp_user_dict):
+                            db.execute_query('DELETE FROM temp_users WHERE TempUserId = ?', (temp_user[0],))
+                            update_encodings()
+                            db.commit()
+                            flash('OTP verified successfully! Registration complete.', 'success')
+                            send_welcome_email(temp_user_dict['email'], temp_user_dict['full_name'])
+                            return redirect(url_for('registration'))  # Redirect to the dashboard or relevant page
+                        else:
+                            flash('Registration failed. Please try again.', 'error')
+                            return redirect(url_for('Studentdashboard'))  # Assume you redirect to a dashboard
+
+                    except Exception as e:
+                        print(f"Error during registration: {e}")
+                        flash('An error occurred during registration. Please try again.', 'error')
+                    else:
+                        flash('Invalid or expired OTP.', 'error')
+
                     return redirect(url_for('registration'))
 
-                try:
-                    # This function should return True if the insertion was successful, False otherwise.
-
-                    if register_user(user_details):
-                        update_encodings()
-                        flash('OTP verified successfully! Registration complete.', 'success')
-                        # Redirect to the registration page or a dashboard/home page as needed
-                        user_name = user_details.get('full_name')
-                        user_email = user_details.get('email')
-                        #send email
-                        send_welcome_email(user_email,user_name)
-
-                    else:
-                        flash('Registration failed. Please try again.', 'error')
-                except Exception as e:
-                    # Log the error
-                    print(f"Error during registration: {e}")
-                    flash('An error occurred during registration. Please try again.', 'error')
-                return redirect(url_for('registration'))
-            else:
-                flash('Invalid OTP. Please try again.', 'error')
-        # Display OTP verification form
         return render_template('verify_otp.html')
-
     @app.route('/attendance_history', methods=['GET'])
     def attendance_history():
         if 'username' not in session:
@@ -717,7 +754,7 @@ def student_setup_routes(app):
     @app.route('/notifications')
     def notifications():
         student_id = session.get('user_id')
-        print("Student ID:", student_id)  # Debug: print the student ID
+        # print("Student ID:", student_id)  # Debug: print the student ID
 
         if not student_id:
             return jsonify([]), 401
