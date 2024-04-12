@@ -1,4 +1,4 @@
-# Adjust the import to match your professor model
+
 from app.Student.models import User
 from app.util.connection import DatabaseConnection
 # import face_recognition
