@@ -30,19 +30,6 @@ def student_setup_routes(app):
 
     known_faces, known_names = [], []
 
-    # def load_known_faces():
-    #     known_faces_dir =  r"C:\Users\Rehana\Desktop\Big_Data_Semester1\Programming_for_big-data\Project\FacialRecognitionAttendanceSystem\app\static\faces"
-    #     for filename in os.listdir(known_faces_dir):
-    #         name, _ = os.path.splitext(filename)
-    #         image_path = os.path.join(known_faces_dir, filename)
-    #         image = face_recognition.load_image_file(image_path)
-    #         encoding = face_recognition.face_encodings(image)[0]
-    #         known_faces.append(encoding)
-    #         known_names.append(name)
-    #     print("Loaded known faces.")
-    #
-    # load_known_faces()
-
     @app.route('/registration', methods=['GET', 'POST'])
     def registration():
         if request.method == 'POST':
@@ -709,4 +696,65 @@ def student_setup_routes(app):
                                page=page,
                                total_pages=total_pages,
                                per_page=per_page)
+
+    @app.route('/get_risk_data/<int:student_id>')
+    def get_risk_data(student_id):
+        risk_status = predict_risk(student_id)  # Use the existing predict_risk function
+        if risk_status == "Data Unavailable":
+            return jsonify({"error": "Data unavailable for the given student ID"}), 404
+
+        risk_value = 75 if risk_status == "At Risk" else 25  # Example risk calculation based on status
+
+        response = {
+            "labels": ["At Risk", "Not At Risk"],
+            "data": [risk_value, 100 - risk_value],
+            "backgroundColor": ['rgba(255, 99, 132, 0.6)' if risk_status == "At Risk" else 'rgba(75, 192, 192, 0.6)',
+                                'rgba(201, 203, 207, 0.2)'],
+            "riskStatus": risk_status
+        }
+        return jsonify(response)
+
+    @app.route('/notifications')
+    def notifications():
+        student_id = session.get('user_id')
+        print("Student ID:", student_id)  # Debug: print the student ID
+
+        if not student_id:
+            return jsonify([]), 401
+
+        query = """
+            SELECT cs.course_id, c.course_name, cs.start_time, cs.day_of_week
+            FROM CourseSessions cs
+            JOIN CourseEnrollment e ON cs.course_id = e.course_id
+            JOIN Courses c ON cs.course_id = c.course_id
+            WHERE e.student_id = ? AND cs.day_of_week = 
+            (SELECT CASE DATENAME(WEEKDAY, GETDATE())
+                WHEN 'Monday' THEN 'Tuesday'
+                WHEN 'Tuesday' THEN 'Wednesday'
+                WHEN 'Wednesday' THEN 'Thursday'
+                WHEN 'Thursday' THEN 'Friday'
+                WHEN 'Friday' THEN 'Saturday'
+                WHEN 'Saturday' THEN 'Sunday'
+                WHEN 'Sunday' THEN 'Monday'
+                ELSE cs.day_of_week
+            END)
+        """
+        try:
+            upcoming_classes = db.fetch_all(query, [student_id])
+            formatted_classes = [
+                {
+                    "course_id": course[0],
+                    "course_name": course[1],
+                    "start_time": course[2].strftime("%H:%M"),  # Format time as string
+                    "day_of_week": course[3]
+                }
+                for course in upcoming_classes
+            ]
+            return jsonify(formatted_classes)
+        except Exception as e:
+            print("Error fetching classes:", str(e))  # Debug: print any errors
+            return jsonify({'error': str(e)}), 500
+
+
+
 
