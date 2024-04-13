@@ -8,6 +8,7 @@ import os
 import time
 import cv2
 import logging
+import pyodbc
 
 logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s:%(levelname)s:%(message)s')
 
@@ -220,3 +221,40 @@ def professor_setup_routes(app):
 
         except Exception as e:
             print("Error updating enrollment status:", e)
+
+    def fetch_attendance_by_session(session_id):
+        db_connection = DatabaseConnection()
+        try:
+            query = "SELECT * FROM Attendance WHERE session_id = ?"
+            attendances = db_connection.fetch_all(query, (session_id,))
+            return attendances
+        except Exception as e:
+            print("Error fetching attendance by session:", e)
+            return []
+
+    def update_attendance_status(attendance_id, status):
+        db_connection = DatabaseConnection()
+        try:
+            query = "UPDATE Attendance SET status = ? WHERE id = ?"
+            db_connection.execute_query(query, (status, attendance_id))
+        except Exception as e:
+            print("Error updating attendance status:", e)
+    @app.route('/Manage_attendance', methods=['GET', 'POST'])
+    def Manage_attendance():
+        if request.method == 'POST':
+            session_id = request.form['session_id']
+            attendances = fetch_attendance_by_session(session_id)
+            return render_template('Manage_attendance.html', session_id=session_id, attendances=attendances)
+        else:
+            # Add a return statement for the GET request
+            return render_template('Manage_attendance.html')
+
+    @app.route('/update_attendance', methods=['POST'])
+    def update_attendance():
+        if request.method == 'POST':
+            session_id = request.form['session_id']
+            for key, value in request.form.items():
+                if key.startswith('status_'):
+                    attendance_id = key.split('_')[1]
+                    update_attendance_status(attendance_id, value)
+            return redirect(url_for('Manage_attendance', session_id=session_id))
